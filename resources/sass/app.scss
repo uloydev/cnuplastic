@@ -1,7 +1,22 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
+@font-face {
+    font-family: "Nunito";
+    src: url("./../fonts/nunito/Nunito-Regular.ttf") format("ttf"),
+         url("./../fonts/nunito/Nunito-SemiBold.ttf") format("ttf"),
+         url("./../fonts/nunito/Nunito-Bold.ttf") format("ttf"),
+}
+
+@import './components/btn',
+        './components/card',
+        './components/footer',
+        './components/modal',
+        './components/nav',
+        './components/widget';
 
 body {
     font-family: 'Nunito';
 }
+
+@tailwind utilities;

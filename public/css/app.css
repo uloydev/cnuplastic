@@ -585,6 +585,16 @@ video {
   }
 }
 
+@font-face {
+  font-family: "Nunito";
+
+  src: url("./../fonts/nunito/Nunito-Regular.ttf") format("ttf"), url("./../fonts/nunito/Nunito-SemiBold.ttf") format("ttf"), url("./../fonts/nunito/Nunito-Bold.ttf") format("ttf");
+}
+
+body {
+  font-family: "Nunito";
+}
+
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
@@ -31174,10 +31184,6 @@ video {
 .animate-bounce {
   -webkit-animation: bounce 1s infinite;
           animation: bounce 1s infinite;
-}
-
-body {
-  font-family: "Nunito";
 }
 
 @media (min-width: 640px) {
