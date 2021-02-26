@@ -19,6 +19,6 @@ class CheckRole
         if (auth()->check() and auth()->user()->role == $role) {
             return $next($request);
         }
-        return redirect('login');
+        return redirect()->route(($role == 'admin' ? 'admin.' : '') . 'login');
     }
 }
