@@ -18,10 +18,16 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'identity_id',
+        'faculty',
+        'profession',
+        'avatar',
         'email',
         'role',
         'password',
-        'role'
+        'store',
+        'whatsapp',
+        'store_description',
     ];
 
     /**
@@ -42,4 +48,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function products()
+    {
+        return $this->hasMany('App\Models\Product');
+    }
 }
