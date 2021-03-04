@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'role' => 'seller',
             'remember_token' => Str::random(10),
-            'store' => 'toko '. $this->faker->name,
+            'store' => 'Toko '. $this->faker->sentence(3),
             'whatsapp' => $this->faker->numerify('############') ,
             'store_description' => $this->faker->text,
         ];
