@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'admin',
             'email' => 'admin@upnvj.ac.id',
+            'role' => 'admin',
             'password' => Hash::make('password'),
-            'remember_token' => Str::random(10),
         ]);
         User::factory()->count(2)->state(['role' => 'admin'])->create();
         User::factory()->count(10)->create();
