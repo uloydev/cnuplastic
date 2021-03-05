@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarouselController;
-use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResource('carousels', CarouselController::class);
-Route::apiResource('contact-us', ContactUsController::class);
+Route::apiResource('contact-us', FeedbackController::class);
