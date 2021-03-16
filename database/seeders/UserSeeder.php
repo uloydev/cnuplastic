@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -15,6 +16,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@upnvj.ac.id',
+            'role' => 'admin',
+            'password' => Hash::make('password'),
+        ]);
         User::factory()->count(2)->state(['role' => 'admin'])->create();
         User::factory()->count(10)->create();
     }

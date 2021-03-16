@@ -9,6 +9,6 @@ class SellerController extends Controller
 {
     public function dashboard()
     {
-        return view('seller.dashboard', ['users' => $users]);
+        return view('seller.dashboard');
     }
 }
