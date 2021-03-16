@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="{{ asset('modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-lite.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/flag-icon-css/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/demo.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -29,6 +29,7 @@
                     <h1 class="section-header">
                         <div>@yield('header')</div>
                     </h1>
+                    @include('components.flash-message')
                     @yield('content')
                 </section>
             </div>
@@ -55,6 +56,7 @@
     <script src="{{ asset('js/pdfmake.min.js') }}"></script>
     <script src="{{ asset('modules/summernote/summernote-lite.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

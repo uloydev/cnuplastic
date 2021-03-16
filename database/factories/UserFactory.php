@@ -25,7 +25,7 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'identity_id' => 123456789,
+            'identity_id' => $this->faker->unique()->numerify('############'),
             'faculty' => 'ilmu komputer',
             'profession' => 'mahasiswa',
             'avatar' => 'https://picsum.photos/200/200',

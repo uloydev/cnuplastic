@@ -22,7 +22,7 @@
             <li data-toggle="tooltip" data-placement="right" data-original-title="Data Seller">
                 <a href="data_seller.html"><i class="ion ion-person"></i> Data Seller</a>
             </li>
-            <li class="{{ Request::is('admin/product/*') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Data Product">
+            <li class="{{ Request::is('admin/product*') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Data Product">
                 <a href="{{ route('admin.product.index') }}"><i class="ion ion-bag"></i> Data Product</a>
             </li>
             <li data-toggle="tooltip" data-placement="right" data-original-title="Request Promotion">

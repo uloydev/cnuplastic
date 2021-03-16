@@ -35,9 +35,12 @@
                 <div class="d-sm-none d-lg-inline-block">Hi, Admin</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="#" class="dropdown-item has-icon">
+                <a href="#" class="dropdown-item has-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="ion ion-log-out"></i> Logout
                 </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </div>
         </li>
     </ul>

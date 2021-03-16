@@ -15,7 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('admin.product.index')->with([
+            'products' => Product::with(['productCategory', 'user'])->paginate(10)
+        ]);
     }
 
     /**
@@ -26,7 +29,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('admin.product.show')->with(['product' => $product]);
     }
 
     /**
@@ -37,6 +40,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('admin.product.index')->with(['success' => 'Berhasil Menghapus Produk!']);
     }
 }

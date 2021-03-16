@@ -37,8 +37,9 @@ class AuthenticatedSessionController extends Controller
             throw ValidationException::withMessages([
                 'email' => __('auth.failed'),
             ]);
+            return redirect()->back();
         }
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('home');
     }
 
     /**
