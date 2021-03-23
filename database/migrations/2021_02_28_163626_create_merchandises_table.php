@@ -16,10 +16,11 @@ class CreateMerchandisesTable extends Migration
         Schema::create('merchandises', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('description');
             $table->string('price');
             $table->foreignId('merchandise_category_id');
+            $table->string('whatsapp');
             $table->timestamps();
         });
     }

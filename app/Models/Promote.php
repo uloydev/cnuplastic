@@ -21,6 +21,8 @@ class Promote extends Model
         'promote_start' => 'datetime',
         'promote_end' => 'datetime',
     ];
+    
+    protected $with = ['user', 'product'];
 
     public function user()
     {

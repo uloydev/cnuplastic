@@ -16,6 +16,7 @@ class CreateMerchandiseCategoriesTable extends Migration
         Schema::create('merchandise_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

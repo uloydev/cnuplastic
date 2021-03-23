@@ -18,6 +18,8 @@ class Product extends Model
         'user_id',
     ];
 
+    protected $with = ['productCategory'];
+
     public function productCategory()
     {
         return $this->belongsTo('App\Models\ProductCategory');

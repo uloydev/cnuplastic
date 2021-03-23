@@ -18,7 +18,7 @@
                 <div class="dropdown-list-content">
                     @foreach ($notification as $item)
                         <a href="#" class="dropdown-item dropdown-item-unread">
-                            <img alt="image" src="{{ $item->user->avatar }}"
+                            <img alt="image" src="{{ $item->user->avatar ? Storage::url($item->user->avatar) : 'https://via.placeholder.com/200' }}"
                                 class="rounded-circle dropdown-item-img">
                             <div class="dropdown-item-desc">
                                 <b>{{ $item->user->name }}</b> request promotion

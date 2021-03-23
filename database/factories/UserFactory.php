@@ -29,7 +29,7 @@ class UserFactory extends Factory
             'identity_id' => $this->faker->unique()->numerify('############'),
             'faculty' => 'ilmu komputer',
             'profession' => 'mahasiswa',
-            'avatar' => 'https://picsum.photos/200/200',
+            // 'avatar' => 'https://via.placeholder.com/200',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'role' => 'seller',

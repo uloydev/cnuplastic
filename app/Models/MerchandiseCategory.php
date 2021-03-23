@@ -11,6 +11,7 @@ class MerchandiseCategory extends Model
 
     protected $fillable = [
         'name',
+        'image'
     ];
 
     public function merchandises()

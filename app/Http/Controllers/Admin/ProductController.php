@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Promote;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('admin.product.index')->with([
-            'products' => Product::with(['productCategory', 'user'])->paginate(10)
+            'products' => Product::with(['productCategory', 'user'])->get()
         ]);
     }
 
@@ -39,7 +40,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        Promote::where('product_id', $product->id)->delete();
         $product->delete();
+
         return redirect()->route('admin.product.index')->with(['success' => 'Berhasil Menghapus Produk!']);
     }
 }

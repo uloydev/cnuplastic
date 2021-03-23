@@ -15,7 +15,10 @@ class Merchandise extends Model
         'description',
         'price',
         'merchandise_category_id',
+        'whatsapp'
     ];
+
+    protected $with = ['merchandiseCategory'];
 
     public function merchandiseCategory()
     {

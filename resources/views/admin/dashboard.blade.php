@@ -76,7 +76,7 @@ Dashboard
             <ul class="list-unstyled list-unstyled-border">
                 @foreach ($recentProducts as $product)
                     <li class="media">
-                        <img class="mr-3 rounded-circle" width="50" src="{{ $product->user->avatar }}" alt="avatar">
+                        <img class="mr-3 rounded-circle" width="50" src="{{ $product->user->avatar ? Storage::url($product->user->avatar) : 'https://via.placeholder.com/200' }}" alt="avatar">
                         <div class="media-body">
                             <div class="float-right">
                                 <small>{{ $product->created_at->diffForHumans() }}</small>
@@ -88,7 +88,7 @@ Dashboard
                 @endforeach
             </ul>
             <div class="text-center">
-                <a href="#" class="btn btn-oranye btn-round">
+                <a href="{{ route('admin.product.index') }}" class="btn btn-oranye btn-round">
                     View All
                 </a>
             </div>

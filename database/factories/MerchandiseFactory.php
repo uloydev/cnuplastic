@@ -23,10 +23,11 @@ class MerchandiseFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(3),
-            'image' => 'https://picsum.photos/200/200',
+            // 'image' => 'https://picsum.photos/200/200',
             'description' => $this->faker->paragraph(7),
             'price' => $this->faker->numberBetween(10000, 100000),
             'merchandise_category_id' => $this->faker->numberBetween(1, 6),
+            'whatsapp' => $this->faker->numerify('############')
         ];
     }
 }
