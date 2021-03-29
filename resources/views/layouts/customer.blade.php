@@ -32,14 +32,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('index') }}">
+                        Home
+                    </a>
+                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     <a class="nav-link" href="#">Help</a>
                 </div>
                 <div class="navbar-navv">
-                    <a class="nav-link active" aria-current="page" href="#"><button>Merchandise</button></a>
-                    <a class="nav-link" href="#"><button class="">Produk</button></a>
-                    <a class="nav-link" href="#"><button class="seller">LOGIN AS SELLER</button></a>
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <button>Merchandise</button>
+                    </a>
+                    <a class="nav-link" href="{{ route('product.index') }}">
+                        <button class="">Produk</button>
+                    </a>
+                    <a class="nav-link" href="#">
+                        <button class="seller">LOGIN AS SELLER</button>
+                    </a>
                 </div>
             </div>
         </div>

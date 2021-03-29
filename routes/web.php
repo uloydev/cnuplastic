@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FaqController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -11,7 +12,9 @@ Route::prefix('faq')->name('faq.')->group(function (){
     Route::get('seller', [FaqController::class, 'seller'])->name('seller');
     Route::get('buyer', [FaqController::class, 'buyer'])->name('buyer');
 });
-Route::get('/products', [HomeController::class, 'products'])->name('products');
+Route::prefix('product')->name('product.')->group(function (){
+    Route::get('/', [ProductController::class, 'index'])->name('index');
+});
 Route::get('/merchandise', [HomeController::class, 'merchandise'])->name('merchandise');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
