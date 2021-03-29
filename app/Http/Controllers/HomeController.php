@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function faq() 
     {
-        return view('main.faq');
+        return view('main.faq.index');
     }
 
     public function products() 

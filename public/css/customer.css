@@ -1,0 +1,262 @@
+.navbar-nav a {
+    word-spacing: 5px;
+    font-family: roboto;
+    font-weight: 700;
+
+}
+
+nav {
+    height: 70px;
+}
+
+.navbar-nav a {
+    margin: 15px;
+}
+
+.navbar-navv {
+    margin-left: 45%;
+    display: inline-flex;
+
+}
+
+.navbar-navv a {
+    border-spacing: -5px;
+}
+
+.navbar-navv button {
+    border-color: #FC3515;
+    color: #FC3515;
+    background-color: white;
+    border-radius: 10px;
+    height: 40px;
+    font-size: 12px;
+    margin: -10px;
+    padding: 10px;
+    font-weight: 700;
+
+    font-family: Open Sans;
+}
+
+.navbar-navv .seller {
+    border: none;
+    color: white;
+    background-color: #FC3515;
+    border-radius: 10px;
+    height: 40px;
+    font-size: 12px;
+    margin: -10px;
+    font-weight: 700;
+    padding: 10px;
+    font-family: Open Sans;
+}
+
+.carousel-inner{
+    height: 150px;
+  }
+  .carousel-inner img{
+    height: 150px;
+  }
+.carousel-caption h1{
+    font-size: 50px;
+    font-weight: 1000;
+    font-family: Open Sans;
+  }
+  .carousel-caption button{
+    font-family: roboto;
+    text-align: center;
+    padding: 5px;
+    border: none;
+    margin-top: 40px;
+    background-color: #FC3515;
+    border-radius: 5px;
+    color: white;
+    font-weight: 1000;
+    width: 150px;
+    height: 40px;
+  }
+  .carousel-control-next-icon{
+    z-index: 1;
+  }
+
+  .card .buton{
+    background-color: #FC3515;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .card .buttonn{
+    background-color: #0084ff;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .card {
+    width: 15rem;
+  }
+
+  .modal-footer{
+    margin-top: -30px;
+  }
+  .modal-content .carousel-control-next-icon{
+    margin-top: -70px;
+  }
+  .modal-content .carousel-control-prev-icon{
+    margin-top: -70px;
+  }
+
+  .col-sm-3 .gambar{
+    background-color: white;
+    border-radius: 20px;
+  }
+
+  .produk .col-sm-3 .card{
+    width: 220px;
+    margin-left: 0px;
+
+   }
+   .produk div.col-sm-3{
+    width: 240px;
+     height: 390px;
+   }
+
+   .konten .container{
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 50px;
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.4);
+    padding: 30px;
+}
+.konten{
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.4);
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+
+}
+
+.konten .container p{
+    text-align: justify;
+    padding: 30px;
+    color: grey;
+    font-family: Roboto;
+    margin-top: -50px;
+    font-size: 14px;
+}
+.konten .container h4{
+    padding: 30px;
+    font-family: Roboto;
+    font-size: 20px;
+    text-align: justify;
+}
+.konten  .container a{
+    display: flexbox;
+    color: #152E43;
+
+    text-decoration: none;
+    margin: 35px;
+    font-weight: 700;
+    font-family: Open Sans;
+    
+}
+.konten .container span{
+    font-weight: 300;
+    color: grey;
+}
+.konten .container .menu1{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.konten .container h6{
+    font-family: Open Sans;
+    font-weight: 1000;
+    color: #F65633;
+    letter-spacing: 1px;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.konten .container h3{
+    text-align: center;
+    font-family: Concert One;
+    color: #F65633;
+    font-weight: 60;
+    font-size: 36px;
+
+}
+
+  .footerjempol{
+    background-color: #2A4D69;
+    margin-top:50px;
+    padding: 20px;
+    color: white;
+
+  }
+  .footerjempol a{
+    text-decoration: none;
+    color: white;
+  }
+  .footerjempol .as{
+    width: 20px;
+  }
+  .footerakhir{
+    background:  #152E43;
+  }
+  .footerakhir p{
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .footerakhir img{
+    width: 50px;
+    margin-top: -190px;
+    margin-left: 101%;
+  }
+  .footerakhir a{
+    margin-top: -150px;
+  }
+
+@media screen and (max-width: 576px){
+    .container-fluid{
+        background-color: #f0f0f0;
+      }
+      
+    .navbar-nav a{
+        text-align: center;
+        background-color: white;
+  
+      }
+      .navbar-nav{
+        background-color: rgba(252,53,21,0.9);
+      }
+      .navbar-navv .seller{
+        width: 120px;
+      }
+      .navbar-navv {
+        margin-left: 0%;
+  
+        padding: 10px;
+  
+       
+      }
+      .navbar-navv a{
+        margin: 0px 8%;
+      }
+
+      .footerjempol .ask{
+        margin-top: 20px;
+      }
+      .footerjempol .gambar{
+        width: 101%;
+        text-align: center;
+        margin-left: 0%;
+        margin-top: 20px;
+      }
+}

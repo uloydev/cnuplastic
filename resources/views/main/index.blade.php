@@ -4,98 +4,15 @@
 	<meta charset="utf-8">
 	<title>Menu</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css">
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>  
+    <link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
     <style type="text/css">
-      .navbar-nav a{
-        word-spacing: 5px;
-        font-family: roboto;
-        font-weight: 700;
+      
 
-      }
-      nav{
-        height: 70px;
-      }
-      .navbar-nav a{
-        margin: 15px;
-      }
-      .navbar-navv{
-        margin-left: 45%;
-        display: inline-flex;
-       
-      }
-      .navbar-navv a{
-        border-spacing: -5px;
-      }
-      .navbar-navv button{
-        border-color: #FC3515;
-        color: #FC3515;
-        background-color: white;
-        border-radius: 10px;
-        height: 40px;
-        font-size: 12px;
-        margin: -10px;
-        padding: 10px;
-        font-weight: 700;
-        
-        font-family: Open Sans;
-      }
-      .navbar-navv .seller{
-        border: none;
-        color: white;
-        background-color: #FC3515;
-        border-radius: 10px;
-        height: 40px;
-        font-size: 12px;
-        margin: -10px;
-        font-weight: 700;
-        padding: 10px;
-        font-family: Open Sans;
-      }
-      .carousel-caption h1{
-        font-size: 50px;
-        font-weight: 1000;
-        font-family: Open Sans;
-      }
-      .carousel-caption button{
-        font-family: roboto;
-        text-align: center;
-        padding: 5px;
-        border: none;
-        margin-top: 40px;
-        background-color: #FC3515;
-        border-radius: 5px;
-        color: white;
-        font-weight: 1000;
-        width: 150px;
-        height: 40px;
-      }
-      .carousel-control-next-icon{
-        z-index: 1;
-      }
-
-      .card .buton{
-        background-color: #FC3515;
-        text-decoration: none;
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
-      }
-      .card .buttonn{
-        background-color: #0084ff;
-        text-decoration: none;
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
-      }
-      .card{
-        width: 15rem;
-      }
+      
       .judul{
         margin-top: 50px;
         text-align: center;
@@ -196,39 +113,7 @@
         margin-top: 100px;
         margin-left: 100px;
       }
-      .footerjempol{
-        background-color: #2A4D69;
-        margin-top:50px;
-        padding: 20px;
-        color: white;
-
-      }
-      .footerjempol a{
-        text-decoration: none;
-        color: white;
-      }
-
-
-      .footerjempol .as{
-        width: 20px;
-      }
-      .footerakhir{
-        background:  #152E43;
-      }
-      .footerakhir p{
-        color: white;
-        text-align: center;
-        margin-top: 5px;
-        margin-bottom: 10px;
-      }
-      .footerakhir img{
-        width: 50px;
-        margin-top: -190px;
-        margin-left: 101%;
-      }
-      .footerakhir a{
-        margin-top: -150px;
-      }
+      
       .sell img{
         width: 150px;
       }
@@ -309,79 +194,32 @@
       background-color: #f0f0f0;
       z-index: 3;
     }
-    .navbar-nav a{
-      text-align: center;
-      background-color: white;
+    
 
-    }
-    .navbar-nav{
-      background-color: rgba(252,53,21,0.9);
-    }
-    .navbar-navv .seller{
-      width: 120px;
-    }
-    .navbar-navv {
-      margin-left: 0%;
+    
 
-      padding: 10px;
-
-     
-    }
-    .navbar-navv a{
-      margin: 0px 8%;
-    }
-
-    .footerjempol .ask{
-      margin-top: 20px;
-    }
-    .footerjempol .gambar{
-      width: 101%;
-      text-align: center;
-      margin-left: 0%;
-      margin-top: 20px;
-    }
-
-    .carousel-inner img{
-      height: 150px;
-    }
+    
     /*awal card*/
-    .produk .col-sm-3 .card{
-     width: 220px;
-     margin-left: 0px;
-
-    }
-    .produk div.col-sm-3{
-     width: 240px;
-      height: 390px;
-    }
+    
     /*akhir card*/
     /*awal modal*/
     .modal-content{
         width: 350px;
         margin-left: 15%;
       }
-    .carousel-inner{
-      height: 150px;
-    }
+    
     .detailgambar{
       width: 80px;
       margin: 10px;
     }
-    .modal-content .carousel-control-next-icon{
-      margin-top: -70px;
-    }
-    .modal-content .carousel-control-prev-icon{
-      margin-top: -70px;
-    }
+    
     h4{
       font-size: 18px;
     }
     hr{
       margin-top: -8px;
     }
-    .modal-footer{
-      margin-top: -30px;
-    }
+    
 /*akhir modal*/
     .signlearn{
       margin-top: 40px;
@@ -706,5 +544,7 @@
     
     <!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>-->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>  
 </body>
 </html>
