@@ -32,18 +32,18 @@
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->merchandises->count() }}</td>
                                 <td>
-                                    <a href="{{ route('admin.merchandise-category.show', $category->id) }}"
-                                        class="btn btn-sm btn-oranye m-2">
-                                        <span class="ion-search" aria-hidden="true">&nbsp; Detail</span>
-                                    </a>
                                     <form method="post" id="deleteForm{{ $category->id }}"
                                         action="{{ route('admin.merchandise-category.destroy', $category->id) }}">
                                         @csrf
                                         @method("DELETE")
                                     </form>
+                                    <a href="{{ route('admin.merchandise-category.show', $category->id) }}"
+                                        class="btn btn-sm btn-oranye m-2">
+                                        <span class="ion-search" aria-hidden="true">&nbsp;</span>
+                                    </a>
                                     <button type="submit" form="deleteForm{{ $category->id }}"
                                         class="btn btn-sm btn-danger m-2">
-                                        <span class="ion-trash-a" aria-hidden="true">Delete</span>
+                                        <span class="ion-trash-a" aria-hidden="true"></span>
                                     </button>
                                 </td>
                             </tr>

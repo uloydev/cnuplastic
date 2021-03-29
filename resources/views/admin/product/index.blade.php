@@ -32,13 +32,13 @@
                                 <td>{{ $product->productCategory->name }}</td>
                                 <td>{{ $product->user->store }}</td>
                                 <td>
-                                    <a href="{{ route('admin.product.show', $product->id) }}" value="" name="detail" class="btn btn-sm btn-oranye">
-                                        <span class="ion-search" aria-hidden="true"></span>
-                                    </a>
                                     <form method="post" id="deleteForm{{ $product->id }}" action="{{ route('admin.product.destroy', $product->id) }}">
                                         @csrf
                                         @method("DELETE")
                                     </form>
+                                    <a href="{{ route('admin.product.show', $product->id) }}" value="" name="detail" class="btn btn-sm btn-oranye">
+                                        <span class="ion-search" aria-hidden="true"></span>
+                                    </a>
                                     <button type="submit" form="deleteForm{{ $product->id }}" class="btn btn-sm btn-danger">
                                         <span class="ion-trash-a" aria-hidden="true"></span>
                                     </button>

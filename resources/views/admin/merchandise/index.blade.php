@@ -4,6 +4,10 @@
 @endsection
 
 @section('content')
+    <a href="{{ route('admin.merchandise.create') }}" class="btn btn-oranye" style="margin-bottom: 25px">
+        <i class="ion ion-plus-round" style="margin-right: 10px"></i>
+        Add Merchandise
+    </a>
     <div class="card">
         <div class="card-header">
             <div class="float-right">
@@ -31,15 +35,15 @@
                                 <td>Rp. {{ $merchandise->price }}</td>
                                 <td>{{ $merchandise->merchandiseCategory->name }}</td>
                                 <td>
-                                    <a href="{{ route('admin.merchandise.show', $merchandise->id) }}" class="btn btn-sm btn-oranye m-2">
-                                        <span class="ion-search" aria-hidden="true">&nbsp; Detail</span>
-                                    </a>
                                     <form method="post" id="deleteForm{{ $merchandise->id }}" action="{{ route('admin.merchandise.destroy', $merchandise->id) }}">
                                         @csrf
                                         @method("DELETE")
                                     </form>
+                                    <a href="{{ route('admin.merchandise.show', $merchandise->id) }}" class="btn btn-sm btn-oranye m-2">
+                                        <span class="ion-search" aria-hidden="true">&nbsp;</span>
+                                    </a>
                                     <button type="submit" form="deleteForm{{ $merchandise->id }}" class="btn btn-sm btn-danger m-2">
-                                        <span class="ion-trash-a" aria-hidden="true">Delete</span>
+                                        <span class="ion-trash-a" aria-hidden="true"></span>
                                     </button>
                                 </td>
                             </tr>

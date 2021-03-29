@@ -22,11 +22,11 @@
             <li class="menu-header">Seller</li>
             <li data-toggle="tooltip" data-placement="right" data-original-title="Data Seller"
                 class="{{ Request::is('admin/seller*') ? 'active' : '' }}">
-                <a href="{{ route('admin.seller.index') }}"><i class="ion ion-person"></i> Data Seller</a>
+                <a href="{{ route('admin.seller.index') }}"><i class="ion ion-person"></i>Seller</a>
             </li>
             <li class="{{ Request::is('admin/product*') ? 'active' : '' }}" data-toggle="tooltip"
                 data-placement="right" data-original-title="Data Product">
-                <a href="{{ route('admin.product.index') }}"><i class="ion ion-bag"></i> Data Product</a>
+                <a href="{{ route('admin.product.index') }}"><i class="ion ion-bag"></i>Product</a>
             </li>
             <li data-toggle="tooltip" data-placement="right" data-original-title="Request Promotion"
                 class="{{ Request::is('admin/promotion*') ? 'active' : '' }}">
@@ -35,25 +35,18 @@
             </li>
 
             <li class="menu-header">Merchandise</li>
-            <li data-toggle="tooltip" data-placement="right" data-original-title="Add Merchandise"
-                class="{{ Request::is('admin/merchandise/create') ? 'active' : '' }}">
-                <a href="{{ route('admin.merchandise.create') }}"><i class="ion ion-plus-round"></i> Add
-                    Merchandise</a>
-            </li>
             <li data-toggle="tooltip" data-placement="right" data-original-title="Data Merchandise"
                 class="{{ Request::is('admin/merchandise') || Request::is('admin/merchandise/*') ? 'active' : '' }}">
-                <a href="{{ route('admin.merchandise.index') }}"><i class="ion ion-pricetags"></i> Data
-                    Merchandise</a>
+                <a href="{{ route('admin.merchandise.index') }}"><i class="ion ion-pricetags"></i>Merchandise</a>
             </li>
-            <li data-toggle="tooltip" data-placement="right" data-original-title="Data Merchandise"
-                class="{{ Request::is('admin/merchandise-category*') ? 'active' : '' }} text-center">
-                <a href="{{ route('admin.merchandise-category.index') }}"><i class="ion ion-android-list"></i> Data
-                    Merchandise Category</a>
+            <li data-toggle="tooltip" data-placement="right" data-original-title="Data Merchandise Category"
+                class="{{ Request::is('admin/merchandise-category*') ? 'active' : '' }}">
+                <a href="{{ route('admin.merchandise-category.index') }}"><i class="ion ion-android-list"></i>Merchandise Category</a>
             </li>
         </ul>
         <div class="p-3 mt-4 mb-4">
             <a href="#" class="btn btn-credits btn-shadow btn-round has-icon has-icon-nofloat btn-block"
-                data-toggle="tooltip" data-placement="bottom" data-original-title="Untuk informasi klik disini!">
+                data-toggle="tooltip" data-placement="bottom" data-original-title="DEVELOPED BY PTI">
                 <i class="ion ion-ios-information-outline"></i>
                 <div><b>CREDITS</b></div>
             </a>

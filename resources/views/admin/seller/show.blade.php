@@ -12,7 +12,7 @@
                 </div>
                 <div class="form-group">
                     <label>User ID</label>
-                    <h6>{{ $seller->indetity_id }}</h6>
+                    <h6>{{ $seller->identity_id }}</h6>
                 </div>
                 <div class="form-group">
                     <label>Name</label>

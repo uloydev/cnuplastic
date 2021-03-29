@@ -1,17 +1,21 @@
 @extends('layouts.admin')
 @section('header')
     Detail Merchandise
-@endsection
-
-@section('content')
+    @endsection
+    
+    @section('content')
     <div class="card">
         <div class="card-primary">
             <div class="card-body">
                 <form enctype="multipart/form-data" method="POST" action="{{ route('admin.merchandise.update', $merchandise->id) }}">
-                @method('PUT')
-                @csrf
+                    @method('PUT')
+                    @csrf
                     <div class="img-detail">
                         <img alt="image" src="{{ $merchandise->image ? Storage::url($merchandise->image) : 'https://via.placeholder.com/200' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product Image</label>
+                        <input type="file" class="form-control" name="image" tabindex="1">
                     </div>
                     <div class="form-group">
                         <label>Product Kode</label>
@@ -41,10 +45,6 @@
                         <label>Description</label>
                         <textarea name="description" class="summernote-simple" required>{{ $merchandise->description }}</textarea>
                     </div>
-                    <div class="form-group">
-                        <label>Product Image</label>
-                        <input type="file" class="form-control" name="image" tabindex="1">
-                    </div><br>
                     <div class="form-group">
                         <button type="submit" name="submit" class="btn btn-oranye" tabindex="1">
                             <b>SAVE</b>

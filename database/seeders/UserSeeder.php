@@ -24,6 +24,6 @@ class UserSeeder extends Seeder
             'whatsapp' => '08512232723'
         ]);
         User::factory()->count(2)->state(['role' => 'admin'])->create();
-        User::factory()->count(10)->create();
+        User::factory()->count(50)->create();
     }
 }

@@ -4,10 +4,6 @@
 @endsection
 
 @section('content')
-    <a href="{{ route('admin.merchandise-category.create') }}" class="btn btn-oranye" style="margin-bottom: 25px">
-        <i class="ion ion-plus-round" style="margin-right: 10px"></i>
-        Add Merchandise Category
-    </a>
     <div class="card">
         <div class="card-header">
             <h4>Form Add Merchandise</h4>
