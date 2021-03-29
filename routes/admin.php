@@ -12,7 +12,7 @@
         Route::get('dashboard' , [AdminController::class, 'dashboard'])->name('dashboard');
         Route::resource('product', ProductController::class)->only(['index', 'show', 'destroy']);
         Route::resource('seller', SellerController::class)->only(['index', 'show']);
-        Route::resource('promotion', PromotionController::class)->only(['index', 'show']);
+        Route::resource('promotion', PromotionController::class)->only(['index', 'show', 'update']);
         Route::resource('merchandise', MerchandiseController::class)->except(['edit']);
         Route::resource('merchandise-category', MerchandiseCategoryController::class)->except(['edit']);
     });

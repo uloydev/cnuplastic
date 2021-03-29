@@ -40,7 +40,13 @@ class PromotionController extends Controller
      */
     public function update(Request $request, Promote $promotion)
     {
-        //
+        $promotion->update($request->only('status'));
+        // send email if required
+        return redirect()
+        ->route('admin.promotion.show', $promotion->id)
+        ->with([
+            'success' => 'Berhasil update request promosi!'
+        ]);
     }
 
     /**
