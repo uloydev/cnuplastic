@@ -17,7 +17,7 @@ class CreatePromotesTable extends Migration
             $table->id();
             $table->foreignId('product_id');
             $table->foreignId('user_id');
-            $table->enum('status', ['requested', 'approved', 'rejected'])->default('requested');
+            $table->enum('status', ['requested', 'accepted', 'rejected'])->default('requested');
             $table->datetime('promote_start')->nullable();
             $table->datetime('promote_end')->nullable();
             $table->timestamps();
