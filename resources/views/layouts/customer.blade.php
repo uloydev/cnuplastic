@@ -45,7 +45,7 @@
                     <a class="nav-link" href="{{ route('product.index') }}">
                         <button class="">Produk</button>
                     </a>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('login') }}">
                         <button class="seller">LOGIN AS SELLER</button>
                     </a>
                 </div>
