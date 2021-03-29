@@ -18,7 +18,7 @@ class PromoteSeeder extends Seeder
     public function run()
     {
         $users = User::where('role', 'seller')->get();
-
+        $statuses = collect(['requested', 'accepted', 'rejected']);
         foreach( $users as $user ){
             $products = Product::inRandomOrder()->limit(5)->get();
             foreach (   $products as $product ){
@@ -26,7 +26,8 @@ class PromoteSeeder extends Seeder
                     'product_id' => $product->id,
                     'user_id' => $user->id,
                     'promote_start' => Carbon::now(),
-                    'promote_end' => Carbon::today()->addDays(3)
+                    'promote_end' => Carbon::today()->addDays(3),
+                    'status' => $statuses->random()
                 ]);
             }
         }
