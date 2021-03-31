@@ -25,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('notification', Promote::with('user')->latest()->take(15)->get());
+        try {
+            View::share('notification', Promote::with('user')->latest()->take(15)->get());
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }
