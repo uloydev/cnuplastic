@@ -8,7 +8,7 @@
         <div class="card-primary">
             <div class="card-body">
                 <div class="img-detail">
-                    <img alt="image" src="{{ $seller->avatar ? Storage::url($seller->avatar) : 'https://via.placeholder.com/200' }}" style="width: 220px">
+                    <img alt="image" src="{{ $seller->avatar ? Storage::url($seller->avatar) : 'http://via.placeholder.com/200' }}" style="width: 220px">
                 </div>
                 <div class="form-group">
                     <label>User ID</label>

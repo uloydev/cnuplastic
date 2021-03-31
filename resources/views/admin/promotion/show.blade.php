@@ -9,7 +9,7 @@
             <div class="card-body">
                 <div class="img-detail">
                     <img alt="image"
-                        src="{{ $promotion->product->image ? Storage::url($promotion->product->image) : 'https://via.placeholder.com/200' }}"
+                        src="{{ $promotion->product->image ? Storage::url($promotion->product->image) : 'http://via.placeholder.com/200' }}"
                         style="width: 220px">
                 </div>
                 <div class="form-group">

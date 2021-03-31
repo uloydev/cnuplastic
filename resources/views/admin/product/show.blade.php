@@ -8,7 +8,7 @@
         <div class="card-primary">
             <div class="card-body">
                 <div class="img-detail">
-                    <img alt="image" src="{{ $product->image ? Storage::url($product->image) : 'https://via.placeholder.com/200' }}">
+                    <img alt="image" src="{{ $product->image ? Storage::url($product->image) : 'http://via.placeholder.com/200' }}">
                 </div>
                 <div class="form-group">
                     <label>Product Code</label>

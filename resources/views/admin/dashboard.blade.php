@@ -76,7 +76,7 @@ Dashboard
             <ul class="list-unstyled list-unstyled-border">
                 @foreach ($recentProducts as $product)
                     <li class="media">
-                        <img class="mr-3 rounded-circle" width="50" src="{{ $product->user->avatar ? Storage::url($product->user->avatar) : 'https://via.placeholder.com/200' }}" alt="avatar">
+                        <img class="mr-3 rounded-circle" width="50" src="{{ $product->user->avatar ? Storage::url($product->user->avatar) : 'http://via.placeholder.com/200' }}" alt="avatar">
                         <div class="media-body">
                             <div class="float-right">
                                 <small>{{ $product->created_at->diffForHumans() }}</small>

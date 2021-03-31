@@ -11,7 +11,7 @@
                     @method('PUT')
                     @csrf
                     <div class="img-detail">
-                        <img alt="image" src="{{ $merchandise->image ? Storage::url($merchandise->image) : 'https://via.placeholder.com/200' }}">
+                        <img alt="image" src="{{ $merchandise->image ? Storage::url($merchandise->image) : 'http://via.placeholder.com/200' }}">
                     </div>
                     <div class="form-group">
                         <label>Product Image</label>
