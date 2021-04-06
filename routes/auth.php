@@ -72,3 +72,7 @@ Route::get('/admin/login', [AdminController::class, 'loginView'])
 Route::post('/admin/login', [AdminController::class, 'login'])
                 ->middleware('guest')
                 ->name('admin.login');
+
+Route::get('test', function () {
+    auth()->logout();
+});

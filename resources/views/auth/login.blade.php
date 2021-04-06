@@ -10,10 +10,11 @@
             <div class="card card-primary">
                 <center><img src="{{ asset('img/avatar/jempol.png') }}" class="logo"></center>
                 <div class="card-header">
-                    <h4>Login</h4>
+                    <h3 class="text-center">Login</h3>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="login" class="needs-validation" novalidate="">
+                    <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
+                        @csrf
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input id="email" type="email" class="form-control" name="email" tabindex="1" required
@@ -30,9 +31,9 @@
                             <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
                         </div>
                         <div class="form-group">
-                            <a href="index.html" class="btn btn-oranye btn-block btn-move" tabindex="4">
+                            <button type="submit" class="btn btn-oranye btn-block btn-move" tabindex="4">
                                 Login
-                            </a>
+                            </button>
                             <center style="color: #666; margin: 7px;">or</center>
                             <a href="{{ route('register') }}" class="btn btn-register btn-block btn-move" tabindex="4">
                                 Create New Account

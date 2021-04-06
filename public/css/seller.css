@@ -744,7 +744,7 @@ body.sidebar-gone .main-content {
 	padding-left: 13px !important;
 	padding-right: 13px !important;
 }
-.card .card-header h4 {
+.card .card-header {
 	font-size: 10px;
 	font-weight: 700;
 	letter-spacing: 1px;

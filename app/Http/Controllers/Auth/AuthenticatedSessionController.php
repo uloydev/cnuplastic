@@ -41,7 +41,7 @@ class AuthenticatedSessionController extends Controller
             ]);
             return redirect()->back();
         }
-        return redirect()->route('home');
+        return redirect()->route('seller.dashboard');
     }
 
     /**

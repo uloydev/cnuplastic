@@ -32,20 +32,23 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
+            'identity_id' => 'required|numeric',
+            'faculty' => 'required|string',
+            'profession' => 'required|string',
+            'whatsapp' => 'required|string',
+            'store' => 'required|string',
+            'store_description' => 'required|string',
         ]);
+        $validated['password'] = Hash::make($validated['password']);
 
-        Auth::login($user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]));
+        Auth::login($user = User::create($validated));
 
         event(new Registered($user));
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('seller.dashboard');
     }
 }

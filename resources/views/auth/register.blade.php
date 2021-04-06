@@ -1,59 +1,78 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.auth')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('title')
+    Register Seller
+@endsection
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+@section('content')
+    <div class="row">
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div class="card card-primary">
+                <center><img src="{{ asset('img/avatar/jempol.png') }}" class="logo"></center>
+                <div class="card-header">
+                    <h3 class="text-center">Register</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <div class="form-divider">
+                            Personal Data
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="identity_id">NPM/NIM</label>
+                                <input id="identity_id" type="number" class="form-control" name="identity_id" autofocus value="{{ old('identity_id') }}">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="full_name">Full Name</label>
+                                <input id="full_name" type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="faculty">Faculty</label>
+                                <input id="faculty" type="text" class="form-control" name="faculty" autofocus value="{{ old('faculty') }}">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="profession">Profession</label>
+                                <input id="profession" type="text" class="form-control" name="profession" value="{{ old('profession') }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="waNumber">WhatsApp Number</label>
+                            <input id="waNumber" type="text" class="form-control" name="whatsapp" value="{{ old('whatsapp') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="d-block">Password</label>
+                            <input id="password" type="password" class="form-control" name="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="d-block">Confirm Password</label>
+                            <input id="password" type="password" class="form-control" name="password_confirmation">
+                        </div>
+                        <div class="form-divider">
+                            Store Data
+                        </div>
+                        <div class="form-group">
+                            <label for="storeName">Store Name</label>
+                            <input id="storeName" type="text" class="form-control" name="store" value="{{ old('store') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="storeDesc" class="d-block">Description</label>
+                            <textarea id="storeDesc" class="form-control" name="store_description" value="{{ old('store_description') }}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-oranye btn-block">
+                                Register
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        </div>
+    </div>
+@endsection
