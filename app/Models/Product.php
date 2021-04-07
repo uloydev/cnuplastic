@@ -29,4 +29,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function promotions()
+    {
+        return $this->hasMany('App\Models\Promote');
+    }
 }
