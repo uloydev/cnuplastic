@@ -1,6 +1,8 @@
 @extends('layouts.customer')
 
 @section('content')
+
+@if (Route::currentRouteName() === 'products.index')
 <div class="konten-produk">
 	<a href="" class="gambar-icon">
         <img src="{{ asset('image/toko.png') }}" class="profil">
@@ -25,6 +27,7 @@
     </p>
 	<hr size="4px">
 </div>
+@endif
 <div class="kategori-produk">
     <div class="container">
         <div class="row">
@@ -64,100 +67,28 @@
                 <div class="produk">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-3">
-                                <div class="card" style="width: 13rem;">
+                            @foreach ($products as $product)
+                            <div class="col-lg-3 mb-3">
+                                <div class="card" style="height: 100%">
                                     <img src="{{ asset('image/laptop.jpg') }}" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">Laptop Dell Inspiron 3567 | i7-7500 | DOS</h5>
-                                        <p class="card-text">Elektronik</p>
-                                        <a href="#" class="buttonn">Detail</a>
-                                        <a href="#" class="buton">Rp. 30.000</a>
+                                        <h5 class="card-title">{{ $product->name }}</h5>
+                                        <p class="card-text">
+                                            {{ $product->productCategory->name }}
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white d-flex justify-content-between border-top-0">
+                                        <a href="#" class="buttonn" 
+                                        data-desc="{{ $product->description }}">
+                                            Detail
+                                        </a>
+                                        <a href="#" class="buton">
+                                            Rp. {{ number_format($product->price) }}
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="card" style="width: 13rem;">
-                                    <img src="{{ asset('image/laptop.jpg') }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop Dell Inspiron 3567 | i7-7500 | DOS</h5>
-                                        <p class="card-text">Elektronik</p>
-                                        <a href="#" class="buttonn">Detail</a>
-                                        <a href="#" class="buton">Rp. 30.000</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card" style="width: 13rem;">
-                                    <img src="{{ asset('image/laptop.jpg') }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop Dell Inspiron 3567 | i7-7500 | DOS</h5>
-                                        <p class="card-text">Elektronik</p>
-                                        <a href="#" class="buttonn">Detail</a>
-                                        <a href="#" class="buton">Rp. 30.000</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card" style="width: 13rem;">
-                                    <img src="{{ asset('image/laptop.jpg') }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop Dell Inspiron 3567 | i7-7500 | DOS</h5>
-                                        <p class="card-text">Elektronik</p>
-                                        <a href="#" class="buttonn">Detail</a>
-                                        <a href="#" class="buton">Rp. 30.000</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card" style="width: 13rem;">
-                                    <img src="{{ asset('image/laptop.jpg') }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop Dell Inspiron 3567 | i7-7500 | DOS</h5>
-                                        <p class="card-text">Elektronik</p>
-                                        <a href="#" class="buttonn">Detail</a>
-                                        <a href="#" class="buton">Rp. 30.000</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card" style="width: 13rem;">
-                                    <img src="{{ asset('image/laptop.jpg') }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop Dell Inspiron 3567 | i7-7500 | DOS</h5>
-                                        <p class="card-text">Elektronik</p>
-                                        <a href="#" class="buttonn">Detail</a>
-                                        <a href="#" class="buton">Rp. 30.000</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card" style="width: 13rem;">
-                                    <img src="{{ asset('image/laptop.jpg') }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop Dell Inspiron 3567 | i7-7500 | DOS</h5>
-                                        <p class="card-text">Elektronik</p>
-                                        <a href="#" class="buttonn">Detail</a>
-                                        <a href="#" class="buton">Rp. 30.000</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="card" style="width: 13rem;">
-                                    <img src="{{ asset('image/laptop.jpg') }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Laptop Dell Inspiron 3567 | i7-7500 | DOS</h5>
-                                        <p class="card-text">Elektronik</p>
-                                        <a href="#" class="buttonn" data-bs-toggle="modal"
-                                            data-bs-target="#produk1">Detail</a>
-                                        <a href="#" class="buton">Rp. 30.000</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="loadd">
