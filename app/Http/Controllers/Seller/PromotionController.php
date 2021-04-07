@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Seller;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PromoteRequest;
 use App\Models\Promote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PromotionController extends Controller
 {
@@ -15,7 +17,9 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        //
+        return view('seller.promotion.index')->with([
+            'promotions' => Auth::user()->promotes
+        ]);
     }
 
     /**
@@ -25,62 +29,57 @@ class PromotionController extends Controller
      */
     public function create()
     {
-        //
+        return view('seller.promotion.create')->with([
+            'products' => Auth::user()->products
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PromoteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PromoteRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['user_id'] = Auth::id();
+        Promote::create($validated);
+        return redirect()->route('seller.promotion.create')->with([
+            'success' => 'Berhasil Menambahkan Request Promotion!'
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Promote  $promote
+     * @param  \App\Models\Promote  $promotion
      * @return \Illuminate\Http\Response
      */
-    public function show(Promote $promote)
+    public function show(Promote $promotion)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Promote  $promote
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Promote $promote)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Promote  $promote
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Promote $promote)
-    {
-        //
+        $this->checkPromotion($promotion);
+        return view('seller.promotion.show')->with(['promotion' => $promotion]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Promote  $promote
+     * @param  \App\Models\Promote  $promotion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Promote $promote)
+    public function destroy(Promote $promotion)
     {
-        //
+        $this->checkPromotion($promotion);
+        $promotion->delete();
+
+        return redirect()->route('seller.promotion.index')->with(['success' => 'Berhasil Menghapus Request Promotion!']);
+    }
+
+    private function checkPromotion(Promote $promotion)
+    {
+        if ($promotion->user_id != Auth::id()) {
+            abort(403);
+        }
     }
 }

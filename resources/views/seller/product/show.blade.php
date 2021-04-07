@@ -1,7 +1,7 @@
 @extends('layouts.seller')
 
 @section('header')
-    Tambah Product
+    Detail Product
 @endsection
 
 

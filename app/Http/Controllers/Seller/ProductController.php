@@ -64,21 +64,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $this->checkProduct($product);
         return view('seller.product.show')->with([
             'product' => $product,
             'productCategories' => ProductCategory::all(),
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-        //
     }
 
     /**
@@ -90,6 +80,7 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
+        $this->checkProduct($product);
         $product->update($request->validated());
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('public/img/product');
@@ -109,11 +100,19 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $this->checkProduct($product);
         Storage::delete($product->image);
         foreach ( $product->promotions as $promote) {
             $promote->delete();
         }
         $product->delete();
         return redirect()->route('seller.product.index')->with(['success' => 'Berhasil Menghapus Product!']);
+    }
+
+    private function checkProduct(Product $product)
+    {
+        if ($product->user_id != Auth::id()) {
+            abort(403);
+        }
     }
 }

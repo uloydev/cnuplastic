@@ -14,5 +14,5 @@
             return 'ok';
         })->name('account-verification');
         Route::resource('product', ProductController::class)->except(['edit']);
-        Route::resource('promotion', PromotionController::class);
+        Route::resource('promotion', PromotionController::class)->except(['edit, update']);
     });
