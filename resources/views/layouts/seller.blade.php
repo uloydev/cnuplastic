@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
         name="viewport">
-    <title>Jempol Admin</title>
+    <title>Jempol &rsaquo; Dashboard Seller</title>
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/select2-bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/ionicons/css/ionicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-lite.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/flag-icon-css/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/demo.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/seller.css') }}">
     @stack('styles')
 </head>
 
@@ -23,8 +24,9 @@
     <div id="app">
         <div class="main-wrapper">
             <div class="navbar-bg"></div>
-            @include('components.admin.navbar')
-            @include('components.admin.sidebar')
+            @include('components.seller.navbar')
+            @include('components.seller.sidebar')
+
             <div class="main-content">
                 <section class="section">
                     <h1 class="section-header">
@@ -35,7 +37,7 @@
                 </section>
             </div>
         </div>
-        @include('components.admin.footer')
+        @include('components.seller.footer')
     </div>
     <script src="{{ asset('modules/jquery.min.js') }}"></script>
     <script src="{{ asset('modules/popper.js') }}"></script>
