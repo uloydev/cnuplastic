@@ -8,9 +8,8 @@
     Route::prefix('seller')->middleware('CheckRole:seller')->name('seller.')->group(function () {
         Route::redirect('/', 'seller/dashboard');
         Route::get('dashboard' , [SellerController::class, 'dashboard'])->name('dashboard');
-        Route::get('account-setting', function () {
-            return 'ok';
-        })->name('account-setting');
+        Route::get('account-setting', [SellerController::class, 'accountSetting'])->name('account-setting');
+        Route::put('update-account', [SellerController::class, 'update'])->name('update-account');
         Route::get('account-verification', function () {
             return 'ok';
         })->name('account-verification');

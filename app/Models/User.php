@@ -28,6 +28,7 @@ class User extends Authenticatable
         'store',
         'whatsapp',
         'store_description',
+        'is_verified'
     ];
 
     /**
