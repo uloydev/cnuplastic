@@ -16,8 +16,8 @@
                 <div class="dropdown-header">Notifications
                 </div>
                 <div class="dropdown-list-content">
-                    @foreach ($notification as $item)
-                        <a href="#" class="dropdown-item dropdown-item-unread">
+                    @foreach ($notification->where('user_id', Auth::id())->where('status', '!=', 'requested')->take(15)->get() as $item)
+                        <a href="{{ route('seller.promotion.show', $item->id) }}" class="dropdown-item dropdown-item-unread">
                             <img alt="image" src="{{ $item->product->image ? Storage::url($item->product->image) : 'http://via.placeholder.com/200' }}"
                                 class="rounded-circle dropdown-item-img">
                             <div class="dropdown-item-desc">

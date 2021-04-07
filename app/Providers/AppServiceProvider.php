@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Promote;
+use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         try {
-            View::share('notification', Promote::with('user')->latest()->take(15)->get());
+            View::share('notification', Promote::with('user')->latest());
         } catch (\Throwable $th) {
             //throw $th;
         }
