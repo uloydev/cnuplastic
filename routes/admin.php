@@ -3,7 +3,7 @@
     use App\Http\Controllers\Admin\ProductController;
     use App\Http\Controllers\Admin\SellerController;
     use App\Http\Controllers\Admin\PromotionController;
-    use App\Http\Controllers\Admin\MerchandiseController;
+    use App\Http\Controllers\MerchandiseController;
     use App\Http\Controllers\Admin\MerchandiseCategoryController;
     use Illuminate\Support\Facades\Route;
 

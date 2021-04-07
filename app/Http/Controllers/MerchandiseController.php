@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Merchandise;
 use App\Models\MerchandiseCategory;
 use App\Http\Requests\MerchandiseRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class MerchandiseController extends Controller
@@ -18,7 +19,13 @@ class MerchandiseController extends Controller
      */
     public function index()
     {
-        return view('admin.merchandise.index')->with(['merchandises' => Merchandise::get()]);
+        if (Auth::check() and Auth::user()->role === 'admin') {
+            return view('merchandise.manage')->with(['merchandises' => Merchandise::get()]);
+        }
+        else {
+            $merchandises = Merchandise::all();
+            return view('merchandise.index', get_defined_vars());
+        }
     }
 
     /**
