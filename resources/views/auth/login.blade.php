@@ -10,7 +10,7 @@
             <div class="card card-primary">
                 <center><img src="{{ asset('img/avatar/jempol.png') }}" class="logo"></center>
                 <div class="card-header">
-                    <h3 class="text-center">Login</h3>
+                    <h5 class="text-center">Login</h5>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
