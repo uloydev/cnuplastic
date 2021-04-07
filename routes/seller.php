@@ -14,6 +14,6 @@
         Route::get('account-verification', function () {
             return 'ok';
         })->name('account-verification');
-        Route::resource('product', ProductController::class)->only(['index', 'show', 'destroy']);
-        Route::resource('promotion', PromotionController::class)->only(['index', 'show', 'update']);
+        Route::resource('product', ProductController::class);
+        Route::resource('promotion', PromotionController::class);
     });

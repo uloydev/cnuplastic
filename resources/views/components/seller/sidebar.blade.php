@@ -19,7 +19,7 @@
 
             <li class="menu-header">Account</li>
             <li class="{{ Request::is('seller/account-setting*') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Account Setting">
-                <a href="{{ route('seller.account-seetting') }}"><i class="ion ion-person"></i> My Account</a>
+                <a href="{{ route('seller.account-setting') }}"><i class="ion ion-person"></i> My Account</a>
             </li>
             <li class="{{ Request::is('seller/account-verification*') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Verification Account">
                 <a href="{{ route('seller.account-verification') }}"><i class="ion ion-android-checkmark-circle"></i>
