@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FaqController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\MerchandiseController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::prefix('faq')->name('faq.')->group(function (){
@@ -12,11 +13,12 @@ Route::prefix('faq')->name('faq.')->group(function (){
     Route::get('seller', [FaqController::class, 'seller'])->name('seller');
     Route::get('buyer', [FaqController::class, 'buyer'])->name('buyer');
 });
-Route::prefix('product')->name('product.')->group(function (){
-    Route::get('/', [ProductController::class, 'index'])->name('index');
+Route::prefix('products')->name('products.')->group(function (){
+    Route::get('buy', [ProductController::class, 'buy'])->name('buy');
+    Route::resource('/', ProductController::class);
 });
-Route::get('/merchandise', [HomeController::class, 'merchandise'])->name('merchandise');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::resource('merchandise', MerchandiseController::class);
+Route::resource('about', AboutController::class)->except(['update', 'destroy']);
 
 // jangan diapus briq
 require __DIR__.'/auth.php';
