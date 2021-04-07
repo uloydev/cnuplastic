@@ -10,7 +10,7 @@
             <div class="card card-primary">
                 <center><img src="{{ asset('img/avatar/jempol.png') }}" class="logo"></center>
                 <div class="card-header">
-                    <h4 class="text-center">Register</h4>
+                    <h5 class="text-center">Register</h5>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
