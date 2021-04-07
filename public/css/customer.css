@@ -184,6 +184,14 @@ nav {
     margin-bottom: 50px;
 }
 
+.konten .container .menu1 a {
+    font-weight: normal;
+}
+
+.konten .container .menu1 .active {
+    font-weight: bold;
+}
+
 .konten .container h6 {
     font-family: Open Sans;
     font-weight: 1000;
@@ -365,13 +373,6 @@ margin-top: 20px;
 margin-left: 20px;
 font-family: Open Sans;
 
-}
-.kategori-produk .produk .col-md-3{
-    margin:-10px;
-    margin-top: 0px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    padding: 0px;
 }
 .kategori-produk .produk  .container{
     padding: 0px;

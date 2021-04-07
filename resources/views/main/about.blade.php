@@ -7,7 +7,7 @@
     		<div class="col-sm-7">
     			<div class="konten1">
     				<h3>ABOUT US</h3>
-    				<p>Jempol adalah Jembatan Penjualan Online yang wewadahi seluruh masyarakat UPN Veteran Jakarta untuk berjualan online dan mengenalkan produknya untuk dijual di lingkungan internal kampus UPN Veteran Jakarta.</p>
+    				<p>{{ $about->excerpt }}</p>
     			</div>
     		</div>
     		<div class="col-sm-5">

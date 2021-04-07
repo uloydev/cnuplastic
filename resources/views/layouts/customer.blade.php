@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ env('APP_NAME') }} - @yield('title')</title>
+    <title>{{ config('app.name') }} - @yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.min.css') }}">
@@ -35,14 +35,15 @@
                     <a class="nav-link active" aria-current="page" href="{{ route('index') }}">
                         Home
                     </a>
-                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
-                    <a class="nav-link" href="#">Help</a>
+                    <a class="nav-link" href="{{ route('about.index') }}">About Us</a>
+                    <a class="nav-link" href="{{ route('faq.general') }}">Help</a>
+                    <a class="nav-link" href="{{ route('products.buy') }}">Menu beli</a>
                 </div>
                 <div class="navbar-navv">
-                    <a class="nav-link active" aria-current="page" href="#">
+                    <a class="nav-link" aria-current="page" href="{{ route('merchandise.index') }}">
                         <button>Merchandise</button>
                     </a>
-                    <a class="nav-link" href="{{ route('product.index') }}">
+                    <a class="nav-link" href="{{ route('products.index') }}">
                         <button class="">Produk</button>
                     </a>
                     <a class="nav-link" href="{{ route('login') }}">

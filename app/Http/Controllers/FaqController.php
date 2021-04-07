@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
-    public $headers;
+    public $headers, $faqs;
     public function __construct()
     {
+        $this->faqs = Faq::all();
+
         $this->headers = [
             [
                 'url' => route('faq.general'),
@@ -27,18 +30,23 @@ class FaqController extends Controller
     public function index()
     {
         $headers = $this->headers;
-        return view('faq.general', ['headers' => $headers]);
+        $faqs = Faq::where('category', 'general')->get();
+        return view('faq.index', get_defined_vars());
     }
 
     public function seller()
     {
         $headers = $this->headers;
-        return view('faq.seller', ['headers' => $headers]);
+        $faqs = Faq::where('category', 'seller')->get();
+
+        return view('faq.index', get_defined_vars());
     }
 
     public function buyer()
     {
         $headers = $this->headers;
-        return view('faq.buyer', ['headers' => $headers]);
+        $faqs = Faq::where('category', 'buyer')->get();
+
+        return view('faq.index', get_defined_vars());
     }
 }
