@@ -30,14 +30,24 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Status Account</h4>
+                        <h4>Account Verification Status</h4>
                     </div>
                     <div class="card-body">
-                        @if ($user->is_verified)
-                            <div class='badge badge-success'>Verified</div>
-                        @else
+                        @switch($user->verification_status)
+                            @case('not_verified')
                             <div class='badge badge-danger'>Not Verified</div>
-                        @endif
+                            @break
+                            @case('verified')
+                            <div class='badge badge-success'>Verified</div>
+                            @break
+                            @case('requested')
+                            <div class='badge badge-info'>Requested</div>
+                            @break
+                            @case('rejected')
+                            <div class='badge badge-danger'>Rejected</div>
+                            @break
+                            @default
+                        @endswitch
                     </div>
                 </div>
             </div>
@@ -79,9 +89,11 @@
         </div>
         <div class="card-body">
             <center>
-                <h6>Promosikan produk dengan mudah melalui instagram kami <a href="https://www.instagram.com/jempol.upnvj"> @jempol.upnvj</a></h6>
+                <h6>Promosikan produk dengan mudah melalui instagram kami <a href="https://www.instagram.com/jempol.upnvj">
+                        @jempol.upnvj</a></h6>
                 <h6>Mulai dari 15.000 per produk</h6><br>
-                <a href="{{ route('seller.promotion.create') }}" class="btn btn-oranye btn-block register" style="width: 200px">
+                <a href="{{ route('seller.promotion.create') }}" class="btn btn-oranye btn-block register"
+                    style="width: 200px">
                     Promosikan Sekarang !
                 </a>
             </center>
