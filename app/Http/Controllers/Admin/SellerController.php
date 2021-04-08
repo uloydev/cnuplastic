@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SellerController extends Controller
 {
@@ -16,7 +17,7 @@ class SellerController extends Controller
     public function index()
     {
         return view('admin.seller.index')->with([
-            'sellers' => User::where('role', 'seller')->get(),
+            'users' => User::where('role', 'seller')->get(),
         ]);
     }
 
@@ -32,7 +33,48 @@ class SellerController extends Controller
             abort(404);
         }
         return view('admin.seller.show')->with([
-            'seller' => $seller
+            'seller' => $seller,
         ]);
+    }
+
+    public function accountVerification()
+    {
+        return view('admin.account-verification.index')->with([
+            'users' => User::where('role', 'seller')->where('verification_status', 'requested')->get(),
+        ]);
+    }
+
+    public function accountVerificationShow(User $seller)
+    {
+        $this->checkRequestedVerification($seller);
+        return view('admin.account-verification.show')->with([
+            'seller' => $seller,
+        ]);
+    }
+
+    public function accountVerificationUpdate(Request $request, User $seller)
+    {
+        $this->checkRequestedVerification($seller);
+        if ($request->verification_status == 'verified' || $request->verification_status == 'rejected') {
+            $seller->update($request->only('verification_status'));
+            return redirect()->route('admin.account-verification.index')->with([
+                'success' => 'Sukses mengubah verification status menjadi ' . $request->verification_status,
+            ]);
+        }
+        return redirect()->route('admin.account-verification.show', $seller->id)->with([
+            'Error' => 'Gagal mengubah verification status',
+        ]);
+    }
+
+    public function identityCardDownload(User $seller)
+    {
+        $this->checkRequestedVerification($seller);
+        return Storage::download($seller->identity_card, 'identity_card_' . $seller->id);
+    }
+
+    private function checkRequestedVerification(User $seller) {
+        if ($seller->verification_status != 'requested') {
+            abort(404);
+        }
     }
 }

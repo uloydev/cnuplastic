@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('header')
-    Data Seller
+    Acoount Verification
 @endsection
 
 @section('content')
@@ -8,10 +8,10 @@
         <div class="card-header">
             <div class="float-right">
             </div>
-            <h4>Tabel Data Seller</h4>
+            <h4>Tabel Data Account Verification</h4>
         </div>
         <div class="card-body">
-
+            
             <div class="table-responsive">
                 <table id="example" class="table table-striped table-bordered" width="100%">
                     <thead>
@@ -20,7 +20,6 @@
                             <th>Seller Name</th>
                             <th>Profession</th>
                             <th>Faculty</th>
-                            <th>Verification Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -32,24 +31,7 @@
                                 <td>{{ $seller->profession }}</td>
                                 <td>{{ $seller->faculty }}</td>
                                 <td>
-                                    @switch($seller->verification_status)
-                                        @case('not_verified')
-                                        <div class='badge badge-danger'>Not Verified</div>
-                                        @break
-                                        @case('verified')
-                                        <div class='badge badge-success'>Verified</div>
-                                        @break
-                                        @case('requested')
-                                        <div class='badge badge-info'>Requested</div>
-                                        @break
-                                        @case('rejected')
-                                        <div class='badge badge-danger'>Rejected</div>
-                                        @break
-                                        @default
-                                    @endswitch
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin.seller.show', $seller->id) }}" class="btn btn-sm btn-oranye">
+                                    <a href="{{ route('admin.account-verification.show', $seller->id) }}" class="btn btn-sm btn-oranye">
                                         <span class="ion-search" aria-hidden="true">&nbsp; Detail</span>
                                     </a>
                                 </td>
@@ -61,3 +43,5 @@
         </div>
     </div>
 @endsection
+
+

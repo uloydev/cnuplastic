@@ -15,6 +15,12 @@
         Route::resource('promotion', PromotionController::class)->only(['index', 'show', 'update']);
         Route::resource('merchandise', MerchandiseController::class)->except(['edit']);
         Route::resource('merchandise-category', MerchandiseCategoryController::class)->except(['edit']);
+        Route::prefix('account-verification')->name('account-verification.')->group(function () {
+            Route::get('/' , [SellerController::class, 'accountVerification'])->name('index');
+            Route::get('/{seller}' , [SellerController::class, 'accountVerificationShow'])->name('show');
+            Route::put('/{seller}' , [SellerController::class, 'accountVerificationUpdate'])->name('update');
+            Route::get('/{seller}/download' , [SellerController::class, 'identityCardDownload'])->name('download');
+        });
     });
 
 ?>  
