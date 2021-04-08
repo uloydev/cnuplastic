@@ -55,4 +55,28 @@ class SellerController extends Controller
             'success' => 'Berhasil Memperbarui Akun!'
         ]);
     }
+
+    public function accountVerification()
+    {
+        return view('seller.account-verification')->with(['user' => Auth::user()]);
+    }
+
+    public function storeVerification(Request $request)
+    {
+        $request->validate([
+            'identity_card' => 'required|file|mimes:jpg,jpeg,gif,png|max:2048'
+        ]);
+        $user = Auth::user();
+        if ($request->hasFile('identity_card')) {
+            $path = $request->file('identity_card')->store('public/img/identity_card');
+            Storage::delete($user->identity_card);
+            $user->update([
+                'identity_card' => $path,
+                'verification_status' => 'requested'
+            ]);
+        }
+        return redirect()->route('seller.account-verification')->with([
+            'success' => 'Berhasil Membuat request verifikasi Akun!'
+        ]);
+    }
 }

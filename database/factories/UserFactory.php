@@ -37,7 +37,7 @@ class UserFactory extends Factory
             'store' => 'Toko '. $this->faker->sentence(3),
             'whatsapp' => $this->faker->numerify('############') ,
             'store_description' => $this->faker->text,
-            'is_verified' => $this->faker->randomElement([true, false])
+            // 'verification_status' => $this->faker->randomElement([, false])
         ];
     }
 }

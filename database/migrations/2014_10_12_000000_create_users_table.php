@@ -27,7 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('store')->nullable();
             $table->string('whatsapp')->nullable();
             $table->text('store_description')->nullable();
-            $table->boolean('is_verified')->default(false);
+            $table->enum('verification_status', ['not_verified', 'verified', 'requested', 'rejected'])->default('not_verified');
+            $table->text('identity_card')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
