@@ -21,6 +21,11 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->foreignId('product_category_id');
             $table->foreignId('user_id');
+            $table->string('link_shopee')->nullable();
+            $table->string('link_tokopedia')->nullable();
+            $table->string('link_bukalapak')->nullable();
+            $table->string('link_lazada')->nullable();
+            $table->string('link_instagram')->nullable();
             $table->timestamps();
         });
     }

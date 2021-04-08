@@ -36,6 +36,27 @@
                         <label>Product Images</label>
                         <input type="file" class="form-control" name="image" tabindex="1" required>
                     </div><br>
+                    <h5>Product Links</h5>
+                    <div class="form-group">
+                        <label>Link Shopee</label>
+                        <input value="{{ old('link_shopee') }}" type="text" class="form-control" name="link_shopee" tabindex="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Link Tokopedia</label>
+                        <input value="{{ old('link_tokopedia') }}" type="text" class="form-control" name="link_tokopedia" tabindex="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Link Bukalapak</label>
+                        <input value="{{ old('link_bukalapak') }}" type="text" class="form-control" name="link_bukalapak" tabindex="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Link Lazada</label>
+                        <input value="{{ old('link_lazada') }}" type="text" class="form-control" name="link_lazada" tabindex="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Link Instagram</label>
+                        <input value="{{ old('link_instagram') }}" type="text" class="form-control" name="link_instagram" tabindex="1">
+                    </div>
                     <div class="form-group">
                         <button type="submit" name="submit" class="btn btn-oranye" tabindex="1">
                             <b>SAVE</b>

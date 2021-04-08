@@ -16,6 +16,11 @@ class Product extends Model
         'price',
         'product_category_id',
         'user_id',
+        'link_shopee',
+        'link_tokopedia',
+        'link_bukalapak',
+        'link_lazada',
+        'link_instagram',
     ];
 
     protected $with = ['productCategory'];
