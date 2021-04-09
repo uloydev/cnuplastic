@@ -15,16 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('product.index', get_defined_vars());
-    }
-
-    /**
-     * Display page /products/buy
-     *
-     **/
-    public function buy()
-    {
-        $products = Product::all();
+        $totalProduct = $products->count();
         return view('product.index', get_defined_vars());
     }
 

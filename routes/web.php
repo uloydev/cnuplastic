@@ -14,7 +14,6 @@ Route::prefix('faq')->name('faq.')->group(function (){
     Route::get('buyer', [FaqController::class, 'buyer'])->name('buyer');
 });
 Route::prefix('products')->name('products.')->group(function (){
-    Route::get('buy', [ProductController::class, 'buy'])->name('buy');
     Route::resource('/', ProductController::class);
 });
 Route::resource('merchandise', MerchandiseController::class);

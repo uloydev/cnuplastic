@@ -202,7 +202,7 @@
 </div>
 <!--akhir content-->
 <!--awal kontak-->
-<div class="kontak">
+<div class="kontak" id="section-kontak">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
