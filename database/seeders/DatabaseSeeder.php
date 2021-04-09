@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             PromoteSeeder::class,
             FeedbackSeeder::class,
             MerchandiseSeeder::class,
+            FaqSeeder::class
         ]);
     }
 }
