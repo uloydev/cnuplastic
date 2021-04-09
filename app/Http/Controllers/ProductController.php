@@ -12,9 +12,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        $products = Product::paginate(20);
         $totalProduct = $products->count();
         return view('product.index', get_defined_vars());
     }
@@ -84,4 +84,5 @@ class ProductController extends Controller
     {
         //
     }
+
 }

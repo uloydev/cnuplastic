@@ -14,12 +14,36 @@
                             Product Category
                         </h6>
                         <ul>
-                            <li><i class="fas fa-angle-right"></i> All</li>
-                            <li><i class="fas fa-angle-right"></i> Merchandise</li>
-                            <li><i class="fas fa-angle-right"></i> Cloth</li>
-                            <li><i class="fas fa-angle-right"></i> Bag</li>
-                            <li><i class="fas fa-angle-right"></i> Food</li>
-                            <li><i class="fas fa-angle-right"></i> Shoes</li>
+                            <li>
+                                <a href="{{ route('products.index', ['category' => 'test']) }}">
+                                    <i class="fas fa-angle-right"></i> All
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
+                                    <i class="fas fa-angle-right"></i> Merchandise
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
+                                    <i class="fas fa-angle-right"></i> Cloth
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
+                                    <i class="fas fa-angle-right"></i> Bag
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
+                                    <i class="fas fa-angle-right"></i> Food
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
+                                    <i class="fas fa-angle-right"></i> Shoes
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -65,9 +89,6 @@
                             </div>
                             @endforeach
                         </div>
-                    </div>
-                    <div class="loadd">
-                        <button class="load">LOAD MORE</button>
                     </div>
                 </div>
             </div>
