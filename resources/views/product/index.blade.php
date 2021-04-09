@@ -80,7 +80,7 @@
                                         <button type="button" 
                                         class="btn btn-primary" 
                                         data-toggle="modal" 
-                                        data-target="#detail-product-{{ $product->id }}">
+                                        data-target="#detail-modal-{{ $product->id }}">
                                             Detail
                                         </button>
                                         <span class="text-danger">
@@ -105,6 +105,12 @@
 
 @section('component-outside')
     @foreach ($products as $product)
-        @include('product.detail')
+        @include('partials.popup-product', [
+            'modalId' => $product->id,
+            'productTitle' => ucwords($product->name),
+            'productDesc' => $product->description,
+            'productImg' => $product->image ? Storage::url($product->image) : 
+                            'http://via.placeholder.com/200'
+        ])
     @endforeach
 @endsection
