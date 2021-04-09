@@ -2,32 +2,6 @@
 
 @section('content')
 
-@if (Route::currentRouteName() === 'products.index')
-<div class="konten-produk">
-	<a href="" class="gambar-icon">
-        <img src="{{ asset('image/toko.png') }}" class="profil">
-    </a>
-    <a href="">
-        <p class="toko">
-            Boy Style<br>
-            <span>Ghani Fadillah</span>
-        </p>
-    </a>
-</div>
-<div class="konten-produk1">
-	<p>Toko kami menjual berbagai macam pakaian pria yang nyaman, murah, berkualitas, amanah.</p>
-	<p class="p2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dignissim fermentum euismod...</p>
-	<button>
-        <h6 style="font-family: Roboto; color: #FC3515; font-weight: 700; ">
-            View More
-        </h6>
-    </button>
-	<p>
-        <img src="{{ asset('image/wa.png') }}" width="150px">
-    </p>
-	<hr size="4px">
-</div>
-@endif
 <div class="kategori-produk">
     <div class="container-fluid">
         <div class="row">

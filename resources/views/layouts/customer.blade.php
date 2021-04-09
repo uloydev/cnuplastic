@@ -36,7 +36,6 @@
                     </a>
                     <a class="nav-link" href="{{ route('about.index') }}">About Us</a>
                     <a class="nav-link" href="{{ route('faq.general') }}">Help</a>
-                    <a class="nav-link" href="{{ route('products.buy') }}">Menu beli</a>
                 </div>
                 <div class="navbar-navv">
                     <a class="nav-link" aria-current="page" href="{{ route('merchandise.index') }}">

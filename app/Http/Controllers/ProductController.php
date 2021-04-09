@@ -20,16 +20,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Display page /products/buy
-     *
-     **/
-    public function buy()
-    {
-        $products = Product::all();
-        return view('product.index', get_defined_vars());
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
