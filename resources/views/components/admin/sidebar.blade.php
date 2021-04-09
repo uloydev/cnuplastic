@@ -18,6 +18,10 @@
                 data-toggle="tooltip" data-placement="right" title="" data-original-title="Home">
                 <a href="{{ route('admin.dashboard') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
             </li>
+            <li class="{{ Request::is('admin/feedback*') ? 'active' : '' }}"
+                data-toggle="tooltip" data-placement="right" title="" data-original-title="Home">
+                <a href="{{ route('admin.feedback.index') }}"><i class="ion ion-email"></i><span>Feedback</span></a>
+            </li>
 
             <li class="menu-header">Seller</li>
             <li data-toggle="tooltip" data-placement="right" data-original-title="Data Seller"

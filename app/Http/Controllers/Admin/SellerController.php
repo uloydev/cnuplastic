@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AccountVerification;
 
 class SellerController extends Controller
 {
@@ -57,6 +59,7 @@ class SellerController extends Controller
         $this->checkRequestedVerification($seller);
         if ($request->verification_status == 'verified' || $request->verification_status == 'rejected') {
             $seller->update($request->only('verification_status'));
+            Mail::to($seller)->send(new AccountVerification($seller));
             return redirect()->route('admin.account-verification.index')->with([
                 'success' => 'Sukses mengubah verification status menjadi ' . $request->verification_status,
             ]);
