@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Promote;
+use App\Mail\PromotionStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PromotionController extends Controller
 {
@@ -41,7 +43,7 @@ class PromotionController extends Controller
     public function update(Request $request, Promote $promotion)
     {
         $promotion->update($request->only('status'));
-        // send email if required
+        Mail::to($promotion->user)->send(new PromotionStatus($promotion));
         return redirect()
         ->route('admin.promotion.show', $promotion->id)
         ->with([
