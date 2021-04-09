@@ -29,11 +29,10 @@
 </div>
 @endif
 <div class="kategori-produk">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-lg-3">
                 <div class="kategori">
-
                     <div class="ul">
                         <h6>
                             <img src="{{ asset('image/dot.png') }}"
@@ -51,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-lg-9">
                 <div class="cari">
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -61,8 +60,8 @@
                 <div class="judul">
                     <p>All Product</p>
                 </div>
-                <div>
-                    <p class="judul1">8 items</p>
+                <div class="pr-2">
+                    <p class="judul1 mr-0">{{ $totalProduct . ' products' }}</p>
                 </div>
                 <div class="produk">
                     <div class="container">
@@ -78,13 +77,15 @@
                                         </p>
                                     </div>
                                     <div class="card-footer bg-white d-flex justify-content-between border-top-0">
-                                        <a href="#" class="buttonn" 
-                                        data-desc="{{ $product->description }}">
+                                        <button type="button" 
+                                        class="btn btn-primary" 
+                                        data-toggle="modal" 
+                                        data-target="#detail-product-{{ $product->id }}">
                                             Detail
-                                        </a>
-                                        <a href="#" class="buton">
+                                        </button>
+                                        <span class="text-danger">
                                             Rp. {{ number_format($product->price) }}
-                                        </a>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -100,4 +101,10 @@
     </div>
 </div>
 
+@endsection
+
+@section('component-outside')
+    @foreach ($products as $product)
+        @include('product.detail')
+    @endforeach
 @endsection
