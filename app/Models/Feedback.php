@@ -15,6 +15,7 @@ class Feedback extends Model
         'email',
         'phone',
         'message',
+        'answer',
         'is_publish'
     ];
 }

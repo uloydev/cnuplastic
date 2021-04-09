@@ -12,16 +12,15 @@ class FeedbackMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $feedback, $answer;
+    public $feedback;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Feedback $feedback, $answer)
+    public function __construct(Feedback $feedback)
     {
         $this->feedback = $feedback;
-        $this->answer = $answer;
     }
 
     /**
@@ -32,8 +31,7 @@ class FeedbackMail extends Mailable
     public function build()
     {
         return $this->markdown('emails.feedback')->with([
-            'answer' => $answer,
-            'feedback' => $feedback
+            'feedback' => $this->feedback
         ]);
     }
 }

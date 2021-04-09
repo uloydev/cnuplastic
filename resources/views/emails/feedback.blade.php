@@ -7,9 +7,11 @@ Thank you for your feedback {{ $feedback->name }}
 <p>
     {{ $feedback->message }}
 </p>
-# reply from admin
+
+# Reply From Admin
+
 <p>
-    {{$message}}
+    {{$feedback->answer}}
 </p>
 @component('mail::button', ['url' => route('login')])
 Login to your jempol account
