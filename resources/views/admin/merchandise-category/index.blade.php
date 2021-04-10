@@ -12,7 +12,7 @@
         <div class="card-header">
             <div class="float-right">
             </div>
-            <h4>Tabel Data Kategori Merchandise</h4>
+            <span>Tabel Data Kategori Merchandise</span>
         </div>
         <div class="card-body">
             <div class="table-responsive">

@@ -72,7 +72,7 @@ class SellerController extends Controller
     public function identityCardDownload(User $seller)
     {
         $this->checkRequestedVerification($seller);
-        return Storage::download($seller->identity_card, 'identity_card_' . $seller->id);
+        return Storage::download($seller->identity_card, 'identity_card_' . $seller->id . '.jpg', ['Content-Type' => 'image/png']);
     }
 
     private function checkRequestedVerification(User $seller) {

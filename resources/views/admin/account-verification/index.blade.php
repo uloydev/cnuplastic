@@ -8,7 +8,7 @@
         <div class="card-header">
             <div class="float-right">
             </div>
-            <h4>Tabel Data Account Verification</h4>
+            <span>Tabel Data Account Verification</span>
         </div>
         <div class="card-body">
             

@@ -8,7 +8,7 @@
         <div class="card-header">
             <div class="float-right">
             </div>
-            <h4>Tabel Data feedback</h4>
+            <span>Tabel Data feedback</span>
         </div>
         <div class="card-body">
             <div class="table-responsive">

@@ -8,7 +8,7 @@
         <div class="card-header">
             <div class="float-right">
             </div>
-            <h4>Tabel Data Seller</h4>
+            <span>Tabel Data Seller</span>
         </div>
         <div class="card-body">
 

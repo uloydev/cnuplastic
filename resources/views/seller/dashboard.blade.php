@@ -26,11 +26,11 @@
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="card card-sm-4">
                 <div class="card-icon bg-primary">
-                    <i class="ion ion-android-close"></i>
+                    <i class="ion ion-android-checkmark-circle"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Account Verification Status</h4>
+                        <h4>Account Status</h4>
                     </div>
                     <div class="card-body">
                         @switch($user->verification_status)
@@ -85,7 +85,7 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h4>Information!</h4>
+            <h5>Information!</h5>
         </div>
         <div class="card-body">
             <center>
