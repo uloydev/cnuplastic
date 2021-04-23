@@ -39,6 +39,7 @@
         </div>
         @include('components.seller.footer')
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{{ asset('modules/jquery.min.js') }}"></script>
     <script src="{{ asset('modules/popper.js') }}"></script>
     <script src="{{ asset('modules/tooltip.js') }}"></script>

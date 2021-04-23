@@ -42,7 +42,7 @@
                                     <a href="{{ route('admin.merchandise.show', $merchandise->id) }}" class="btn btn-sm btn-oranye m-2">
                                         <span class="ion-search" aria-hidden="true">&nbsp;</span>
                                     </a>
-                                    <button type="submit" form="deleteForm{{ $merchandise->id }}" class="btn btn-sm btn-danger m-2">
+                                    <button type="submit" form="deleteForm{{ $merchandise->id }}" class="btn btn-sm btn-danger m-2 delete-btn">
                                         <span class="ion-trash-a" aria-hidden="true"></span>
                                     </button>
                                 </td>
@@ -54,5 +54,26 @@
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script>
+        $('.delete-btn').click(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Apa anda yakin ingin menghapus merchandise ini?',
+                text: '',
+                showCancelButton: true,
+                confirmButtonText: `Delete`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    $('#' + $(this).attr('form')).submit()
+                }
+            });
+        });
+    </script>
+@endpush
+
 
 

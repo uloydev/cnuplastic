@@ -20,7 +20,7 @@ class MerchandiseController extends Controller
     public function index()
     {
         if (Auth::check() and Auth::user()->role === 'admin') {
-            return view('merchandise.manage')->with(['merchandises' => Merchandise::get()]);
+            return view('admin.merchandise.index')->with(['merchandises' => Merchandise::get()]);
         }
         else {
             $merchandises = Merchandise::all();
