@@ -47,8 +47,8 @@
                         <img alt="image" src="{{ Storage::url($seller->identity_card) }}"
                             style="min-width: 33%; max-width:400px;">
                     </div>
-                    <a href="{{ route('admin.account-verification.download', $seller->id) }}"
-                        class="btn btn-primary">Download Identity Card</a>
+                    <a href="{{ Storage::url($seller->identity_card) }}"
+                        class="btn btn-primary" download>Download Identity Card</a>
                 </div>
                 <h6>Action</h6>
                 <button id="acceptButton" class="btn btn-success mx-2">
