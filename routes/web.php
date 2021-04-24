@@ -8,11 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MerchandiseController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::prefix('faq')->name('faq.')->group(function (){
-    Route::get('general', [FaqController::class, 'index'])->name('general');
-    Route::get('seller', [FaqController::class, 'seller'])->name('seller');
-    Route::get('buyer', [FaqController::class, 'buyer'])->name('buyer');
-});
+Route::get('faq', [FaqController::class, 'index'])->name('faq.index');
 Route::prefix('products')->name('products.')->group(function (){
     Route::resource('/', ProductController::class);
 });

@@ -7,30 +7,11 @@ use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
-    public $headers, $faqs;
-    public function __construct()
-    {
-        $this->faqs = Faq::all();
-
-        $this->headers = [
-            [
-                'url' => route('faq.general'),
-                'text' => 'General'
-            ],
-            [
-                'url' => route('faq.seller'),
-                'text' => 'Seller'
-            ],
-            [
-                'url' => route('faq.buyer'),
-                'text' => 'Buyer'
-            ],
-        ];
-    }
     public function index()
     {
-        $headers = $this->headers;
-        $faqs = Faq::where('category', 'general')->get();
+        $faqGeneral = Faq::where('category', 'general')->get();
+        $faqSeller = Faq::where('category', 'seller')->get();
+        $faqBuyer = Faq::where('category', 'buyer')->get();
         return view('faq.index', get_defined_vars());
     }
 
@@ -48,5 +29,15 @@ class FaqController extends Controller
         $faqs = Faq::where('category', 'buyer')->get();
 
         return view('faq.index', get_defined_vars());
+    }
+
+    public function destroy()
+    {
+        # code...
+    }
+
+    public function update()
+    {
+        # code...
     }
 }

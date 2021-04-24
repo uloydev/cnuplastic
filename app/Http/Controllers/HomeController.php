@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carousel;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -12,7 +13,9 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        return view('main.index');
+        $latestProduct = Product::latest()->limit(4)->get();
+        $carousels = Carousel::all();
+        return view('main.index', get_defined_vars());
     }
 
     public function faq() 

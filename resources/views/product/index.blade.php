@@ -2,110 +2,48 @@
 
 @section('content')
 
-<div class="kategori-produk">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="kategori">
-                    <div class="ul">
-                        <h6>
-                            <img src="{{ asset('image/dot.png') }}"
-                            width="30px"/>
-                            Product Category
-                        </h6>
-                        <ul>
-                            <li>
-                                <a href="{{ route('products.index', ['category' => 'test']) }}">
-                                    <i class="fas fa-angle-right"></i> All
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
-                                    <i class="fas fa-angle-right"></i> Merchandise
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
-                                    <i class="fas fa-angle-right"></i> Cloth
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
-                                    <i class="fas fa-angle-right"></i> Bag
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
-                                    <i class="fas fa-angle-right"></i> Food
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('products.index', ['category' => 'test'] ) }}">
-                                    <i class="fas fa-angle-right"></i> Shoes
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+<div class="row g-0 mt-2">
+    <!-- sidebar -->
+    <div class="col-md-4 col-lg-3 bg-light">
+        <div class="px-4 pt-3 fw-bold">
+            <img src="image/dot.png" class="me-3" width="30px" alt="">
+            <span class="align-middle">Product Category</span>
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="#" class="nav-link link-dark active">All</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-dark">Clothes</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-dark">Foods</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-dark">Others</a>
+            </li>
+        </ul>
+    </div>
+    <!-- products -->
+    <div class="col-md-8 col-lg-9">
+        <div class="mx-5">
+            <form action="" method="get">
+                <div class="input-group mb-3 mt-3">
+                    <input type="text" class="form-control" placeholder="Search product"
+                        aria-describedby="searchBtn">
+                    <button class="btn btn-outline-orange" type="submit" id="searchBtn">search</button>
                 </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="cari">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+            </form>
+            <div class="row my-5 g-1">
+                @foreach ($products as $product)
+                <div class="col-lg-3 col-md-6">
+                    @include('product.item')
                 </div>
-                <div class="judul">
-                    <p>All Product</p>
-                </div>
-                <div class="pr-2">
-                    <p class="judul1 mr-0">{{ $totalProduct . ' products' }}</p>
-                </div>
-                <div class="produk">
-                    <div class="container">
-                        <div class="row">
-                            @foreach ($products as $product)
-                            <div class="col-lg-3 mb-3">
-                                <div class="card" style="height: 100%">
-                                    <img src="{{ asset('image/laptop.jpg') }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $product->name }}</h5>
-                                        <p class="card-text">
-                                            {{ $product->productCategory->name }}
-                                        </p>
-                                    </div>
-                                    <div class="card-footer bg-white d-flex justify-content-between border-top-0">
-                                        <button type="button" 
-                                        class="btn btn-primary" 
-                                        data-toggle="modal" 
-                                        data-target="#detail-modal-{{ $product->id }}">
-                                            Detail
-                                        </button>
-                                        <span class="text-danger">
-                                            Rp. {{ number_format($product->price) }}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
 </div>
 
-@endsection
-
-@section('component-outside')
-    @foreach ($products as $product)
-        @include('partials.popup-product', [
-            'modalId' => $product->id,
-            'productTitle' => ucwords($product->name),
-            'productDesc' => $product->description,
-            'productImg' => $product->image ? Storage::url($product->image) : 
-                            'http://via.placeholder.com/200'
-        ])
-    @endforeach
 @endsection
