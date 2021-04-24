@@ -22,7 +22,7 @@ class CarouselFactory extends Factory
     public function definition()
     {
         return [
-            'path_img' => $this->faker->imageUrl($width = 640, $height = 480)
+            'path_img' => 'img/carousel.jpg'
         ];
     }
 }

@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item mx-2">
-                        <a class="nav-link {{ Route::currentRouteName() == route('about.index') ? 'active' : ''}}" href="#">
+                        <a class="nav-link {{ Route::currentRouteName() == route('about.index') ? 'active' : ''}}" href="{{ route('about.index') }}">
                             About Us
                         </a>
                     </li>

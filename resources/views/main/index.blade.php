@@ -33,7 +33,12 @@
     <div class="row my-5 g-1">
         @foreach ($latestProduct as $product)
         <div class="col-lg-3 col-md-6">
-            @include('product.item')
+            @include('product.item', [
+                'name' => Str::words($product->name, 3),
+                'category' => $product->productCategory->name,
+                'price' => $product->price,
+                'id' => Str::slug($product->name)
+            ])
         </div>
         @endforeach
     </div>

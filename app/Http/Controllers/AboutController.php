@@ -14,7 +14,6 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $about = About::firstOrFail();
         return view('main.about', get_defined_vars());
     }
 
