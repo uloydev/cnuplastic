@@ -3,7 +3,7 @@
 @section('content')
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner" style="height: 400px">
+    <div class="carousel-inner">
         @foreach ($carousels as $carousel)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
             <img src="{{ $carousel->path_img }}" class="d-block w-100">
