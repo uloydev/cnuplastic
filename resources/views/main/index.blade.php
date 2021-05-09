@@ -1,26 +1,6 @@
 @extends('layouts.customer')
 
 @section('content')
-
-    {{-- <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
-
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1>Example headline.</h1>
-                        <p>Some representative placeholder content for the first slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach ($carousels as $carousel)
@@ -50,14 +30,15 @@
     <div class="container my-5">
         <!-- new propduct -->
         <h4 class="text-center">New Product</h4>
-        <div class="row my-5 g-1">
+        <div class="row my-5 gy-3 gx-1 justify-content-center">
             @foreach ($latestProduct as $product)
                 <div class="col-lg-3 col-md-6">
                     @include('product.item', [
-                    'name' => Str::words($product->name, 3),
+                    'name' => $product->name,
                     'category' => $product->productCategory->name,
                     'price' => $product->price,
-                    'id' => Str::slug($product->name)
+                    'id' => $product->id,
+                    'image' => $product->image
                     ])
                 </div>
             @endforeach
