@@ -22,7 +22,7 @@ class CarouselFactory extends Factory
     public function definition()
     {
         return [
-            'path_img' => 'img/carousel.jpg'
+            'path_img' => $this->faker->randomElement(['image/slide1.jpg', 'image/slide2.jpg', 'image/slide3.jpg'])
         ];
     }
 }

@@ -60,3 +60,13 @@
     color: #fff;
     background-color: #FC3515;
 }
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #FC3515;
+    border-color: #FC3515;
+}
+
+.page-link {
+    color: #FC3515;
+}

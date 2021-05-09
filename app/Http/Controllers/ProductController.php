@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,8 +15,16 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::paginate(20);
+        $products = Product::with(['user']);
+        if ($request->has('search')) {
+            $products = $products->where('name', 'like', '%'.$request->search.'%');
+        }
+        if ($request->has('cat')) {
+            $products = $products->where('product_category_id', $request->cat);
+        }
+        $products = $products->paginate(20)->withQueryString();
         $totalProduct = $products->count();
+        $categories = ProductCategory::get();
         return view('product.index', get_defined_vars());
     }
 

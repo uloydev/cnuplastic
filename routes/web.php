@@ -10,9 +10,7 @@ use App\Http\Controllers\MerchandiseController;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('about', [AboutController::class, 'index'])->name('about.index');
 Route::get('faq', [FaqController::class, 'index'])->name('faq.index');
-Route::prefix('products')->name('products.')->group(function (){
-    Route::resource('/', ProductController::class);
-});
+Route::resource('products', ProductController::class);
 Route::resource('merchandise', MerchandiseController::class);
 Route::resource('about', AboutController::class)->except(['update', 'destroy']);
 
