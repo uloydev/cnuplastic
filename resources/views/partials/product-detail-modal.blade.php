@@ -7,11 +7,11 @@
             </div>
             <div class="modal-body">
                 <div class="row align-ittems-start">
-                    <div class="col-4">
+                    <div class="col-lg-4">
                         <img src="{{ $product->image ? Storage::url($product->image) : 'http://via.placeholder.com/200' }}"
                             class="d-block w-100 rounded-3 border border-dark">
                     </div>
-                    <div class="col-8">
+                    <div class="col-lg-8">
                         <div class="fw-bold mb-1">{{ $product->name }}</div>
                         <div class="text-muted mb-1">{{ $product->productCategory->name }}</div>
                         <h4>Rp {{ number_format($product->price) }}</h4>
