@@ -29,7 +29,9 @@ class UserFactory extends Factory
             'identity_id' => $this->faker->unique()->numerify('############'),
             'faculty' => 'ilmu komputer',
             'profession' => 'mahasiswa',
-            // 'avatar' => 'https://via.placeholder.com/200',
+            'avatar' => $this->faker->randomElement([
+                'public/img/avatar/avatar1.png', 'public/img/avatar/avatar2.png', 'public/img/avatar/avatar3.jpeg'
+            ]),
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'role' => 'seller',

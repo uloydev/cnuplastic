@@ -9,8 +9,7 @@
                     <div class="container">
                         <div class="carousel-caption text-center">
                             <h1 class="text-white fw-bold m-0">Find Any Product?</h1>
-                            <a href="{{ route('products.index') }}" class="btn btn-lg btn-orange mt-4 rounded-3">Shop
-                                Now</a>
+                            <a href="{{ route('products.index') }}" class="btn btn-lg btn-orange mt-4 rounded-3">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -34,11 +33,11 @@
             @foreach ($latestProduct as $product)
                 <div class="col-lg-3 col-md-6">
                     @include('product.item', [
-                    'name' => $product->name,
-                    'category' => $product->productCategory->name,
-                    'price' => $product->price,
-                    'id' => $product->id,
-                    'image' => $product->image
+                        'name' => $product->name,
+                        'category' => $product->productCategory->name,
+                        'price' => $product->price,
+                        'id' => $product->id,
+                        'image' => $product->image
                     ])
                 </div>
             @endforeach
