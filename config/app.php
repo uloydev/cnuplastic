@@ -123,6 +123,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'faq_enum' => ['general', 'seller', 'buyer'],
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

@@ -22,7 +22,7 @@ class FaqFactory extends Factory
     public function definition()
     {
         return [
-            'category' => $this->faker->randomElement(['general', 'seller', 'buyer']),
+            'category' => $this->faker->randomElement(config('app.faq_enum')),
             'title' => $this->faker->sentence(6),
             'detail' => $this->faker->paragraph(4)
         ];
