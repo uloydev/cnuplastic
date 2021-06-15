@@ -28,13 +28,22 @@ class FeedbackValidation extends FormRequest
             $addRule = 'required';
         }
         else {
-            $$addRule = 'sometimes';
+            $addRule = 'sometimes';
         }
         return [
             'name' => $addRule . '|max:100',
-            'email' => $addRule . '|unique:feedback|email',
+            'email' => $addRule . '|email',
+            'phone' => $addRule,
             'message' => $addRule . '|max:255',
             'is_publish' => 'boolean'
         ];
+    }
+
+    public function redirect()
+    {
+        if ($this->isMethod('POST')) {
+            return redirect('/#section-kontak');
+        }
+        return redirect()->back();
     }
 }

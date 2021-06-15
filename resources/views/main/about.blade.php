@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="d-md-flex align-items-center mt-5">
-                    <img src="image/group.png" class="d-block w-25 me-5 mb-3" alt="">
+                    <img src="image/group.png" class="d-block w-25 mx-auto mx-sm-5 mb-3" alt="">
                     <div>
                         <p class="fw-bolder">For more information, contact us!</p>
                         <p class="mb-2">
@@ -50,10 +50,10 @@
                             <box-icon name='mail-send' color='#FC3515' class="align-middle me-3"></box-icon>
                             jempolupnvj@gmail.com
                         </p>
-                        <a href="#" class="rounded-circle me-2">
+                        <a href="https://api.whatsapp.com/send?phone=6285817922089" class="rounded-circle me-2">
                             <img src="image/whatsapp.png"alt="" width="40px">
                         </a>
-                        <a href="#" class="rounded-circle">
+                        <a href="https://instagram.com/jempol.upnvj" class="rounded-circle">
                             <img src="image/instagram.png"alt="" width="40px">
                         </a>
                     </div>

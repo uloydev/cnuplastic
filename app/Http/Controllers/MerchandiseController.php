@@ -17,13 +17,27 @@ class MerchandiseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        if (Auth::check() and Auth::user()->role === 'admin') {
-            return view('admin.merchandise.index')->with(['merchandises' => Merchandise::get()]);
+        $products = Merchandise::with(['merchandiseCategory']);
+
+        if ($request->has('search')) {
+            $products = $products->where('name', 'like', '%'.$request->search.'%');
         }
-        else {
-            $merchandises = Merchandise::all();
+
+        if ($request->has('cat')) {
+            $products = $products->where('merchandise_category_id', $request->cat);
+        }
+
+        $products = $products->paginate(20)->withQueryString();
+        $totalProduct = $products->count();
+        $categories = MerchandiseCategory::get();
+
+        if (Auth::check() and Auth::user()->role === 'admin') {
+            return view('admin.merchandise.index')->with([
+                'merchandises' => Merchandise::get()
+            ]);
+        } else {
             return view('merchandise.index', get_defined_vars());
         }
     }

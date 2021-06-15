@@ -35,10 +35,10 @@
                         </a>
                     </li>
                 </ul>
-                <div class="d-flex">
-                    <a href="{{ route('merchandise.index') }}" class="btn btn-outline-orange mx-2 rounded-3">Merchandise</a>
-                    <a href="{{ route('products.index') }}" class="btn btn-outline-orange mx-2 rounded-3">Product</a>
-                    <a href="{{ route('login') }}" class="btn btn-orange mx-2 rounded-3">
+                <div class="d-grid gap-2 d-md-block">
+                    <a href="{{ route('merchandise.index') }}" class="btn btn-outline-orange rounded-3">Merchandise</a>
+                    <a href="{{ route('products.index') }}" class="btn btn-outline-orange rounded-3">Product</a>
+                    <a href="{{ route('login') }}" class="btn btn-orange rounded-3">
                         Login As Seller
                     </a>
                 </div>
@@ -49,7 +49,7 @@
     @yield('content')
 
     <footer>
-        <div class="row g-0 bg-navy text-white">
+        <div class="row g-0 gs-5 bg-navy text-white">
             <div class="col-lg-3 p-5 pe-0">
                 <p class="fw-bold mb-4">Address</p>
                 <p>Jl. RS. Fatmawati Raya, Pd. Labu, Kec. Cilandak, Kota Depok, Jawa Barat 12450</p>
@@ -72,7 +72,7 @@
                 <p class="mb-2">Bagaimana cara berjualan di Jempol?</p>
                 <p class="mb-2">Bagaimana cara membeli di Jempol?</p>
             </div>
-            <div class="col-lg-3 d-flex align-items-center">
+            <div class="col-lg-3 d-flex align-items-center ps-sm-5">
                 <div class="credit-box px-4 d-flex align-items-center">
                     <img src="image/logo/kesekretariatan.png" class="w-25 mx-auto">
                     <box-icon name='x'></box-icon>
@@ -80,7 +80,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex align-items-center py-3 bg-navy-darker justify-content-center text-white">
+        <div class="d-flex align-items-center py-3 bg-navy-darker justify-content-center text-white text-center">
             <span>Copyright 2021 Design All Right Reserved. Powered by Developer BEM UPNVJ</span>
         </div>
     </footer>

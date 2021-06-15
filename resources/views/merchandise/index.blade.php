@@ -2,95 +2,63 @@
 
 @section('content')
 
-<div class="row g-0 mt-2">
-    <!-- sidebar -->
-    <div class="col-md-4 col-lg-3 bg-light">
-        <div class="px-4 pt-3 fw-bold">
-            <img src="image/dot.png" class="me-3" width="30px" alt="">
-            <span class="align-middle">Merch Category</span>
-        </div>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="#" class="nav-link link-dark active">All</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link link-dark">Clothes</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link link-dark">Foods</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link link-dark">Others</a>
-            </li>
-        </ul>
-    </div>
-    <!-- products -->
-    <div class="col-md-8 col-lg-9">
-        <div class="mx-5">
-            <form action="" method="get">
-                <div class="input-group mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="Search product"
-                        aria-describedby="searchBtn">
-                    <button class="btn btn-outline-orange" type="submit" id="searchBtn">search</button>
-                </div>
-            </form>
-            <div class="row my-5 g-1">
-                @foreach ($merchandises as $merchand)
-                <div class="col-lg-3 col-md-6">
-                    @include('product.item', [
-                        'name' => $merchand->name,
-                        'category' => $merchand->merchandiseCategory->name,
-                        'price' => $merchand->price,
-                        'id' => Str::slug($merchand->name)
-                    ])
-                </div>
+    <div class="row g-0 mt-2">
+        <!-- sidebar -->
+        <div class="col-md-4 col-lg-3 bg-light">
+            <div class="px-4 pt-3 fw-bold">
+                <img src="{{asset('image/dot.png')}}" class="me-3" width="30px" alt="">
+                <span class="align-middle">Merch Category</span>
+            </div>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="{{ route('merchandise.index') }}"
+                        class="nav-link link-dark {{ !request()->has('cat') ? 'active' : '' }}">All</a>
+                </li>
+                @foreach ($categories as $category)
+                    <li class="nav-item">
+                        <a href="{{ route('merchandise.index', ['cat' => $category->id]) }}"
+                            class="nav-link link-dark {{ request()->cat == $category->id ? 'active' : '' }}">{{ $category->name }}</a>
+                    </li>
                 @endforeach
-            </div>
+            </ul>
         </div>
-    </div>
-</div>
-
-@foreach ($merchandises as $merchand)
-<div class="modal fade" id="productDetailModal{{ Str::slug($merchand->name) }}" 
-    tabindex="-1" 
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="merchandiseDetailModalLabel">Product Detail</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row align-items-center">
-                    <div class="col-4">
-                        <img src="image/totebag.png" class="d-block w-100 rounded-3 border border-dark">
+        <!-- products -->
+        <div class="col-md-8 col-lg-9">
+            <div class="mx-5">
+                <form action="" method="get">
+                    <div class="input-group mb-3 mt-3">
+                        <input type="text" class="form-control" placeholder="Search product" aria-describedby="searchBtn"
+                            name="search" value="{{ request()->search }}">
+                        <button class="btn btn-outline-orange" type="submit" id="searchBtn">search</button>
                     </div>
-                    <div class="col-8">
-                        <div class="fw-bold mb-1">{{ $merchand->name }}</div>
-                        <div class="text-muted mb-1">Others</div>
-                        <h4>Rp {{ number_format($merchand->price) }}</h4>
-                        <div class="border border-1 border-start-0 border-end-0 border-dark my-2 py-1">
-                            Product
-                            Description
+                </form>
+                <div class="row my-5 gy-3 gx-1 justify-content-center">
+                    @forelse ($products as $product)
+                        <div class="col-lg-3 col-md-6">
+                            @include('product.item', [
+                            'name' => $product->name,
+                            'category' => $product->merchandiseCategory->name,
+                            'price' => $product->price,
+                            'id' => $product->id,
+                            'image' => $product->image
+                            ])
                         </div>
-                        <div class="border border-1 border-start-0 border-end-0 border-top-0 border-dark pb-2 mb-4">
-                            Kemeja pria super nyaman cocok untuk pakaian kantor.
-                            Pilihan Warna :
-                            Putih
-                            Hitam
-                            Abu-abu
+                    @empty
+                        <div class="col">
+                            <p class="text-center">Tidak ada produk</p>
                         </div>
-                        <a href="#" class="btn btn-success btn-sm fw-bold rounded-3">
-                            <box-icon name='whatsapp' type='logo' color='#ffffff' class="align-middle">
-                            </box-icon> <span class="align-middle">CHAT NOW</span>
-                        </a>
-                    </div>
+                    @endforelse
                 </div>
             </div>
+            <div class="d-flex justify-content-center mb-5">
+                {{ $products->links() }}
+            </div>
         </div>
     </div>
-</div>
-@endforeach
+
+    @foreach ($products as $product)
+        @include('partials.merchandise-detail-modal', ['product' => $product])
+    @endforeach
 
 @endsection
