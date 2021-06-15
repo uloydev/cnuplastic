@@ -79,22 +79,13 @@
                 @endif
                 <form action="{{ route('feedback.send') }}" method="POST">
                     @csrf
-                    <div class="mb-3">
-                        <label for="contactName" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="contactName" name="name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="contactEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="contactEmail" name="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="contactPhone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="contactPhone" name="phone">
-                    </div>
-                    <div class="mb-3">
-                        <label for="contactMessage" class="form-label">Message</label>
-                        <textarea class="form-control" id="contactMessage" rows="5" name="message"></textarea>
-                    </div>
+                    <x-input-bootstrap id="contactName" label="Name" name="name" required/>
+                    <x-input-bootstrap type="email" id="contactEmail" label="Email" 
+                    name="email" required/>
+                    <x-input-bootstrap type="tel" id="contactPhone" label="Phone" 
+                    name="phone" required/>
+                    <x-input-bootstrap type="textarea" id="contactMessage" 
+                    label="Message" name="message" rows="5" required/>
                     <div class="d-grid d-sm-block">
                         <button type="submit" class="btn btn-sm btn-orange btn-lg rounded-3 px-5">SEND</button>
                     </div>
@@ -108,3 +99,11 @@
     @endforeach
 
 @endsection
+
+@push('scripts')
+    <script>
+        @if($errors->any())
+            document.querySelector('form').scrollIntoView()
+        @endif
+    </script>
+@endpush

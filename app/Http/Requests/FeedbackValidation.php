@@ -31,9 +31,9 @@ class FeedbackValidation extends FormRequest
             $addRule = 'sometimes';
         }
         return [
-            'name' => $addRule . '|max:100',
-            'email' => $addRule . '|email',
-            'phone' => $addRule,
+            'name' => $addRule . '|max:100|min:3',
+            'email' => $addRule . '|email:rfc,dns',
+            'phone' => $addRule . '|numeric|starts_with:0,62|digits_between:7,13',
             'message' => $addRule . '|max:255',
             'is_publish' => 'boolean'
         ];

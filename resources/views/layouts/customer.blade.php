@@ -93,4 +93,6 @@ integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9E
 </script>
 <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
 
+@stack('scripts')
+
 </html>
