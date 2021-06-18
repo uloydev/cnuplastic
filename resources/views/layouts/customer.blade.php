@@ -91,8 +91,16 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
 <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+<script>
+    const imgLazy = document.querySelectorAll('.img-lazy')
+    if (imgLazy.length > 0) {
+        lazyload(imgLazy)
+    }
+</script>
 
 @stack('scripts')
+
 
 </html>

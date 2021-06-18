@@ -1,5 +1,7 @@
 @extends('layouts.customer')
 
+@section('title',  'A Place To Sell Your Product Around UPN')
+
 @section('content')
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -86,9 +88,10 @@
                     name="phone" required/>
                     <x-input-bootstrap type="textarea" id="contactMessage" 
                     label="Message" name="message" rows="5" required/>
-                    <div class="d-grid d-sm-block">
-                        <button type="submit" class="btn btn-sm btn-orange btn-lg rounded-3 px-5">SEND</button>
-                    </div>
+                    <button type="submit"
+                    class="btn btn-sm btn-orange btn-lg rounded-3 px-5 col-12 col-lg-auto">
+                        SEND
+                    </button>
                 </form>
             </div>
         </div>

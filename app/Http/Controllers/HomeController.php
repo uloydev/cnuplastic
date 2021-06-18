@@ -22,16 +22,6 @@ class HomeController extends Controller
     {
         return view('main.faq.index');
     }
-
-    public function products() 
-    {
-        return view('main.products');
-    }
-
-    public function merchandise() 
-    {
-        return view('main.merchandise');
-    }
     
     public function about() 
     {

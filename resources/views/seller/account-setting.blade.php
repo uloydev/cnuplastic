@@ -17,7 +17,7 @@
                     </div>
                     <hr>
                     <div class="img-detail">
-                        <img alt="image" src="{{ $user->avatar ? Storage::url($user->avatar) : 'http://via.placeholder.com/200' }}">
+                        <img alt="image" src="{{ auth()->user()->avatar ? Storage::url(auth()->user()->avatar) : 'http://via.placeholder.com/200' }}">
                     </div>
                     <div class="form-group">
                         <label>Avatar</label>
@@ -25,19 +25,19 @@
                     </div>
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input value="{{ $user->name }}" type="text" class="form-control" name="name" tabindex="1" required>
+                        <input value="{{ auth()->user()->name }}" type="text" class="form-control" name="name" tabindex="1" required>
                     </div>
                     <div class="form-group">
                         <label>Store Name</label>
-                        <input value="{{ $user->store }}" type="text" class="form-control" name="store" tabindex="1" required>
+                        <input value="{{ auth()->user()->store }}" type="text" class="form-control" name="store" tabindex="1" required>
                     </div>
                     <div class="form-group">
                         <label>WhatsApp Number</label>
-                        <input value="{{ $user->whatsapp }}" type="text" class="form-control" name="whatsapp" tabindex="1" required>
+                        <input value="{{ auth()->user()->whatsapp }}" type="text" class="form-control" name="whatsapp" tabindex="1" required>
                     </div>
                     <div class="form-group">
                         <label>Store Description</label>
-                        <textarea class="summernote-simple" name="store_description">{{ $user->store_description }}</textarea>
+                        <textarea class="summernote-simple" name="store_description">{{ auth()->user()->store_description }}</textarea>
                     </div><br>
                     <div class="form-divider">
                         Account Setting

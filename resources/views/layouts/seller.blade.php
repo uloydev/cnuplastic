@@ -8,14 +8,11 @@
     <title>Jempol &rsaquo; Dashboard Seller</title>
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/select2-bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/ionicons/css/ionicons.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-lite.css') }}">
-    <link rel="stylesheet" href="{{ asset('modules/flag-icon-css/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/demo.css') }}">
     <link rel="stylesheet" href="{{ asset('css/seller.css') }}">
     @stack('styles')
 </head>
@@ -29,8 +26,8 @@
 
             <div class="main-content">
                 <section class="section">
-                    <h1 class="section-header">
-                        <div>@yield('header')</div>
+                    <h1 class="section-header mb-5">
+                        @yield('header')
                     </h1>
                     @include('components.flash-message')
                     @yield('content')

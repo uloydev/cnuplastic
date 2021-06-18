@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-group">
                     <label>Requested At</label>
-                    <h6>{{ $promotion->created_at }}</h6>
+                    <h6>{{ $promotion->created_at->format('d M Y H:i') }}</h6>
                 </div>
                 <div class="form-group">
                     <label class="d-block">Status</label>

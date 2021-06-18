@@ -14,6 +14,24 @@ class AboutController extends Controller
      */
     public function index()
     {
+        $services = [
+            (object) [
+                'icon' => 'image/security.png',
+                'slogan' => 'Secure'
+            ],
+            (object) [
+                'icon' => 'image/tap.png',
+                'slogan' => 'Easy To use'
+            ],
+            (object) [
+                'icon' => 'image/browser.png',
+                'slogan' => 'Free Register'
+            ],
+            (object) [
+                'icon' => 'image/promotion.png',
+                'slogan' => 'Request Promotion'
+            ],
+        ];
         return view('main.about', get_defined_vars());
     }
 

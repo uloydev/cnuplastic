@@ -10,7 +10,7 @@
         Route::get('dashboard' , [SellerController::class, 'dashboard'])->name('dashboard');
         Route::get('account-setting', [SellerController::class, 'accountSetting'])->name('account-setting');
         Route::put('update-account', [SellerController::class, 'update'])->name('update-account');
-        Route::get('account-verification', [SellerController::class, 'accountVerification'])->name('account-verification');
+        Route::get('account-verification', [SellerController::class, 'statusVerification'])->name('account-verification');
         Route::post('account-verification', [SellerController::class, 'storeVerification']);
         Route::resource('product', ProductController::class)->except(['edit'])->middleware('VerifiedSeller');
         Route::resource('promotion', PromotionController::class)->except(['edit, update'])->middleware('VerifiedSeller');
