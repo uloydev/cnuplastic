@@ -16,23 +16,42 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::insert([
-            [
-                'name' => 'admin',
-                'email' => 'admin@upnvj.ac.id',
-                'role' => 'admin',
-                'password' => Hash::make('password'),
-                'whatsapp' => '08512232723'
-            ],
-            [
-                'name' => 'admin2',
-                'email' => 'admin2@upnvj.ac.id',
-                'role' => 'admin',
-                'password' => Hash::make('password'),
-                'whatsapp' => '08512232723'
-            ]
-        ]);
-        User::factory()->count(2)->state(['role' => 'admin'])->create();
-        User::factory()->count(50)->create();
+        if (env('APP_ENV') == 'production') {
+            User::insert([
+                [
+                    'name' => '',
+                    'email' => 'admin@upnvj.ac.id',
+                    'role' => 'admin',
+                    'password' => Hash::make('password'),
+                    'whatsapp' => '08512232723'
+                ],
+                [
+                    'name' => 'admin2',
+                    'email' => 'admin2@upnvj.ac.id',
+                    'role' => 'admin',
+                    'password' => Hash::make('password'),
+                    'whatsapp' => '08512232723'
+                ]
+            ]);
+        } else {
+            User::insert([
+                [
+                    'name' => 'admin',
+                    'email' => 'admin@upnvj.ac.id',
+                    'role' => 'admin',
+                    'password' => Hash::make('password'),
+                    'whatsapp' => '08512232723'
+                ],
+                [
+                    'name' => 'admin2',
+                    'email' => 'admin2@upnvj.ac.id',
+                    'role' => 'admin',
+                    'password' => Hash::make('password'),
+                    'whatsapp' => '08512232723'
+                ]
+            ]);
+            User::factory()->count(2)->state(['role' => 'admin'])->create();
+            User::factory()->count(50)->create();
+        }
     }
 }
