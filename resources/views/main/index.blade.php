@@ -1,5 +1,7 @@
 @extends('layouts.customer')
 
+@section('title',  'A Place To Sell Your Product Around UPN')
+
 @section('content')
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -9,8 +11,7 @@
                     <div class="container">
                         <div class="carousel-caption text-center">
                             <h1 class="text-white fw-bold m-0">Find Any Product?</h1>
-                            <a href="{{ route('products.index') }}" class="btn btn-lg btn-orange mt-4 rounded-3">Shop
-                                Now</a>
+                            <a href="{{ route('products.index') }}" class="btn btn-lg btn-orange mt-4 rounded-3">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -34,11 +35,11 @@
             @foreach ($latestProduct as $product)
                 <div class="col-lg-3 col-md-6">
                     @include('product.item', [
-                    'name' => $product->name,
-                    'category' => $product->productCategory->name,
-                    'price' => $product->price,
-                    'id' => $product->id,
-                    'image' => $product->image
+                        'name' => $product->name,
+                        'category' => $product->productCategory->name,
+                        'price' => $product->price,
+                        'id' => $product->id,
+                        'image' => $product->image
                     ])
                 </div>
             @endforeach
@@ -80,25 +81,17 @@
                 @endif
                 <form action="{{ route('feedback.send') }}" method="POST">
                     @csrf
-                    <div class="mb-3">
-                        <label for="contactName" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="contactName" name="name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="contactEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="contactEmail" name="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="contactPhone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="contactPhone" name="phone">
-                    </div>
-                    <div class="mb-3">
-                        <label for="contactMessage" class="form-label">Message</label>
-                        <textarea class="form-control" id="contactMessage" rows="5" name="message"></textarea>
-                    </div>
-                    <div class="d-grid d-sm-block">
-                        <button type="submit" class="btn btn-sm btn-orange btn-lg rounded-3 px-5">SEND</button>
-                    </div>
+                    <x-input-bootstrap id="contactName" label="Name" name="name" required/>
+                    <x-input-bootstrap type="email" id="contactEmail" label="Email" 
+                    name="email" required/>
+                    <x-input-bootstrap type="tel" id="contactPhone" label="Phone" 
+                    name="phone" required/>
+                    <x-input-bootstrap type="textarea" id="contactMessage" 
+                    label="Message" name="message" rows="5" required/>
+                    <button type="submit"
+                    class="btn btn-sm btn-orange btn-lg rounded-3 px-5 col-12 col-lg-auto">
+                        SEND
+                    </button>
                 </form>
             </div>
         </div>
@@ -109,3 +102,11 @@
     @endforeach
 
 @endsection
+
+@push('scripts')
+    <script>
+        @if($errors->any())
+            document.querySelector('form').scrollIntoView()
+        @endif
+    </script>
+@endpush

@@ -18,8 +18,7 @@ class FeedbackController extends Controller
 
     public function store(FeedbackValidation $request)
     {
-
-        Feedback::create($request->all());
+        Feedback::create($request->validated());
         return redirect('/#section-kontak')->with([
             'success' => 'successfully send feedback'
         ]);

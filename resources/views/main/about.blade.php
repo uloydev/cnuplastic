@@ -13,30 +13,16 @@
                 </p>
                 <h4 class="fw-bold mb-3">Our Services</h4>
                 <div class="row g-2">
+                    @foreach ($services as $service)
                     <div class="col-md-3">
                         <div class="border border-2 rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
-                            <img src="image/security.png" class="d-block w-50 mx-auto" alt="">
-                            <p class="text-center fw-bold mb-0">Secure</p>
+                            <img src="{{ asset($service->icon) }}" 
+                            class="d-block w-50 mx-auto" 
+                            alt="{{ config('app.name') . ' ' . $service->slogan }}">
+                            <p class="text-center fw-bold mb-0">{{ $service->slogan }}</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="border border-2 rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
-                            <img src="image/tap.png" class="d-block w-50 mx-auto" alt="">
-                            <p class="text-center fw-bold mb-0">Easy To use</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="border border-2 rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
-                            <img src="image/browser.png" class="d-block w-50 mx-auto" alt="">
-                            <p class="text-center fw-bold mb-0">Free Register</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="border border-2 rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
-                            <img src="image/promotion.png" class="d-block w-50 mx-auto" alt="">
-                            <p class="text-center fw-bold mb-0">Request Promotion</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="d-md-flex align-items-center mt-5">
                     <img src="image/group.png" class="d-block w-25 mx-auto mx-sm-5 mb-3" alt="">

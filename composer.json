@@ -15,7 +15,8 @@
         "laravel-frontend-presets/tall": "^3.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.4"
+        "livewire/livewire": "^2.4",
+        "mtownsend/laravel-make-trait": "^1.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

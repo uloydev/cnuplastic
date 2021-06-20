@@ -39,14 +39,14 @@ class SellerController extends Controller
         ]);
     }
 
-    public function accountVerification()
+    public function requestVerification()
     {
         return view('admin.account-verification.index')->with([
             'users' => User::where('role', 'seller')->where('verification_status', 'requested')->get(),
         ]);
     }
 
-    public function accountVerificationShow(User $seller)
+    public function detailVerification(User $seller)
     {
         $this->checkRequestedVerification($seller);
         return view('admin.account-verification.show')->with([

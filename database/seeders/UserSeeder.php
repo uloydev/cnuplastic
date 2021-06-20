@@ -16,12 +16,21 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@upnvj.ac.id',
-            'role' => 'admin',
-            'password' => Hash::make('password'),
-            'whatsapp' => '08512232723'
+        User::insert([
+            [
+                'name' => 'admin',
+                'email' => 'admin@upnvj.ac.id',
+                'role' => 'admin',
+                'password' => Hash::make('password'),
+                'whatsapp' => '08512232723'
+            ],
+            [
+                'name' => 'admin2',
+                'email' => 'admin2@upnvj.ac.id',
+                'role' => 'admin',
+                'password' => Hash::make('password'),
+                'whatsapp' => '08512232723'
+            ]
         ]);
         User::factory()->count(2)->state(['role' => 'admin'])->create();
         User::factory()->count(50)->create();

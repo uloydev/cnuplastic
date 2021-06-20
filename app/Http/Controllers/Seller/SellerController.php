@@ -7,58 +7,76 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserValidation;
 use App\Models\Product;
 use App\Models\Promote;
-
+use Illuminate\Support\Str;
 
 class SellerController extends Controller
 {
     public function dashboard()
     {
-        $user = Auth::user();
+        $verificationStatus = auth()->user()->verification_status;
+        switch ($verificationStatus) {
+            case 'rejected':
+                $badgeClass = 'badge-danger';
+
+            case 'not_verified':
+                $badgeClass = 'badge-danger';
+                break;
+
+            case 'verified':
+                $badgeClass = 'badge-success';
+                
+                break;
+
+            case 'requested':
+                $badgeClass = 'badge-info';
+                    
+                break;
+        }
+        $verificationStatus = Str::of($verificationStatus)->replace('_', ' ')->title();
         return view('seller.dashboard')->with([
-            'user' => $user,
-            'productTotal' => Product::where('user_id', $user->id)->count(),
-            'promoteTotal' => Promote::where('user_id', $user->id)->count(),
+            'badgeClass' => $badgeClass,
+            'verificationStatus' => $verificationStatus,
+            'productTotal' => Product::byUserId()->count(),
+            'promoteTotal' => Promote::byUserId()->count(),
         ]);
     }
 
     public function accountSetting()
     {
-        return view('seller.account-setting')->with(['user' => Auth::user()]);
+        return view('seller.account-setting');
     }
 
-    public function update(Request $request)
+    public function update(UserValidation $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'password' => 'nullable|string|min:8',
-            'whatsapp' => 'required|string',
-            'store' => 'required|string',
-            'store_description' => 'nullable|string',
-            'avatar' => 'nullable|file|mimes:jpg,jpeg,gif,png|max:2048'
-        ]);
-
         $user = Auth::user();
         $user->update($request->only(['name', 'whatsapp', 'store', 'store_description']));
-        if ($request->password) {
-            $user->update([
-                'password' => Hash::make($validated['password'])
-            ]);
+        if ($request->has('password')) {
+            Auth::user()->update(['password' => Hash::make($request['password'])]);
         }
         if ($request->hasFile('avatar')) {
             $path = $request->file('avatar')->store('public/img/avatar');
-            Storage::delete($user->avatar);
-            $user->update(['avatar' => $path]);
+            Storage::delete(Auth::user()->avatar);
+
+            Auth::user()->update(['avatar' => $path]);
         }
+
         return redirect()->route('seller.account-setting')->with([
             'success' => 'Berhasil Memperbarui Akun!'
         ]);
     }
 
-    public function accountVerification()
+    public function statusVerification()
     {
-        return view('seller.account-verification')->with(['user' => Auth::user()]);
+        $verificationStatus = Auth::user()->verification_status;
+        if ($verificationStatus == 'not_verified' or $verificationStatus == 'rejected') {
+            return view('seller.fill-verification', compact('verificationStatus'));
+        }
+        else {
+            return view('seller.info-verified', compact('verificationStatus'));
+        }
     }
 
     public function storeVerification(Request $request)

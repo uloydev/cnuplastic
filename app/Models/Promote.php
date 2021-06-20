@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\ByUserId;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Promote extends Model
 {
-    use HasFactory;
+    use HasFactory, ByUserId;
 
     protected $fillable = [
         'product_id',

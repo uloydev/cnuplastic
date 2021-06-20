@@ -24,13 +24,13 @@
             </li>
 
             <li class="menu-header">Seller</li>
-            <li data-toggle="tooltip" data-placement="right" data-original-title="Data Seller"
+            <li data-toggle="tooltip" data-placement="right" data-original-title="List Member"
                 class="{{ Request::is('admin/seller*') ? 'active' : '' }}">
-                <a href="{{ route('admin.seller.index') }}"><i class="ion ion-person"></i>Seller</a>
+                <a href="{{ route('admin.seller.index') }}"><i class="ion ion-person"></i>List Member</a>
             </li>
-            <li data-toggle="tooltip" data-placement="right" data-original-title="Account Verification"
+            <li data-toggle="tooltip" data-placement="right" data-original-title="Request Verification"
                 class="{{ Request::is('admin/account-verification*') ? 'active' : '' }}">
-                <a href="{{ route('admin.account-verification.index') }}"><i class="ion ion-android-checkmark-circle"></i>Account Verification</a>
+                <a href="{{ route('admin.account-verification.index') }}"><i class="ion ion-android-checkmark-circle"></i>Request Verification</a>
             </li>
             <li class="{{ Request::is('admin/product*') ? 'active' : '' }}" data-toggle="tooltip"
                 data-placement="right" data-original-title="Data Product">

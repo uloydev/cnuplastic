@@ -33,21 +33,7 @@
                         <h4>Account Status</h4>
                     </div>
                     <div class="card-body">
-                        @switch($user->verification_status)
-                            @case('not_verified')
-                            <div class='badge badge-danger'>Not Verified</div>
-                            @break
-                            @case('verified')
-                            <div class='badge badge-success'>Verified</div>
-                            @break
-                            @case('requested')
-                            <div class='badge badge-info'>Requested</div>
-                            @break
-                            @case('rejected')
-                            <div class='badge badge-danger'>Rejected</div>
-                            @break
-                            @default
-                        @endswitch
+                        <div class='badge {{ $badgeClass }}'>{{ $verificationStatus }}</div>
                     </div>
                 </div>
             </div>
