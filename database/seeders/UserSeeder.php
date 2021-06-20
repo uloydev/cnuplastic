@@ -19,18 +19,22 @@ class UserSeeder extends Seeder
         if (env('APP_ENV') == 'production') {
             User::insert([
                 [
-                    'name' => '',
-                    'email' => 'admin@upnvj.ac.id',
+                    'name' => 'admin jempol',
+                    'email' => 'jempolupnvj01@gmail.com',
                     'role' => 'admin',
-                    'password' => Hash::make('password'),
-                    'whatsapp' => '08512232723'
+                    'password' => Hash::make('@jempol2021@')
                 ],
                 [
-                    'name' => 'admin2',
-                    'email' => 'admin2@upnvj.ac.id',
+                    'name' => 'admin pti',
+                    'email' => 'developerbemupnvj@gmail.com',
                     'role' => 'admin',
-                    'password' => Hash::make('password'),
-                    'whatsapp' => '08512232723'
+                    'password' => Hash::make('@jempol2021@')
+                ],
+                [
+                    'name' => 'admin bem',
+                    'email' => 'bem@upnvj.ac.id',
+                    'role' => 'admin',
+                    'password' => Hash::make('@jempol2021@')
                 ]
             ]);
         } else {
@@ -50,7 +54,6 @@ class UserSeeder extends Seeder
                     'whatsapp' => '08512232723'
                 ]
             ]);
-            User::factory()->count(2)->state(['role' => 'admin'])->create();
             User::factory()->count(50)->create();
         }
     }

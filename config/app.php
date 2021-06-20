@@ -122,7 +122,6 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
-
     'faq_enum' => ['general', 'seller', 'buyer'],
 
     /*
