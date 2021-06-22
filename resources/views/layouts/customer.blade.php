@@ -2,13 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ config('app.name') }} - @yield('title')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/customer.css') }}">
+    @include('partials.meta')
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
@@ -52,28 +47,33 @@
         <div class="row g-0 gs-5 bg-navy text-white">
             <div class="col-lg-3 p-5 pe-0">
                 <p class="fw-bold mb-4">Address</p>
-                <p>Jl. RS. Fatmawati Raya, Pd. Labu, Kec. Cilandak, Kota Depok, Jawa Barat 12450</p>
+                <address class="d-block">
+                    Jl. RS. Fatmawati Raya, Pd. Labu, Kec. Cilandak, Kota Depok, Jawa Barat 12450
+                </address>
             </div>
             <div class="col-lg-3 p-5 pe-0">
                 <p class="fw-bold mb-4">Contact</p>
-                <p class="mb-2">
-                    <box-icon name='instagram' type='logo' color='#ffffff' class="align-middle"></box-icon>
-                    @jempol.upnvj
-                </p>
-                <p class="mb-2">
-                    <box-icon name='phone-call' color='#ffffff' class="align-middle"></box-icon> 085817922089
-                </p>
-                <p class="mb-2">
-                    <box-icon name='mail-send' color='#ffffff' class="align-middle"></box-icon> jempolupnvj@gmail.com
-                </p>
+                <ul>
+                    @foreach ($contacts as $contact)
+                    <li class="@if(!$loop->last) mb-3 @endif">
+                        <img src="{{ asset('img/icon/' . $contact->icon) }}" alt="">
+                        <span>{{ $contact->username }}</span>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
             <div class="col-lg-3 p-5 pe-0">
                 <p class="fw-bold mb-4">Frequently Ask Questions</p>
-                <p class="mb-2">Bagaimana cara berjualan di Jempol?</p>
-                <p class="mb-2">Bagaimana cara membeli di Jempol?</p>
+                <ol class="ps-3">
+                    @foreach ($pinnedFaq as $faq)
+                    <li class="@if(!$loop->last) mb-3 @endif">
+                        {{ $faq->title }}
+                    </li>
+                    @endforeach
+                </ol>
             </div>
             <div class="col-lg-3 d-flex align-items-center ps-sm-5">
-                <div class="credit-box px-4 d-flex align-items-center">
+                <div class="bg-white rounded h-50 px-4 d-flex align-items-center">
                     <img src="image/logo/kesekretariatan.png" class="w-25 mx-auto">
                     <box-icon name='x'></box-icon>
                     <img src="image/logo/kominfo.png" class="w-25 mx-auto">
@@ -81,26 +81,14 @@
             </div>
         </div>
         <div class="d-flex align-items-center py-3 bg-navy-darker justify-content-center text-white text-center">
-            <span>Copyright 2021 Design All Right Reserved. Powered by Developer BEM UPNVJ</span>
+            <span>Copyright {{ date('Y') }} Design All Right Reserved. Powered by Developer BEM UPNVJ</span>
         </div>
     </footer>
 </body>
 
 @yield('component-outside')
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
-<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-<script>
-    const imgLazy = document.querySelectorAll('.img-lazy')
-    if (imgLazy.length > 0) {
-        lazyload(imgLazy)
-    }
-</script>
-
+<script src="{{ asset('js/style.js') }}"></script>
 @stack('scripts')
-
 
 </html>

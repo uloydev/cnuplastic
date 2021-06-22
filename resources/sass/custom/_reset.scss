@@ -1,0 +1,12 @@
+img:not([src]):not([srcset]) {
+    visibility: hidden;
+}
+
+ul {
+    list-style-type: none;
+
+    &, ol {
+        padding: 0;
+        margin: 0;
+    }
+}

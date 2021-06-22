@@ -8,8 +8,8 @@
             <div class="modal-body">
                 <div class="row align-items-start">
                     <div class="col-lg-4">
-                        <img src="{{ Storage::url($product->image) }}"
-                        class="d-block w-100 rounded-3 border border-dark" height="300px">
+                        <img data-src="{{ Storage::url($product->image) }}"
+                        class="d-block w-100 rounded-3 border border-dark lazy" height="300px">
                     </div>
                     <div class="col-lg-8">
                         <div class="fw-bold mb-1">{{ $product->name }}</div>
@@ -23,8 +23,8 @@
                         </div>
                         <div class="d-flex justify-content-between mt-3 align-items-center">
                             <div class="d-flex align-items-center">
-                                <img src="{{ Storage::url($product->user->avatar) }}"
-                                    class="d-inline-block mx-3 ms-lg-0" width="50px">
+                                <img data-src="{{ Storage::url($product->user->avatar) }}"
+                                    class="d-inline-block mx-3 ms-lg-0 lazy" width="50px">
                                 <div class="d-inline-block">
                                     <p class="mb-0 fw-bold">{{ $product->user->store }}</p>
                                     <p class="mb-0 text-muted">{{ $product->user->name }}</p>

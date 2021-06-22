@@ -23,8 +23,9 @@ class FaqFactory extends Factory
     {
         return [
             'category' => $this->faker->randomElement(config('app.faq_enum')),
-            'title' => $this->faker->sentence(6),
-            'detail' => $this->faker->paragraph(4)
+            'title' => $this->faker->sentence(3),
+            'detail' => $this->faker->paragraph(4),
+            'is_pinned' => $this->faker->boolean()
         ];
     }
 }

@@ -25,5 +25,11 @@
         "sass": "^1.32.8",
         "sass-loader": "^10.1.1",
         "tailwindcss": "^2.0.2"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.9.2",
+        "bootstrap": "^5.0.1",
+        "boxicons": "^2.0.7",
+        "vanilla-lazyload": "^17.4.0"
     }
 }

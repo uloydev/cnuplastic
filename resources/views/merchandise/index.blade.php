@@ -13,15 +13,15 @@
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="{{ route('merchandise.index') }}"
-                    class="nav-link link-dark {{ !request()->has('cat') ? 'active' : '' }}">
+                    class="nav-link {{ !request()->has('cat') ? 'active text-white' : 'text-dark' }}">
                         All
                     </a>
                 </li>
                 @foreach ($categories as $category)
                     <li class="nav-item">
                         <a href="{{ route('merchandise.index', ['cat' => $category->id]) }}"
-                        class="nav-link link-dark 
-                        {{ request()->cat == $category->id ? 'active' : '' }}">
+                        class="nav-link text-dark
+                        {{ request()->cat == $category->id ? 'active text-white' : '' }}">
                             {{ $category->name }}
                         </a>
                     </li>

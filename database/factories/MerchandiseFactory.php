@@ -23,7 +23,10 @@ class MerchandiseFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(3),
-            // 'image' => 'https://picsum.photos/200/200',
+            'image' => $this->faker->randomElement([
+                'public/img/product/iphone6s.jpeg',
+                'public/img/product/motor.webp'
+            ]),
             'description' => $this->faker->paragraph(7),
             'price' => $this->faker->numberBetween(10000, 100000),
             'merchandise_category_id' => $this->faker->numberBetween(1, 6),

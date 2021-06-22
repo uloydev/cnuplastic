@@ -16,8 +16,9 @@
                     @foreach ($services as $service)
                     <div class="col-md-3">
                         <div class="border border-2 rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
-                            <img src="{{ asset($service->icon) }}" 
-                            class="d-block w-50 mx-auto" 
+                            <img data-src="{{ asset($service->icon) }}" 
+                            class="d-block w-50 mx-auto lazy" 
+                            data-bg="{{ asset('img/static/placeholder-image.png') }}" 
                             alt="{{ config('app.name') . ' ' . $service->slogan }}">
                             <p class="text-center fw-bold mb-0">{{ $service->slogan }}</p>
                         </div>
@@ -46,13 +47,18 @@
                 </div>
             </div>
             <div class="col-lg-4 d-flex flex-column justify-content-around">
-                <img src="image/jempol.png" class="d-block w-100" alt="">
+                <img data-src="image/jempol.png" class="d-block w-100 lazy" alt=""
+                data-bg="{{ asset('img/static/placeholder-image.png') }}" >
                 <div>
                     <h4 class="text-center fw-bold mb-4">Created By</h4>
                     <img src="image/logo/mardhika.png" class="d-block w-25 mx-auto" alt="">
                     <div class="d-flex justify-content-evenly">
-                        <img src="image/logo/kesekretariatan.png" class="d-block w-25" alt="">
-                        <img src="image/logo/kominfo.png" class="d-block w-25" alt="">
+                        <img data-src="{{ asset('image/logo/kesekretariatan.png') }}"
+                        data-bg="{{ asset('img/static/placeholder-image.png') }}"  
+                        class="d-block w-25 lazy" alt="">
+                        <img data-src="{{ asset('image/logo/kominfo.png') }}"
+                        data-bg="{{ asset('img/static/placeholder-image.png') }}"
+                        class="d-block w-25 lazy" alt="">
                     </div>
                 </div>
             </div>
