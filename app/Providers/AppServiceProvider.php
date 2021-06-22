@@ -29,29 +29,29 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+
+        $olshops = ['shopee', 'bukalapak', 'lazada', 'instagram'];
+        $contacts = [
+            (object) [
+                'username' => '@jempol.upnvj',
+                'icon' => "bxl-instagram.svg"
+            ],
+            (object) [
+                'username' => '085817922089',
+                'icon' => "bxl-whatsapp.svg"
+            ],
+            (object) [
+                'username' => 'jempolupnvj@gmail.com',
+                'icon' => "bx-mail-send.svg"
+            ],
+        ];
+
+        View::share('contacts', $contacts);
+        View::share('olshops', $olshops);
+
         try {
             View::share('notification', Promote::with('user')->latest());
             View::share('pinnedFaq', Faq::where('is_pinned', true)->get());
-
-            $contacts = [
-                (object) [
-                    'username' => '@jempol.upnvj',
-                    'icon' => "bxl-instagram.svg"
-                ],
-                (object) [
-                    'username' => '085817922089',
-                    'icon' => "bxl-whatsapp.svg"
-                ],
-                (object) [
-                    'username' => 'jempolupnvj@gmail.com',
-                    'icon' => "bx-mail-send.svg"
-                ],
-            ];
-            View::share('contacts', $contacts);
-
-            $olshops = ['shopee', 'bukalapak', 'lazada', 'instagram'];
-            View::share('olshops', $olshops);
-
         } catch (\Throwable $th) {
             //throw $th;
         }
