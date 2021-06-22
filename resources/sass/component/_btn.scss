@@ -1,0 +1,18 @@
+.btn {
+    @each $name, $val in $new-color {
+        &-#{$name} {
+            background-color: $val;
+            color: white;
+        }
+        &-outline-#{$name} {
+            background-color: transparent;
+            color: $val;
+            border: 2px solid $val;
+
+            &:hover {
+                background-color: $val;
+                color: white;
+            }
+        }
+    }
+}

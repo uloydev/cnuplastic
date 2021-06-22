@@ -1,0 +1,20 @@
+$orange: #FC3515;
+$custom-colors: ();
+$new-color: (
+    "orange": $orange,
+    "navy": #2A4D69,
+    "navy-darker": #152E43,
+);
+
+$theme-colors: map-merge($new-color, $custom-colors);
+
+//override bootstrap
+$nav-link-color: $orange;
+$nav-link-hover-color: darken($orange, 10%);
+$nav-pills-link-active-bg: $orange;
+$nav-pills-link-active-color: #fff;
+
+$pagination-active-color: #fff;
+$pagination-active-bg: $orange;
+$pagination-focus-box-shadow: 0 0 0 0.25rem rgba($orange, 25%);
+$pagination-disabled-color: rgb(59, 59, 59);

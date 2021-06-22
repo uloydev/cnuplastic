@@ -59,7 +59,7 @@
         <!-- contact us section -->
         <div class="row mt-5 align-items-center" id="section-kontak">
             <div class="col-md-6 mb-5">
-                <img src="image/email.png" class="d-block w-50 mx-auto">
+                <img data-src="{{ asset('image/email.png') }}" class="d-block w-50 mx-auto lazy">
             </div>
             <div class="col-md-6 mb-5">
                 <h3 class="fw-bold mb-4">Contact Us</h3>

@@ -18,6 +18,7 @@ class CreateFaqsTable extends Migration
             $table->string('title');
             $table->enum('category', config('app.faq_enum'));
             $table->text('detail');
+            $table->boolean('is_pinned')->default(false);
             $table->timestamps();
         });
     }

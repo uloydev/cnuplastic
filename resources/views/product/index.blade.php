@@ -6,7 +6,8 @@
         
         <div class="col-md-4 col-lg-3 bg-light">
             <div class="px-4 pt-3 fw-bold">
-                <img src="{{asset('image/dot.png')}}" class="me-3" width="30px" alt="">
+                <img src="{{asset('image/dot.png')}}" class="me-3" width="30px" 
+                alt="{{ config('app.name') . ' products' }}">
                 <span class="align-middle">Product Category</span>
             </div>
             <hr>
