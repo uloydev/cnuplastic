@@ -12,10 +12,3 @@ mix.js("resources/js/app.js", "public/js/app.js")
 mix.sass('resources/sass/style.scss', 'public/css/style.css')
     .js('resources/js/style.js', 'public/js')
     .sourceMaps();
-
-if (mix.inProduction()) {
-    mix.version();
-}
-else {
-    mix.browserSync('http://localhost:8000').serve()
-}
