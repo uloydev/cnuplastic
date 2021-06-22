@@ -26,8 +26,6 @@ class ProductController extends Controller
         $totalProduct = $products->count();
         $categories = ProductCategory::get();
 
-        $olshops = ['shopee', 'bukalapak', 'lazada', 'instagram'];
-        
         return view('product.index', get_defined_vars());
     }
 

@@ -49,6 +49,9 @@ class AppServiceProvider extends ServiceProvider
             ];
             View::share('contacts', $contacts);
 
+            $olshops = ['shopee', 'bukalapak', 'lazada', 'instagram'];
+            View::share('olshops', $olshops);
+
         } catch (\Throwable $th) {
             //throw $th;
         }
