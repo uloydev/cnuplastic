@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-lite.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    
     @stack('styles')
 </head>
 
