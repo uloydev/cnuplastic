@@ -16,7 +16,7 @@
         "autoprefixer": "^10.1.0",
         "browser-sync": "^2.26.14",
         "browser-sync-webpack-plugin": "2.2.2",
-        "laravel-mix": "^6.0.6",
+        "laravel-mix": "^6.0.24",
         "laravel-mix-serve": "^2.1.0",
         "laravel-mix-tailwind": "^0.1",
         "postcss": "^8.2.1",
