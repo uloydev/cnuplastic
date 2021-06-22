@@ -7,7 +7,7 @@
         <div class="carousel-inner">
             @foreach ($carousels as $carousel)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                    <img src="{{ $carousel->path_img }}" class="img-fluid">
+                    <img src="{{ $carousel->path_img }}" class="img-fluid w-100">
                     <div class="container">
                         <div class="carousel-caption text-center">
                             <h1 class="text-white fw-bold m-0">Find Any Product?</h1>

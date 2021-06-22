@@ -13,14 +13,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        
         $this->call([
             UserSeeder::class,
             CarouselSeeder::class,
-            ProductSeeder::class,
-            PromoteSeeder::class,
-            FeedbackSeeder::class,
-            MerchandiseSeeder::class,
             FaqSeeder::class
         ]);
+
+        if (env('APP_ENV') == 'local') {
+            $this->call([
+                ProductSeeder::class,
+                PromoteSeeder::class,
+                FeedbackSeeder::class,
+                MerchandiseSeeder::class,
+            ]);
+        }
     }
 }

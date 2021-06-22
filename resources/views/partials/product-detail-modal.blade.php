@@ -37,9 +37,6 @@
                             </a>
                         </div>
                         <div class="row g-3 fw-bold my-3 justify-content-center">
-                            @php
-                                $olshops = ['shopee', 'bukalapak', 'lazada', 'instagram']
-                            @endphp
                             @foreach ($olshops as $olshop)
                                 @if ($product->link_ . $olshop)
                                     @include('partials.btn-goto-olshop', ['olshop' => $olshop])

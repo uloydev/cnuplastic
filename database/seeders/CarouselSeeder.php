@@ -14,6 +14,6 @@ class CarouselSeeder extends Seeder
      */
     public function run()
     {
-        Carousel::factory()->count(10)->create();
+        Carousel::factory()->count(3)->create();
     }
 }
