@@ -1,12 +1,9 @@
 $orange: #FC3515;
-$custom-colors: ();
 $new-color: (
     "orange": $orange,
     "navy": #2A4D69,
     "navy-darker": #152E43,
 );
-
-$theme-colors: map-merge($new-color, $custom-colors);
 
 //override bootstrap
 $nav-link-color: $orange;

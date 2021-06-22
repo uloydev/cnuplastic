@@ -2,36 +2,13 @@
 
 @section('content')
 
-    <div class="row g-0 mt-2">
+    <div class="row g-0 mt-2 flex-grow-1">
         
-        <div class="col-md-4 col-lg-3 bg-light">
-            <div class="px-4 pt-3 fw-bold">
-                <img src="{{asset('image/dot.png')}}" class="me-3" width="30px" 
-                alt="{{ config('app.name') . ' products' }}">
-                <span class="align-middle">Product Category</span>
-            </div>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="{{ route('products.index') }}" class="nav-link link-dark {{ ! request()->has('cat') ? 'active' : '' }}">All</a>
-                </li>
-                @foreach ($categories as $category)
-                    <li class="nav-item">
-                        <a href="{{ route('products.index', ['cat' => $category->id]) }}" class="nav-link link-dark {{ request()->cat == $category->id ? 'active' : '' }}">{{ $category->name }}</a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+        @include('partials.catalog.sidebar', ['catalogName' => 'products'])
         
         <div class="col-md-8 col-lg-9">
             <div class="mx-5">
-                <form action="" method="get">
-                    <div class="input-group mb-3 mt-3">
-                        <input type="text" class="form-control" placeholder="Search product" aria-describedby="searchBtn" name="search" 
-                        value="{{ request()->search }}">
-                        <button class="btn btn-outline-orange" type="submit" id="searchBtn">search</button>
-                    </div>
-                </form>
+                @include('partials.catalog.search')
                 <div class="row my-5 gy-3 gx-1">
                     @forelse ($products as $product)
                         <div class="col-lg-3 col-md-6">
@@ -44,15 +21,11 @@
                             ])
                         </div>
                     @empty
-                    <div class="col">
-                        <p class="text-center">Tidak ada produk</p>
-                    </div>
+                        <x-alert type="info" message="Tidak ada product"/>
                     @endforelse
                 </div>
             </div>
-            <div class="d-flex justify-content-center mb-5">
-                {{ $products->links() }}
-            </div>
+            @include('partials.catalog.pagination')
         </div>
     </div>
 

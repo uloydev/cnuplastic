@@ -8,12 +8,14 @@
             <div class="modal-body">
                 <div class="row align-items-start">
                     <div class="col-lg-4">
-                        <img src="{{ $product->image ? Storage::url($product->image) : 'http://via.placeholder.com/200' }}"
-                            class="d-block w-100 rounded-3 border border-dark">
+                        <img data-src="{{ Storage::url($product->image) }}"
+                        class="d-block w-100 rounded-3 border border-dark lazy" height="300px">
                     </div>
                     <div class="col-lg-8">
                         <div class="fw-bold mb-1">{{ $product->name }}</div>
-                        <div class="text-muted mb-1">{{ $product->merchandiseCategory->name }}</div>
+                        <div class="text-muted mb-1">
+                            {{ $product->merchandiseCategory->name }}
+                        </div>
                         <h4>Rp {{ number_format($product->price) }}</h4>
                         <div class="border border-1 border-start-0 border-end-0 border-dark my-2 py-1">
                             Product Description

@@ -2,6 +2,16 @@ img:not([src]):not([srcset]) {
     visibility: hidden;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 ul {
     list-style-type: none;
 

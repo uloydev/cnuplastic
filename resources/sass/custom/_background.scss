@@ -1,0 +1,7 @@
+.bg {
+    @each $name, $val in $new-color {
+        &-#{$name} {
+            background-color: $val;
+        }
+    }
+}

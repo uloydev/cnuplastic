@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class
         ]);
 
-        if (env('APP_ENV') == 'local') {
+        if (config('app.env') == 'local') {
             $this->call([
                 ProductSeeder::class,
                 PromoteSeeder::class,

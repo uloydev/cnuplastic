@@ -13,7 +13,9 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="fw-bold mb-1">{{ $product->name }}</div>
-                        <div class="text-muted mb-1">{{ $product->productCategory->name }}</div>
+                        <div class="text-muted mb-1">
+                            {{ $product->productCategory->name }}
+                        </div>
                         <h4>Rp {{ number_format($product->price) }}</h4>
                         <div class="border border-1 border-start-0 border-end-0 border-dark my-2 py-1">
                             Product Description

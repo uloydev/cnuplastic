@@ -32,7 +32,7 @@
         <!-- new propduct -->
         <h4 class="text-center">New Product</h4>
         <div class="row my-5 gy-4 gx-3 mx-3 justify-content-center">
-            @foreach ($latestProduct as $product)
+            @forelse ($latestProduct as $product)
                 <div class="col-lg-3 col-md-6">
                     @include('product.item', [
                         'name' => $product->name,
@@ -42,11 +42,17 @@
                         'image' => $product->image
                     ])
                 </div>
-            @endforeach
+            @empty
+                <x-alert :is-dismissable="false" type="secondary" class="mb-0">
+                    <p class="text-center mb-0">Tidak ada produk</p>
+                </x-alert>
+            @endforelse
         </div>
+        @if (count($latestProduct) > 0)
         <div class="d-flex justify-content-center">
             <a href="{{ route('products.index') }}" class="btn btn-outline-orange btn-lg rounded-3 px-5">Show More</a>
         </div>
+        @endif
 
         <!-- sign up section -->
         <h3 class="mt-5">Have a product to sell? Sell your product here!</h3>
