@@ -21,7 +21,7 @@
                             ])
                         </div>
                     @empty
-                        <x-alert type="info" message="Tidak ada product"/>
+                        <x-alert type="info" :is-dismissable="false" class="text-center" message="Tidak ada product"/>
                     @endforelse
                 </div>
             </div>
