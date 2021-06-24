@@ -18,6 +18,7 @@ class FaqSeeder extends Seeder
             "general" => [
                 [
                     "title" => "Apa itu JEMPOL UPNVJ?",
+                    "is_pinned" => true,
                     "detail" => "JEMPOL = Jembatan Penjual Online UPNVJ, merupakan wadah yang disediakan untuk para wirausahawan di UPNVJ agar lebih mudah memperjualbelikan produk/jasa yang ditawarkan."
                 ],
                 [
@@ -35,6 +36,7 @@ class FaqSeeder extends Seeder
             "seller" => [
                 [
                     "title" => "Siapa saja yang dapat berjualan di Marketplace Jempol?",
+                    "is_pinned" => true,
                     "detail" => "Semua Sivitas Akademisi UPNVJ"
                 ],
                 [
@@ -50,6 +52,7 @@ class FaqSeeder extends Seeder
             "buyer" => [
                 [
                     "title" => "Produk apa saja yang terdapat di Marketplace Jempol?",
+                    "is_pinned" => true,
                     "detail" => "Everything! You can put any good things in here. Selama tidak melanggar hukum di Indonesia."
                 ],
             ]

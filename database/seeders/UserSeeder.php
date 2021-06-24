@@ -16,8 +16,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        if (env('APP_ENV') == 'production') {
-            User::insert([
+        
+        if (config('app.env') == 'production') {
+            $adminAccounts = [
                 [
                     'name' => 'admin jempol',
                     'email' => 'jempolupnvj01@gmail.com',
@@ -36,9 +37,9 @@ class UserSeeder extends Seeder
                     'role' => 'admin',
                     'password' => Hash::make('@jempol2021@')
                 ]
-            ]);
+            ];
         } else {
-            User::insert([
+            $adminAccounts = [
                 [
                     'name' => 'admin',
                     'email' => 'admin@upnvj.ac.id',
@@ -53,8 +54,9 @@ class UserSeeder extends Seeder
                     'password' => Hash::make('password'),
                     'whatsapp' => '08512232723'
                 ]
-            ]);
-            User::factory()->count(50)->create();
+            ];
         }
+        User::insert($adminAccounts);
+        User::factory()->count(50)->create();
     }
 }
