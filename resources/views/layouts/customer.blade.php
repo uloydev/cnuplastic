@@ -3,7 +3,8 @@
 
 <head>
     @include('partials.meta')
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet"
+    href="{{ config('app.env') === 'production' ? mix('css/style.css') : asset('css/style.css') }}">
 </head>
 
 <body>
@@ -112,7 +113,8 @@
     </div>
 @endforeach
 
-<script src="{{ asset('js/style.js') }}"></script>
+<script 
+src="{{ config('app.env') === 'production' ? mix('js/style.js') : asset('js/style.js') }}"></script>
 @stack('scripts')
 
 </html>
