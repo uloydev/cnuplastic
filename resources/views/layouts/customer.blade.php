@@ -67,7 +67,11 @@
                 <ol class="ps-3">
                     @foreach ($pinnedFaq as $faq)
                     <li class="@if(!$loop->last) mb-3 @endif">
-                        {{ $faq->title }}
+                        <button class="btn btn-link text-white p-0 m-0 text-start link-hover-underline"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#pinnedFaqPopup{{ $loop->iteration }}">
+                            {{ $faq->title }}
+                        </button>
                     </li>
                     @endforeach
                 </ol>
@@ -87,6 +91,26 @@
 </body>
 
 @yield('component-outside')
+
+@foreach ($pinnedFaq as $faq)
+    <div class="modal fade" id="pinnedFaqPopup{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content text-dark">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title @if(strlen($faq->title) > 45) pe-4 @endif"
+                    id="exampleModalLabel">
+                        {{ Str::title($faq->title) }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {!! $faq->detail !!}
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
 
 <script src="{{ asset('js/style.js') }}"></script>
 @stack('scripts')
