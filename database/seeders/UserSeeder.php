@@ -55,8 +55,8 @@ class UserSeeder extends Seeder
                     'whatsapp' => '08512232723'
                 ]
             ];
+            User::factory()->count(50)->create();
         }
         User::insert($adminAccounts);
-        User::factory()->count(50)->create();
     }
 }
