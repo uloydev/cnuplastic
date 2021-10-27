@@ -1,4 +1,4 @@
-@extends('layouts.seller')
+@extends('layouts.user')
 
 @section('header')
     Dashboard
@@ -30,10 +30,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Account Status</h4>
+                        <h4>Unpaid Order</h4>
                     </div>
                     <div class="card-body">
-                        <div class='badge {{ $badgeClass }}'>{{ $verificationStatus }}</div>
+                        <div class='badge badge-danger>{{ $unpaidOrder }}</div>
                     </div>
                 </div>
             </div>
@@ -45,10 +45,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Product</h4>
+                        <h4>Paid Order</h4>
                     </div>
                     <div class="card-body">
-                        {{ $productTotal }}
+                        {{ $paidOrder }}
                     </div>
                 </div>
             </div>
@@ -60,10 +60,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Request</h4>
+                        <h4>Order Success</h4>
                     </div>
                     <div class="card-body">
-                        {{ $promoteTotal }}
+                        {{ $successOrder }}
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                 <h6>Promosikan produk dengan mudah melalui instagram kami <a href="https://www.instagram.com/jempol.upnvj">
                         @jempol.upnvj</a></h6>
                 <h6>Mulai dari 15.000 per produk</h6><br>
-                <a href="{{ route('seller.promotion.create') }}" class="btn btn-oranye btn-block register"
+                <a href="{{ route('user.promotion.create') }}" class="btn btn-oranye btn-block register"
                     style="width: 200px">
                     Promosikan Sekarang !
                 </a>

@@ -16,37 +16,17 @@ class UserController extends Controller
 {
     public function dashboard()
     {
-        $verificationStatus = auth()->user()->verification_status;
-        switch ($verificationStatus) {
-            case 'rejected':
-                $badgeClass = 'badge-danger';
-
-            case 'not_verified':
-                $badgeClass = 'badge-danger';
-                break;
-
-            case 'verified':
-                $badgeClass = 'badge-success';
-                
-                break;
-
-            case 'requested':
-                $badgeClass = 'badge-info';
-                    
-                break;
-        }
-        $verificationStatus = Str::of($verificationStatus)->replace('_', ' ')->title();
-        return view('seller.dashboard')->with([
-            'badgeClass' => $badgeClass,
-            'verificationStatus' => $verificationStatus,
-            'productTotal' => Product::byUserId()->count(),
-            'promoteTotal' => Promote::byUserId()->count(),
+        $user = Auth::user();        
+        return view('user.dashboard')->with([
+            'unpaidOrder' => 1,
+            'productTotal' => 1,
+            'promoteTotal' => 1,
         ]);
     }
 
     public function accountSetting()
     {
-        return view('seller.account-setting');
+        return view('user.account-setting');
     }
 
     public function update(UserValidation $request)
@@ -63,7 +43,7 @@ class UserController extends Controller
             Auth::user()->update(['avatar' => $path]);
         }
 
-        return redirect()->route('seller.account-setting')->with([
+        return redirect()->route('user.account-setting')->with([
             'success' => 'Berhasil Memperbarui Akun!'
         ]);
     }
@@ -72,10 +52,10 @@ class UserController extends Controller
     {
         $verificationStatus = Auth::user()->verification_status;
         if ($verificationStatus == 'not_verified' or $verificationStatus == 'rejected') {
-            return view('seller.fill-verification', compact('verificationStatus'));
+            return view('user.fill-verification', compact('verificationStatus'));
         }
         else {
-            return view('seller.info-verified', compact('verificationStatus'));
+            return view('user.info-verified', compact('verificationStatus'));
         }
     }
 
@@ -93,7 +73,7 @@ class UserController extends Controller
                 'verification_status' => 'requested'
             ]);
         }
-        return redirect()->route('seller.account-verification')->with([
+        return redirect()->route('user.account-verification')->with([
             'success' => 'Berhasil Membuat request verifikasi Akun!'
         ]);
     }
