@@ -15,48 +15,13 @@ class UserSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        
-        if (config('app.env') == 'production') {
-            $adminAccounts = [
-                [
-                    'name' => 'admin jempol',
-                    'email' => 'jempolupnvj01@gmail.com',
-                    'role' => 'admin',
-                    'password' => Hash::make('@jempol2021@')
-                ],
-                [
-                    'name' => 'admin pti',
-                    'email' => 'developerbemupnvj@gmail.com',
-                    'role' => 'admin',
-                    'password' => Hash::make('@jempol2021@')
-                ],
-                [
-                    'name' => 'admin bem',
-                    'email' => 'bem@upnvj.ac.id',
-                    'role' => 'admin',
-                    'password' => Hash::make('@jempol2021@')
-                ]
-            ];
-        } else {
-            $adminAccounts = [
-                [
-                    'name' => 'admin',
-                    'email' => 'admin@upnvj.ac.id',
-                    'role' => 'admin',
-                    'password' => Hash::make('password'),
-                    'whatsapp' => '08512232723'
-                ],
-                [
-                    'name' => 'admin2',
-                    'email' => 'admin2@upnvj.ac.id',
-                    'role' => 'admin',
-                    'password' => Hash::make('password'),
-                    'whatsapp' => '08512232723'
-                ]
-            ];
-            User::factory()->count(50)->create();
-        }
-        User::insert($adminAccounts);
+    {    
+        User::factory()->count(50)->create();
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@mail.com',
+            'password' => Hash::make('password'),
+            'is_admin' => true
+        ]);
     }
 }

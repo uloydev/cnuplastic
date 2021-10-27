@@ -15,13 +15,7 @@ class Product extends Model
         'image',
         'description',
         'price',
-        'product_category_id',
-        'user_id',
-        'link_shopee',
-        'link_tokopedia',
-        'link_bukalapak',
-        'link_lazada',
-        'link_instagram',
+        'product_category_id'
     ];
 
     protected $with = ['productCategory'];
@@ -29,15 +23,5 @@ class Product extends Model
     public function productCategory()
     {
         return $this->belongsTo('App\Models\ProductCategory');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
-    }
-
-    public function promotions()
-    {
-        return $this->hasMany('App\Models\Promote');
     }
 }

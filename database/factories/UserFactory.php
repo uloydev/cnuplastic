@@ -26,20 +26,11 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'identity_id' => $this->faker->unique()->numerify('############'),
-            'faculty' => 'ilmu komputer',
-            'profession' => 'mahasiswa',
-            'avatar' => $this->faker->randomElement([
-                'public/img/avatar/avatar1.png', 'public/img/avatar/avatar2.png', 'public/img/avatar/avatar3.jpeg'
-            ]),
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
-            'role' => 'seller',
             'remember_token' => Str::random(10),
-            'store' => 'Toko '. $this->faker->sentence(3),
-            'whatsapp' => $this->faker->numerify('############') ,
-            'store_description' => $this->faker->text,
-            // 'verification_status' => $this->faker->randomElement([, false])
+            'whatsapp' => $this->faker->numerify('############'),
+            'address' => $this->faker->address
         ];
     }
 }
