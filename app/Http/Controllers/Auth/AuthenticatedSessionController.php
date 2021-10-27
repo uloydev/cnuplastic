@@ -34,14 +34,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if (Auth::user()->role != 'seller') {
-            Auth::logout();
-            throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
-            ]);
-            return redirect()->back();
+        if (Auth::user()->is_admin) {
+            return redirect()->route('admin.dashboard');
         }
-        return redirect()->route('seller.dashboard');
+        return redirect()->route('user.dashboard');
     }
 
     /**

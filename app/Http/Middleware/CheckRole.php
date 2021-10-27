@@ -16,9 +16,16 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, $role)
     {
-        if (auth()->check() and auth()->user()->role == $role) {
-            return $next($request);
+        if ($role == 'admin') {
+            if (auth()->check() and auth()->user()->is_admin) {
+                return $next($request);
+            }
+        } elseif ($role == 'user') {
+            if (auth()->check() and ! auth()->user()->is_admin) {
+                return $next($request);
+            }
         }
-        return redirect()->route(($role == 'admin' ? 'admin.' : '') . 'login');
+        
+        return redirect()->route('login');
     }
 }

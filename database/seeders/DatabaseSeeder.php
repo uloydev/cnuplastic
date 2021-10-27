@@ -17,15 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             CarouselSeeder::class,
-            FaqSeeder::class
+            FaqSeeder::class,
+            ProductSeeder::class,
         ]);
-
-        if (config('app.env') == 'local') {
-            $this->call([
-                ProductSeeder::class,
-                PromoteSeeder::class,
-                FeedbackSeeder::class,
-            ]);
-        }
     }
 }
