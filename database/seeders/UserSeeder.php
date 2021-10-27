@@ -16,12 +16,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {    
-        User::factory()->count(50)->create();
         User::create([
             'name' => 'admin',
             'email' => 'admin@mail.com',
             'password' => Hash::make('password'),
             'is_admin' => true
         ]);
+        User::factory()->count(50)->create();
     }
 }

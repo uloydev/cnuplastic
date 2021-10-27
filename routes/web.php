@@ -25,4 +25,4 @@ Route::get('/storage-config', function () {
 // jangan diapus briq
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
-require __DIR__.'/seller.php';
+require __DIR__.'/user.php';
