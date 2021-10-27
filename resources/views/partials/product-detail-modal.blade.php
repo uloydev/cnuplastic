@@ -24,26 +24,12 @@
                             {!! $product->description !!}
                         </div>
                         <div class="d-flex justify-content-between mt-3 align-items-center">
-                            <div class="d-flex align-items-center">
-                                <img data-src="{{ Storage::url($product->user->avatar) }}"
-                                    class="d-inline-block mx-3 ms-lg-0 lazy" width="50px">
-                                <div class="d-inline-block">
-                                    <p class="mb-0 fw-bold">{{ $product->user->store }}</p>
-                                    <p class="mb-0 text-muted">{{ $product->user->name }}</p>
-                                </div>
-                            </div>
-                            <a href="https://api.whatsapp.com/send?phone={{ $product->user->whatsapp }}"
+                            
+                            <a href="https://api.whatsapp.com/send?phone={{ $contacts[1]->username }}"
                                 class="btn btn-success fw-bold rounded-3">
                                 <box-icon name='whatsapp' type='logo' color='#ffffff' class="align-middle"></box-icon>
                                 <span class="align-middle">CHAT NOW</span>
                             </a>
-                        </div>
-                        <div class="row g-3 fw-bold my-3 justify-content-center">
-                            @foreach ($olshops as $olshop)
-                                @if ($product->link_ . $olshop)
-                                    @include('partials.btn-goto-olshop', ['olshop' => $olshop])
-                                @endif
-                            @endforeach
                         </div>
                     </div>
                 </div>
