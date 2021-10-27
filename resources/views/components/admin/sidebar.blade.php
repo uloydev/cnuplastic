@@ -41,16 +41,6 @@
                 <a href="{{ route('admin.promotion.index') }}"><i class="ion ion-android-mail"></i> Request
                     Promotion</a>
             </li>
-
-            <li class="menu-header">Merchandise</li>
-            <li data-toggle="tooltip" data-placement="right" data-original-title="Data Merchandise"
-                class="{{ Request::is('admin/merchandise') || Request::is('admin/merchandise/*') ? 'active' : '' }}">
-                <a href="{{ route('admin.merchandise.index') }}"><i class="ion ion-pricetags"></i>Merchandise</a>
-            </li>
-            <li data-toggle="tooltip" data-placement="right" data-original-title="Data Merchandise Category"
-                class="{{ Request::is('admin/merchandise-category*') ? 'active' : '' }}">
-                <a href="{{ route('admin.merchandise-category.index') }}"><i class="ion ion-android-list"></i>Merchandise Category</a>
-            </li>
         </ul>
         <div class="p-3 mt-4 mb-4">
             <a href="#" class="btn btn-credits btn-shadow btn-round has-icon has-icon-nofloat btn-block"

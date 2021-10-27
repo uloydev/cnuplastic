@@ -33,15 +33,15 @@ class AppServiceProvider extends ServiceProvider
         $olshops = ['shopee', 'bukalapak', 'lazada', 'instagram'];
         $contacts = [
             (object) [
-                'username' => '@jempol.upnvj',
+                'username' => '@cnu.plastic',
                 'icon' => "bxl-instagram.svg"
             ],
             (object) [
-                'username' => '085817922089',
+                'username' => '6285608489389',
                 'icon' => "bxl-whatsapp.svg"
             ],
             (object) [
-                'username' => 'jempolupnvj@gmail.com',
+                'username' => 'cvcaturnagautama@gmail.com',
                 'icon' => "bx-mail-send.svg"
             ],
         ];

@@ -6,8 +6,6 @@ use App\Models\Carousel;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Models\Merchandise;
-use App\Models\MerchandiseCategory;
 
 class HomeController extends Controller
 {

@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
                 ProductSeeder::class,
                 PromoteSeeder::class,
                 FeedbackSeeder::class,
-                MerchandiseSeeder::class,
             ]);
         }
     }

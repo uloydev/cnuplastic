@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Promote;
-use App\Models\Merchandise;
 
 class AdminController extends Controller
 {
@@ -22,7 +21,6 @@ class AdminController extends Controller
             'totalSeller' => User::where('role', 'seller')->count(),
             'totalProduct' => Product::count(),
             'totalRequest' => Promote::count(),
-            'totalMerch' => Merchandise::count(),
             'recentProducts' => Product::latest()->take(5)->get()
         ]);
     }

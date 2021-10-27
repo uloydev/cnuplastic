@@ -24,7 +24,7 @@ class ProductController extends Controller
         }
         $products = $products->paginate(20)->withQueryString();
         $totalProduct = $products->count();
-        $categories = ProductCategory::get();
+        $categories = ProductCategory::all();
 
         return view('product.index', get_defined_vars());
     }
