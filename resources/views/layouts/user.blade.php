@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
         name="viewport">
-    <title>Jempol &rsaquo; Dashboard Seller</title>
+    <title>Jempol &rsaquo; Dashboard user</title>
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/ionicons/css/ionicons.min.css') }}">
@@ -13,7 +13,7 @@
         href="{{ asset('modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-lite.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/seller.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user.css') }}">
     @stack('styles')
 </head>
 
@@ -21,8 +21,8 @@
     <div id="app">
         <div class="main-wrapper">
             <div class="navbar-bg"></div>
-            @include('components.seller.navbar')
-            @include('components.seller.sidebar')
+            @include('components.user.navbar')
+            @include('components.user.sidebar')
 
             <div class="main-content">
                 <section class="section">
@@ -34,7 +34,7 @@
                 </section>
             </div>
         </div>
-        @include('components.seller.footer')
+        @include('components.user.footer')
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{{ asset('modules/jquery.min.js') }}"></script>
