@@ -1,4 +1,8 @@
 {
     "/js/style.js": "/js/style.js",
-    "/css/style.css": "/css/style.css"
+    "/css/style.css": "/css/style.css",
+    "/storage/app/public/img/bicycle.jpg": "/storage/app/public/img/bicycle.jpg",
+    "/storage/app/public/img/cbr.jpg": "/storage/app/public/img/cbr.jpg",
+    "/storage/app/public/img/ducati.jpg": "/storage/app/public/img/ducati.jpg",
+    "/storage/app/public/img/ferrari.jpg": "/storage/app/public/img/ferrari.jpg"
 }

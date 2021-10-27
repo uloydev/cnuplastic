@@ -11,7 +11,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid mx-4">
             <a class="navbar-brand" href="{{ route('index') }}">
-                <img src="image/jempol.png" alt="" height="50">
+                <img src="{{ asset('img/icon/logo.png') }}" 
+                alt="{{ config('app.name') }}" height="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -32,10 +33,9 @@
                     </li>
                 </ul>
                 <div class="d-grid gap-2 d-md-block">
-                    <a href="{{ route('merchandise.index') }}" class="btn btn-outline-orange rounded-3">Merchandise</a>
                     <a href="{{ route('products.index') }}" class="btn btn-outline-orange rounded-3">Product</a>
                     <a href="{{ route('login') }}" class="btn btn-orange rounded-3">
-                        Login As Seller
+                        Login
                     </a>
                 </div>
             </div>
@@ -49,7 +49,7 @@
             <div class="col-lg-3 p-5 pe-0">
                 <p class="fw-bold mb-4">Address</p>
                 <address class="d-block">
-                    Jl. RS. Fatmawati Raya, Pd. Labu, Kec. Cilandak, Kota Depok, Jawa Barat 12450
+                    Perumahan Villa Mas asri Blok C1 No4, Ciledug, Kec. Setu, Bekasi, Jawa Barat 17320
                 </address>
             </div>
             <div class="col-lg-3 p-5 pe-0">
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="d-flex align-items-center py-3 bg-navy-darker justify-content-center text-white text-center">
-            <span>Copyright {{ date('Y') }} Design All Right Reserved. Powered by Developer BEM UPNVJ</span>
+            <span>&copy; {{ date('Y') }} CV Catur Naga Utama. All Rights Reserved.</span>
         </div>
     </footer>
 </body>

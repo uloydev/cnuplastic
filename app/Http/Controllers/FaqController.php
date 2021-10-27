@@ -9,9 +9,7 @@ class FaqController extends Controller
 {
     public function index()
     {
-        $faqGeneral = Faq::where('category', 'general')->get();
-        $faqSeller = Faq::where('category', 'seller')->get();
-        $faqBuyer = Faq::where('category', 'buyer')->get();
+        $faqs = Faq::all();
         return view('faq.index', get_defined_vars());
     }
 

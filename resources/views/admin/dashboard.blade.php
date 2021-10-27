@@ -52,21 +52,6 @@ Dashboard
                 </div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="card card-sm-4">
-                <div class="card-icon bg-primary">
-                    <i class="ion ion-pricetags"></i>
-                </div>
-                <div class="card-wrap">
-                    <div class="card-header">
-                        <h4>Total Merch</h4>
-                    </div>
-                    <div class="card-body">
-                        {{ $totalMerch }}
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="card">
         <div class="card-header">

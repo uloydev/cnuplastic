@@ -10,5 +10,5 @@ class Faq extends Model
     use HasFactory;
 
     protected $table = 'faq';
-    protected $fillable = ['category', 'title', 'detail', 'is_pinned'];
+    protected $fillable = ['title', 'detail', 'is_pinned'];
 }

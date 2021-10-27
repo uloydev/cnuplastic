@@ -7,11 +7,12 @@
         <div class="carousel-inner">
             @foreach ($carousels as $carousel)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                    <img src="{{ $carousel->path_img }}" class="img-fluid w-100">
+                    <img src="{{ $carousel->path_img }}" class="img-fluid w-100" 
+                    draggable="false">
                     <div class="container">
                         <div class="carousel-caption text-center">
                             <h1 class="text-white fw-bold m-0">Find Any Product?</h1>
-                            <a href="{{ route('products.index') }}" class="btn btn-lg btn-orange mt-4 rounded-3">Shop Now</a>
+                            <a href="{{ route('products.index') }}" class="btn btn-lg btn-orange mt-4 rounded-3">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -55,20 +56,35 @@
         @endif
 
         <!-- sign up section -->
-        <h3 class="mt-5">Have a product to sell? Sell your product here!</h3>
-        <h5 class="my-3">Easy, Secure, and Free!</h5>
+        <h3 class="my-3">
+            Bingung cari produk untuk kemasan bisnismu? <br> Temukan kebutuhan produk bisnismu di sini!
+        </h3>
+        <h5>
+            Mudah, Aman, dan Terpercaya!
+        </h5>
         <div class="d-grid d-sm-block">
-            <a href="{{ route('register') }}" class="btn btn-orange btn-lg rounded-3 px-5 mt-3">SIGN UP NOW</a>
-            <a href="{{ route('faq.index') }}" class="btn btn-outline-secondary btn-lg rounded-3 px-5 mt-3">Learn More</a>
+            <a href="{{ route('register') }}" 
+            class="btn btn-orange btn-lg rounded-3 px-5 mt-3 me-4">
+                Daftar
+            </a>
+            <a href="{{ route('faq.index') }}" 
+            class="btn btn-outline-secondary btn-lg rounded-3 px-5 mt-3">
+                Bantuan
+            </a>
         </div>
 
         <!-- contact us section -->
+        <h2 class="mt-4 mb-5 text-center">
+            <span class="border-bottom border-dark border-2">Tim Support</span>
+        </h2>
         <div class="row mt-5 align-items-center" id="section-kontak">
             <div class="col-md-6 mb-5">
-                <img data-src="{{ asset('image/email.png') }}" class="d-block w-50 mx-auto lazy">
+                <img data-src="{{ asset('img/static/contact-us.png') }}" 
+                class="d-block mx-auto lazy" height="300px" draggable="false">
             </div>
             <div class="col-md-6 mb-5">
-                <h3 class="fw-bold mb-4">Contact Us</h3>
+                <h3 class="fw-bold mb-4">Perlu Bantuan?</h3>
+                <p>Customer service kami siap melayani anda dari jam 08.00 WIB – 20.00</p>
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Success!</strong> {{ session('success') }}
@@ -96,9 +112,13 @@
                     label="Message" name="message" rows="5" required/>
                     <button type="submit"
                     class="btn btn-sm btn-orange btn-lg rounded-3 px-5 col-12 col-lg-auto">
-                        SEND
+                        Kirim
                     </button>
                 </form>
+                <a href="https://whatsapp.me/6285608489389" 
+                class="btn btn-sm btn-success mt-3" target="_blank">
+                    Kontak Whatsapp Saja
+                </a>
             </div>
         </div>
     </div>

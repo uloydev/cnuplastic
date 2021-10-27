@@ -15,53 +15,30 @@ class FaqSeeder extends Seeder
     public function run()
     {
         $faqs = [
-            "general" => [
-                [
-                    "title" => "Apa itu JEMPOL UPNVJ?",
-                    "is_pinned" => true,
-                    "detail" => "JEMPOL = Jembatan Penjual Online UPNVJ, merupakan wadah yang disediakan untuk para wirausahawan di UPNVJ agar lebih mudah memperjualbelikan produk/jasa yang ditawarkan."
-                ],
-                [
-                    "title" => "Apa perbedaan antara JEMPOL di Instagram dan di Website?",
-                    "detail" => "Instagram digunakan sebagai wadah mempromosikan usaha-usaha milik Sivitas akademisi UPN Veteran Jakarta, sedangkan pada Website digunakan sebagai wadah aktivitas jual beli jasa/produk melalui pasar daring (marketplace)."
-                ],
-                [
-                    "title" => "Apa yang disediakan di Marketplace Jempol?",
-                    "detail" => "• Fitur untuk berjualan dengan mudah
-                    • Fitur untuk dapat menghubungi penjual
-                    • Fitur untuk menjual merchandise
-                    • Fitur untuk request promosi"
-                ]
+            [
+                "title" => "Apa itu CNU Plastic?",
+                "is_pinned" => true,
+                "detail" => "CNU Plastic adalah perusahaan CV Catur Naga Utama yang  memproduksi produk industri plastik yang menjual berbagai macam kebutuhan dan juga keinginan pelanggan untuk kemasan bisnis sesuai dengan kebutuhan."
             ],
-            "seller" => [
-                [
-                    "title" => "Siapa saja yang dapat berjualan di Marketplace Jempol?",
-                    "is_pinned" => true,
-                    "detail" => "Semua Sivitas Akademisi UPNVJ"
-                ],
-                [
-                    "title" => "Apa keuntungan berjualan di Marketplace Jempol?",
-                    "detail" => "• Lebih mudah dan efisien
-                    • Menjangkau target pasar yang lebih luas"
-                ],
-                [
-                    "title" => "Apakah ada biaya pendaftaran untuk penjual?",
-                    "detail" => "Tidak ada"
-                ]
+            [
+                "title" => "Produk apa saja yang terdapat di CNU Plastic?",
+                "is_pinned" => true,
+                "detail" => "CNU Plastic menjual berbagai macam kebutuhan dengan material plastic untuk banyak kategori seperti rumah tangga, makanan, minuman, kesehatan, spray, kosmetik, dan lainnya."
             ],
-            "buyer" => [
-                [
-                    "title" => "Produk apa saja yang terdapat di Marketplace Jempol?",
-                    "is_pinned" => true,
-                    "detail" => "Everything! You can put any good things in here. Selama tidak melanggar hukum di Indonesia."
-                ],
+            [
+                "title" => "Bagaimana cara berbelanja di CNU Plastic?",
+                "is_pinned" => true,
+                "detail" => "1) Pilih produk yang ingin dibeli atau di order
+                2) Kemudian di bagian bawah ada button order now kemudian klik
+                3) Selanjutnya pembeli mengklik button berapa yang ingin di order setelah ketahuan jumlahnya, maka pembeli dapat melihat no rek yang tertera
+                4) Pembeli mentransfer jumlah yang sudah dikalkulasikan ke no rek yang tersedia
+                5) Selanjutnya pembeli mengisi form dan juga menguplaod bukti pembayaran
+                6) Selesai, dan no resi akan dikirimkan melalui whats app dan email"
             ]
         ];
 
-        foreach($faqs as $category => $faq) {
-            foreach($faq as $item) {
-                Faq::create($item + ["category" => $category]);
-            }
+        foreach ($faqs as $faq) {
+            Faq::create($faq);
         }
     }
 }
