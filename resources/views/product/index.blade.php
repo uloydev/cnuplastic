@@ -17,7 +17,8 @@
                                 'category' => $product->productCategory->name,
                                 'price' => $product->price,
                                 'id' => $product->id,
-                                'image' => $product->image
+                                'image' => $product->image,
+                                'type' => 'all'
                             ])
                         </div>
                     @empty
@@ -30,7 +31,7 @@
     </div>
 
     @foreach ($products as $product)
-        @include('partials.product-detail-modal', ['product' => $product])
+        @include('partials.product-detail-modal', ['product' => $product, 'type' => 'all'])
     @endforeach
 
 @endsection
