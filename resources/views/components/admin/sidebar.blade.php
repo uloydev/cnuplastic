@@ -3,7 +3,8 @@
         <div class="sidebar-user">
             <div class="sidebar-user-picture">
                 <img alt="image"
-                    src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : 'http://via.placeholder.com/200' }}">
+                src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : 
+                'http://via.placeholder.com/200' }}">
             </div>
             <div class="sidebar-user-details">
                 <div class="user-name">{{ Auth::user()->name }}</div>
@@ -24,11 +25,15 @@
             </li>
 
             <li class="menu-header">Seller</li>
-            <li data-toggle="tooltip" data-placement="right" data-original-title="List Member"
-                class="{{ Request::is('admin/seller*') ? 'active' : '' }}">
-                <a href="{{ route('admin.seller.index') }}"><i class="ion ion-person"></i>List Member</a>
+            <li data-toggle="tooltip" data-placement="right" 
+            data-original-title="List User" 
+            class="{{ Request::is('admin/seller*') ? 'active' : '' }}">
+                <a href="{{ route('admin.user.index') }}">
+                    <i class="ion ion-person"></i> List User
+                </a>
             </li>
-            <li data-toggle="tooltip" data-placement="right" data-original-title="Request Verification"
+            <li data-toggle="tooltip" data-placement="right" 
+            data-original-title="Request Verification"
                 class="{{ Request::is('admin/account-verification*') ? 'active' : '' }}">
                 <a href="{{ route('admin.account-verification.index') }}"><i class="ion ion-android-checkmark-circle"></i>Request Verification</a>
             </li>

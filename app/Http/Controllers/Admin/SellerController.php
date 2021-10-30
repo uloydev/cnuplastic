@@ -18,8 +18,8 @@ class SellerController extends Controller
      */
     public function index()
     {
-        return view('admin.seller.index')->with([
-            'users' => User::where('role', 'seller')->get(),
+        return view('admin.user.index')->with([
+            'users' => User::where('is_admin', false)->get(),
         ]);
     }
 
@@ -34,7 +34,7 @@ class SellerController extends Controller
         if ($seller->role != 'seller') {
             abort(404);
         }
-        return view('admin.seller.show')->with([
+        return view('admin.user.show')->with([
             'seller' => $seller,
         ]);
     }
