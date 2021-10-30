@@ -1,15 +1,9 @@
 @extends('layouts.admin')
-@section('header')
-    Data Seller
-@endsection
+
+@section('header', 'Data User')
 
 @section('content')
     <div class="card">
-        <div class="card-header">
-            <div class="float-right">
-            </div>
-            <span>Tabel Data Seller</span>
-        </div>
         <div class="card-body">
 
             <div class="table-responsive">

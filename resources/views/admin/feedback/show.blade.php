@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 @section('header')
-    Detail Product
+    <a href="{{ url()->previous() }}" class="mr-2">
+        <i class="ion ion-android-arrow-back"></i>
+    </a>
+    Detail Feedback
 @endsection
 
 @section('content')

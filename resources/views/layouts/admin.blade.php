@@ -27,14 +27,13 @@
             <div class="main-content">
                 <section class="section">
                     <h1 class="section-header">
-                        <div>@yield('header')</div>
+                        <div class="text-capitalize">@yield('header')</div>
                     </h1>
                     @include('components.flash-message')
                     @yield('content')
                 </section>
             </div>
         </div>
-        @include('components.admin.footer')
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{{ asset('modules/jquery.min.js') }}"></script>

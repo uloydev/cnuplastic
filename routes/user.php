@@ -14,7 +14,9 @@
         Route::prefix('order')->name('order.')->group(function () {
             Route::get('unpaid' , [UserController::class, 'unpaidOrder'])->name('unpaid');
             Route::get('paid' , [UserController::class, 'paidOrder'])->name('paid');
-            Route::get('success' , [UserController::class, 'orderSuccess'])->name('success');
+            Route::get('success' , [UserController::class, 'orderSuccess'])->name(
+                'success'
+            );
             Route::get('/{order}' , [UserController::class, 'orderDetail'])->name('show');
             Route::delete('/{order}' , [UserController::class, 'orderDestroy'])->name('destroy');
             Route::get('/{order}/pay' , [UserController::class, 'paymentPage'])->name('pay');

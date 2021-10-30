@@ -18,7 +18,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>email</th>
-                            <th>is answered</th>
+                            <th>Already answered</th>
                             <th>Action</th>
                         </tr>
                     </thead>

@@ -46,7 +46,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        return view('admin.order.show', compact('order'));
     }
 
     /**
@@ -60,16 +60,24 @@ class OrderController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
+    public function verif(Request $request, Order $order)
     {
-        //
+
+        if ($request->status == 'finished') {
+            $order->update([
+                'status' => 'finished'
+            ]);
+        }
+        else if ($request->status == 'unpaid') {
+            $order->update([
+                'status' => 'unpaid',
+                'payment' => null
+            ]);
+        }
+
+        return redirect()->route('admin.order.filter', 'paid')->with(
+            'success', 'Successfully confirm order'
+        );
     }
 
     /**
@@ -81,5 +89,11 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function filter($status)
+    {
+        $orders = Order::where('status', $status)->get();
+        return view('admin.order.filter', compact('orders', 'status'));
     }
 }
