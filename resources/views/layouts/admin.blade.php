@@ -3,9 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
-        name="viewport">
-    <title>Jempol Admin</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+    <title>{{ config('app.name') }} - Admin</title>
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/select2-bootstrap.css') }}">
@@ -28,14 +27,13 @@
             <div class="main-content">
                 <section class="section">
                     <h1 class="section-header">
-                        <div>@yield('header')</div>
+                        <div class="text-capitalize">@yield('header')</div>
                     </h1>
                     @include('components.flash-message')
                     @yield('content')
                 </section>
             </div>
         </div>
-        @include('components.admin.footer')
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{{ asset('modules/jquery.min.js') }}"></script>

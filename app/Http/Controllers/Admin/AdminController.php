@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Order;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
@@ -17,10 +18,17 @@ class AdminController extends Controller
 
     public function dashboard()
     {
+        $totalProduct = Product::count();
+        $recentOrder = Order::with('user')->latest()->take(10)->get();
+        $totalPaid = Order::where('status', 'paid')->count();
+        $totalFinished = Order::where('status', 'finished')->count();
+
         return view('admin.dashboard')->with([
-            'totalProduct' => Product::count(),
-            'totalRequest' => Promote::count(),
-            'recentProducts' => Product::latest()->take(5)->get()
+            'totalProduct' => $totalProduct,
+            'recentOrder' => $recentOrder,
+            'totalPaid' => $totalPaid,
+            'totalFinished' => $totalFinished,
+            'totalUser' => User::where('is_admin', false)->count()
         ]);
     }
 
