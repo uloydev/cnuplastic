@@ -36,19 +36,15 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
-            'identity_id' => 'required|numeric|unique:users',
-            'faculty' => 'required|string',
-            'profession' => 'required|string',
             'whatsapp' => 'required|string',
-            'store' => 'required|string',
-            'store_description' => 'required|string',
         ]);
+
         $validated['password'] = Hash::make($validated['password']);
 
         Auth::login($user = User::create($validated));
 
         event(new Registered($user));
 
-        return redirect()->route('seller.dashboard');
+        return redirect()->route('user.dashboard');
     }
 }

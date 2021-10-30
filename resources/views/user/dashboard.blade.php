@@ -18,7 +18,7 @@
                         <h4>Date</h4>
                     </div>
                     <div class="card-body">
-                        {{ now()->format('d/m/Y') }}
+                        {{ now()->format('d-m-Y') }}
                     </div>
                 </div>
             </div>
@@ -67,21 +67,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            <h5>Information!</h5>
-        </div>
-        <div class="card-body">
-            <center>
-                <h6>Promosikan produk dengan mudah melalui instagram kami <a href="https://www.instagram.com/jempol.upnvj">
-                        @jempol.upnvj</a></h6>
-                <h6>Mulai dari 15.000 per produk</h6><br>
-                <a href="" class="btn btn-oranye btn-block register" style="width: 200px">
-                    Promosikan Sekarang !
-                </a>
-            </center>
         </div>
     </div>
 @endsection

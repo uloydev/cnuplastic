@@ -32,7 +32,9 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg">
                 <i class="ion ion-android-person d-lg-none"></i>
-                <div class="d-sm-none d-lg-inline-block">Hi, Seller</div>
+                <div class="d-sm-none d-lg-inline-block">
+                    Hi, {{ auth()->user()->name }}
+                </div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="#" class="dropdown-item has-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
