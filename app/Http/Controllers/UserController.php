@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserValidation;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -153,5 +154,19 @@ class UserController extends Controller
             return redirect()->back();
         }
         abort(404, 'order not found');
+    }
+
+    public function placeOrder(Request $request)
+    {
+        $product = Product::findOrFail($request->product_id);
+        $order = Order::create([
+            'product_name' => $product->name,
+            'product_price' => $product->price,
+            'quantity' => $request->quantity,
+            'product_id' => $product->id,
+            'user_id' => Auth::id(),
+            'price_total' => $product->price * $request->quantity,
+        ]);
+        return redirect()->route('user.order.pay', $order->id);
     }
 }

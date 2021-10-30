@@ -15,7 +15,9 @@ class Product extends Model
         'image',
         'description',
         'price',
-        'product_category_id'
+        'product_category_id',
+        'is_promo',
+        'is_best_seller',
     ];
 
     protected $with = ['productCategory'];

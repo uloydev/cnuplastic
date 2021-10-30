@@ -7,7 +7,7 @@
         <p class="my-3">{{ $category }}</p>
         <div class="d-flex justify-content-between">
             <a href="javascript:void(0);" class="btn btn-sm btn-navy rounded-3" data-bs-toggle="modal"
-                data-bs-target="#productDetailModal{{ $id }}">Detail</a>
+                data-bs-target="#productDetailModal{{ $type }}{{ $id }}">Detail</a>
             <span class="text-orange">
                 Rp {{ number_format($price) }}
             </span>
