@@ -15,6 +15,12 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'payment' => [
+        'number' => env('PAYMENT_NUMBER'),
+        'name' => env('PAYMENT_NAME'),
+        'bank' => env('PAYMENT_BANK')
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

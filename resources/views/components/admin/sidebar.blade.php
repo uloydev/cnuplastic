@@ -62,6 +62,13 @@
                     <i class="ion ion-bag"></i>Finish Order
                 </a>
             </li>
+
+            <li class="{{ Request::is('admin/payment') ? 'active' : '' }}" data-toggle="tooltip"
+                data-placement="right" data-original-title="Data order">
+                <a href="{{ route('admin.payment.index') }}">
+                    <i class="ion ion-bag"></i> Metode Pembayaran
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

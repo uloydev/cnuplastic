@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class,
             ProductSeeder::class,
             OrderSeeder::class,
-            FeedbackSeeder::class
+            FeedbackSeeder::class,
+            PaymentSettingSeeder::class
         ]);
     }
 }

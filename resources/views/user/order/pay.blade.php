@@ -10,7 +10,11 @@
     <div class="card-primary">
         <div class="card-body">
             <h2 class="mb-3">Pay your Order now !</h2>
-            <h5 class="font-weight-bold">Bayar ke bank BNI norek 0023297312 a/n ghani fadillah</h5>
+            <h5 class="font-weight-bold">
+                Bayar ke bank {{ confi('app.payment.bank') }} norek 
+                {{ config('app.payment.number') }} a/n 
+                {{ config('app.payment.name') }}
+            </h5>
             <div class="form-group">
                 <label>Product Name</label>
                 <p>{{ $order->product_name }}</p>
