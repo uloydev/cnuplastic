@@ -10,25 +10,23 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="{{ Request::is('/dashboard')? 'active' : '' }}" data-toggle="tooltip" data-placement="right" title="" data-original-title="Home">
+            <li class="{{ Request::is('dashboard')? 'active' : '' }}" data-toggle="tooltip" data-placement="right" title="" data-original-title="Home">
                 <a href="{{ route('user.dashboard') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
             </li>
 
             <li class="menu-header">Account</li>
-            <li class="{{ Request::is('/account-setting*') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Account Setting">
+            <li class="{{ Request::is('account-setting') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Account Setting">
                 <a href="{{ route('user.account-setting') }}"><i class="ion ion-person"></i> My Account</a>
             </li>
-            <li class="{{ Request::is('/account-verification*') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Verification Account">
-                <a href="{{ route('user.account-verification') }}"><i class="ion ion-android-checkmark-circle"></i>
-                    Verification</a>
+            <li class="menu-header">Orders</li>
+            <li class="{{ Request::is('order/unpaid') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Unpaid Order">
+                <a href="{{ route('user.order.unpaid') }}"><i class="ion ion-bag"></i> Unpaid Order</a>
             </li>
-
-            <li class="menu-header">Product</li>
-            <li class="{{ Request::is('/product*') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Data Product">
-                <a href="{{ route('user.product.index') }}"><i class="ion ion-bag"></i> Product</a>
+            <li class="{{ Request::is('order/paid') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Paid Order">
+                <a href="{{ route('user.order.paid') }}"><i class="ion ion-bag"></i> Paid Order</a>
             </li>
-            <li class="{{ Request::is('/promotion*') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Request Promotion Product">
-                <a href="{{ route('user.promotion.index') }}"><i class="ion ion-ios-compose"></i> Request Promotion</a>
+            <li class="{{ Request::is('order/success') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" data-original-title="Order Success">
+                <a href="{{ route('user.order.success') }}"><i class="ion ion-bag"></i> Order Success </a>
             </li>
         </ul>
         <div class="p-3 mt-4 mb-4">

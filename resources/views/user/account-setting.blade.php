@@ -1,4 +1,4 @@
-@extends('layouts.seller')
+@extends('layouts.user')
 
 @section('header')
     Account Setting
@@ -8,36 +8,29 @@
 @section('content')
     <div class="card">
         <div class="card-primary">
-            <form enctype="multipart/form-data" method="post" action="{{ route('seller.update-account') }}">
+            <form enctype="multipart/form-data" method="post" action="{{ route('user.update-account') }}">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
                     <div class="form-divider">
-                        Seller Profile
+                        User Profile
                     </div>
                     <hr>
-                    <div class="img-detail">
-                        <img alt="image" src="{{ auth()->user()->avatar ? Storage::url(auth()->user()->avatar) : 'http://via.placeholder.com/200' }}">
-                    </div>
-                    <div class="form-group">
-                        <label>Avatar</label>
-                        <input type="file" class="form-control" name="avatar" tabindex="1">
-                    </div>
                     <div class="form-group">
                         <label>Full Name</label>
                         <input value="{{ auth()->user()->name }}" type="text" class="form-control" name="name" tabindex="1" required>
                     </div>
                     <div class="form-group">
-                        <label>Store Name</label>
-                        <input value="{{ auth()->user()->store }}" type="text" class="form-control" name="store" tabindex="1" required>
+                        <label>Email</label>
+                        <input value="{{ auth()->user()->email }}" type="text" class="form-control" name="email" tabindex="1" required disabled>
                     </div>
                     <div class="form-group">
                         <label>WhatsApp Number</label>
                         <input value="{{ auth()->user()->whatsapp }}" type="text" class="form-control" name="whatsapp" tabindex="1" required>
                     </div>
                     <div class="form-group">
-                        <label>Store Description</label>
-                        <textarea class="summernote-simple" name="store_description">{{ auth()->user()->store_description }}</textarea>
+                        <label>Address</label>
+                        <textarea class="form-control" name="address">{{ auth()->user()->address }}</textarea>
                     </div><br>
                     <div class="form-divider">
                         Account Setting
