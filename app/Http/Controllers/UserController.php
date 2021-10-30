@@ -2,25 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\UserValidation;
+use App\Models\Order;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\UserValidation;
-use App\Models\Product;
-use App\Models\Promote;
-use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    private function orderQuery($status)
+    {
+        return Order::where('user_id', Auth::id())->where('status', $status);
+    }
+
+    private function isCorrectOrder($order)
+    {
+        return $order->user_id == Auth::id();
+    }
+
     public function dashboard()
     {
-        $user = Auth::user();        
         return view('user.dashboard')->with([
-            'unpaidOrder' => 1,
-            'productTotal' => 1,
-            'promoteTotal' => 1,
+            'unpaidOrder' => $this->orderQuery('unpaid')->count(),
+            'paidOrder' => $this->orderQuery('paid')->count(),
+            'successOrder' => $this->orderQuery('finished')->count(),
         ]);
     }
 
@@ -44,37 +53,105 @@ class UserController extends Controller
         }
 
         return redirect()->route('user.account-setting')->with([
-            'success' => 'Berhasil Memperbarui Akun!'
+            'success' => 'Berhasil Memperbarui Akun!',
         ]);
     }
 
-    public function statusVerification()
+    // public function statusVerification()
+    // {
+    //     $verificationStatus = Auth::user()->verification_status;
+    //     if ($verificationStatus == 'not_verified' or $verificationStatus == 'rejected') {
+    //         return view('user.fill-verification', compact('verificationStatus'));
+    //     }
+    //     else {
+    //         return view('user.info-verified', compact('verificationStatus'));
+    //     }
+    // }
+
+    // public function storeVerification(Request $request)
+    // {
+    //     $request->validate([
+    //         'identity_card' => 'required|file|mimes:jpg,jpeg,gif,png|max:2048'
+    //     ]);
+    //     $user = Auth::user();
+    //     if ($request->hasFile('identity_card')) {
+    //         $path = $request->file('identity_card')->store('public/img/identity_card');
+    //         Storage::delete($user->identity_card);
+    //         $user->update([
+    //             'identity_card' => $path,
+    //             'verification_status' => 'requested'
+    //         ]);
+    //     }
+    //     return redirect()->route('user.account-verification')->with([
+    //         'success' => 'Berhasil Membuat request verifikasi Akun!'
+    //     ]);
+    // }
+
+    public function unpaidOrder()
     {
-        $verificationStatus = Auth::user()->verification_status;
-        if ($verificationStatus == 'not_verified' or $verificationStatus == 'rejected') {
-            return view('user.fill-verification', compact('verificationStatus'));
-        }
-        else {
-            return view('user.info-verified', compact('verificationStatus'));
-        }
+        return view('user.order.index', [
+            'title' => "Unpaid Order",
+            'orders' => $this->orderQuery('unpaid')->get(),
+        ]);
     }
 
-    public function storeVerification(Request $request)
+    public function paidOrder()
     {
-        $request->validate([
-            'identity_card' => 'required|file|mimes:jpg,jpeg,gif,png|max:2048'
+        return view('user.order.index', [
+            'title' => "Paid Order",
+            'orders' => $this->orderQuery('paid')->get(),
         ]);
-        $user = Auth::user();
-        if ($request->hasFile('identity_card')) {
-            $path = $request->file('identity_card')->store('public/img/identity_card');
-            Storage::delete($user->identity_card);
-            $user->update([
-                'identity_card' => $path,
-                'verification_status' => 'requested'
+    }
+
+    public function orderSuccess()
+    {
+        return view('user.order.index', [
+            'title' => "OrderSuccess",
+            'orders' => $this->orderQuery('finished')->get(),
+        ]);
+    }
+
+    public function orderDetail(Order $order)
+    {
+        if ($this->isCorrectOrder($order)) {
+            return view('user.order.show', [
+                'order' => $order,
             ]);
         }
-        return redirect()->route('user.account-verification')->with([
-            'success' => 'Berhasil Membuat request verifikasi Akun!'
-        ]);
+        abort(404, 'order not found');
+    }
+
+    public function orderDestroy(Order $order)
+    {
+        if ($this->isCorrectOrder($order) and $order->status == 'unpaid') {
+            $order->delete();
+            return redirect()->route('user.order.unpaid');
+        }
+        abort(404, 'order not found');
+    }
+
+    public function paymentPage(Order $order)
+    {
+        if ($this->isCorrectOrder($order) and $order->status == 'unpaid') {
+            return view('user.order.pay', [
+                'order' => $order,
+            ]);
+        }
+        abort(404, 'order not found');
+    }
+
+    public function payOrder(Request $request, Order $order)
+    {
+        if ($this->isCorrectOrder($order)) {
+            if ($request->hasFile('payment')) {
+                $order->update([
+                    'payment' => $request->file('payment')->store('public/payment'),
+                    'status' => 'paid',
+                ]);
+                return redirect()->route('user.order.paid');
+            }
+            return redirect()->back();
+        }
+        abort(404, 'order not found');
     }
 }

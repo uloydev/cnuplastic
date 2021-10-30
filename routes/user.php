@@ -11,4 +11,13 @@
         Route::post('account-verification', [UserController::class, 'storeVerification']);
         Route::resource('product', ProductController::class)->except(['edit'])->middleware('VerifiedSeller');
         Route::resource('promotion', PromotionController::class)->except(['edit, update'])->middleware('VerifiedSeller');
+        Route::prefix('order')->name('order.')->group(function () {
+            Route::get('unpaid' , [UserController::class, 'unpaidOrder'])->name('unpaid');
+            Route::get('paid' , [UserController::class, 'paidOrder'])->name('paid');
+            Route::get('success' , [UserController::class, 'orderSuccess'])->name('success');
+            Route::get('/{order}' , [UserController::class, 'orderDetail'])->name('show');
+            Route::delete('/{order}' , [UserController::class, 'orderDestroy'])->name('destroy');
+            Route::get('/{order}/pay' , [UserController::class, 'paymentPage'])->name('pay');
+            Route::post('/{order}/pay' , [UserController::class, 'payOrder']);
+        });
     });
