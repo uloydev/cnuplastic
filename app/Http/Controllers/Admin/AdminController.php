@@ -18,7 +18,6 @@ class AdminController extends Controller
     public function dashboard()
     {
         return view('admin.dashboard')->with([
-            'totalSeller' => User::where('role', 'seller')->count(),
             'totalProduct' => Product::count(),
             'totalRequest' => Promote::count(),
             'recentProducts' => Product::latest()->take(5)->get()
