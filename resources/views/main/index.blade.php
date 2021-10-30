@@ -31,7 +31,7 @@
     <!-- main content -->
     <div class="container my-5">
         <!-- new propduct -->
-        <h4 class="text-center">New Product</h4>
+        <h3 class="text-center">New Product</h3>
         <div class="row my-5 gy-4 gx-3 mx-3 justify-content-center">
             @forelse ($latestProduct as $product)
                 <div class="col-lg-3 col-md-6">
@@ -40,7 +40,8 @@
                         'category' => $product->productCategory->name,
                         'price' => $product->price,
                         'id' => $product->id,
-                        'image' => $product->image
+                        'image' => $product->image,
+                        'type' => 'new'
                     ])
                 </div>
             @empty
@@ -54,6 +55,50 @@
             <a href="{{ route('products.index') }}" class="btn btn-outline-orange btn-lg rounded-3 px-5">Show More</a>
         </div>
         @endif
+
+        <!-- best seller propduct -->
+        <hr>
+        <h3 class="text-center mt-5">Best Seller Product</h3>
+        <div class="row my-5 gy-4 gx-3 mx-3 justify-content-center">
+            @forelse ($bestSellerProduct as $product)
+                <div class="col-lg-3 col-md-6">
+                    @include('product.item', [
+                        'name' => $product->name,
+                        'category' => $product->productCategory->name,
+                        'price' => $product->price,
+                        'id' => $product->id,
+                        'image' => $product->image,
+                        'type' => 'best'
+                    ])
+                </div>
+            @empty
+                <x-alert :is-dismissable="false" type="secondary" class="mb-0">
+                    <p class="text-center mb-0">Tidak ada produk best seller</p>
+                </x-alert>
+            @endforelse
+        </div>
+
+        <!-- promo propduct -->
+        <hr>
+        <h3 class="text-center mt-5">Product Promo</h3>
+        <div class="row my-5 gy-4 gx-3 mx-3 justify-content-center">
+            @forelse ($promoProduct as $product)
+                <div class="col-lg-3 col-md-6">
+                    @include('product.item', [
+                        'name' => $product->name,
+                        'category' => $product->productCategory->name,
+                        'price' => $product->price,
+                        'id' => $product->id,
+                        'image' => $product->image,
+                        'type' => 'promo'
+                    ])
+                </div>
+            @empty
+                <x-alert :is-dismissable="false" type="secondary" class="mb-0">
+                    <p class="text-center mb-0">Tidak ada produk promo</p>
+                </x-alert>
+            @endforelse
+        </div>
 
         <!-- sign up section -->
         <h3 class="my-3">
@@ -124,7 +169,15 @@
     </div>
 
     @foreach ($latestProduct as $product)
-        @include('partials.product-detail-modal', ['product' => $product])
+        @include('partials.product-detail-modal', ['product' => $product, 'type' => 'new'])
+    @endforeach
+
+    @foreach ($bestSellerProduct as $product)
+        @include('partials.product-detail-modal', ['product' => $product, 'type' => 'best'])
+    @endforeach
+
+    @foreach ($promoProduct as $product)
+        @include('partials.product-detail-modal', ['product' => $product, 'type' => 'promo'])
     @endforeach
 
 @endsection
