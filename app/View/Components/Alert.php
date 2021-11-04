@@ -12,7 +12,7 @@ class Alert extends Component
      *
      * @return void
      */
-    public function __construct($isDismissable = true, $type, $message = null)
+    public function __construct($isDismissable = true, $type = null, $message = null)
     {
         $this->message = $message;
         $this->isDismissable = $isDismissable;

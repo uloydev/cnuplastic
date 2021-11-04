@@ -14,3 +14,5 @@ $('.table').DataTable({
         'print'
     ]
 });
+
+$(".modal.fade").appendTo($("body"))

@@ -26,6 +26,8 @@ class ProductController extends Controller
         $totalProduct = $products->count();
         $categories = ProductCategory::all();
 
+        // dd($categories);
+
         return view('product.index', get_defined_vars());
     }
 

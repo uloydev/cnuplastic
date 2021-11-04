@@ -35,6 +35,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/category*') ? 'active' : '' }}" data-toggle="tooltip"
+                data-placement="right" data-original-title="Data Category">
+                <a href="{{ route('admin.category.index') }}">
+                    <i class="ion ion-bag"></i>Category
+                </a>
+            </li>
+
             <li class="{{ Request::is('admin/product*') ? 'active' : '' }}" data-toggle="tooltip"
                 data-placement="right" data-original-title="Data Product">
                 <a href="{{ route('admin.product.index', '') }}">

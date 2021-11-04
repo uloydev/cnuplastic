@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PaymentSettingController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SellerController;
 use App\Http\Controllers\Admin\PromotionController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->middleware('CheckRole:admin')->name('admin.')->group(function () {
     Route::redirect('/', 'admin/dashboard');
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class)->only([
         'index', 'show', 'destroy'
     ]);

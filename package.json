@@ -20,10 +20,13 @@
         "laravel-mix-serve": "^2.1.0",
         "postcss": "^8.2.1",
         "postcss-import": "^12.0.1",
+        "postcss-loader": "^3.0.0",
         "resolve-url-loader": "^3.1",
         "sass": "^1.32.8",
         "sass-loader": "^10.1.1",
-        "tailwindcss": "^2.0.2"
+        "tailwindcss": "^2.0.2",
+        "webpack": "^5.61.0",
+        "webpack-cli": "^4.9.1"
     },
     "dependencies": {
         "@popperjs/core": "^2.9.2",

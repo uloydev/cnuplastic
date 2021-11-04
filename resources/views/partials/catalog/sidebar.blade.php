@@ -1,4 +1,4 @@
-<div class="col-md-4 col-lg-3 bg-light sidebar">
+<div class="col-md-4 col-lg-3 bg-light sidebar my-4">
     <div class="px-4 pt-3 fw-bold">
         <img src="{{asset('image/dot.png')}}" class="me-3" width="30px" 
         alt="{{ config('app.name') . " $catalogName" }}">
@@ -15,7 +15,7 @@
         @foreach ($categories as $category)
             <li class="nav-item">
                 <a href="{{ route($catalogName . '.index', ['cat' => $category->id]) }}" class="nav-link link-dark 
-                {{ request()->cat == $category->id ? 'active' : '' }}">
+                {{ request()->cat == $category->id ? 'active' : '' }} rounded-0">
                     {{ $category->name }}
                 </a>
             </li>

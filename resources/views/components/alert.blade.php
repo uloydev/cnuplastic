@@ -1,5 +1,5 @@
 <div role="alert" 
-@if($isDismissable)
+@if(isset($isDismissable) and $isDismissable)
 {{ $attributes->merge([
     'class' => 'alert alert-' . $type . ' alert-dismissible fade show'
 ]) }}
@@ -13,7 +13,7 @@
     @else
     {{ $slot }}
     @endif
-    @if ($isDismissable)
+    @if (isset($isDismissable) and $isDismissable)
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
