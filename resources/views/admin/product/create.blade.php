@@ -1,6 +1,9 @@
-@extends('layouts.seller')
+@extends('layouts.admin')
 
 @section('header')
+    <a href="{{ route('admin.product.index') }}" class="mr-2">
+        <i class="ion ion-android-arrow-back"></i>
+    </a>
     Tambah Product
 @endsection
 
@@ -8,12 +11,13 @@
 @section('content')
     <div class="card">
         <div class="card-primary">
-            <form enctype="multipart/form-data" method="post" action="{{ route('seller.product.store') }}">
+            <form enctype="multipart/form-data" method="post" action="{{ route('admin.product.store') }}">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
                         <label>Product Name</label>
-                        <input type="text" class="form-control" name="name" tabindex="1" required value="{{ old('name') }}">
+                        <input type="text" class="form-control" name="name" tabindex="1" required 
+                        value="{{ old('name') }}">
                     </div>
                     <div class="form-group">
                         <label>Price</label>

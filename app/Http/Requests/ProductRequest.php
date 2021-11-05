@@ -29,11 +29,8 @@ class ProductRequest extends FormRequest
             'product_category_id' => 'required',
             'description' => 'required|string',
             'image' => 'file|mimes:jpg,jpeg,gif,png|max:2048',
-            'link_shopee' => 'nullable|string',
-            'link_tokopedia' => 'nullable|string',
-            'link_bukalapak' => 'nullable|string',
-            'link_lazada' => 'nullable|string',
-            'link_instagram' => 'nullable|string',
+            'is_promo' => 'nullable|boolean',
+            'is_best_seller' => 'nullable|boolean',
         ];
     }
 }

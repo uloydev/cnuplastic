@@ -14,9 +14,8 @@ Route::prefix('admin')->middleware('CheckRole:admin')->name('admin.')->group(fun
     Route::redirect('/', 'admin/dashboard');
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('category', CategoryController::class);
-    Route::resource('product', ProductController::class)->only([
-        'index', 'show', 'destroy'
-    ]);
+    Route::put('product/{id}', [ProductController::class, 'markAs'])->name('product.markAs');
+    Route::resource('product', ProductController::class)->except('edit');
     Route::resource('user', SellerController::class)->only(['index', 'show']);
     Route::resource('promotion', PromotionController::class)->only(['index', 'show', 'update']);
     Route::prefix('account-verification')->name('account-verification.')

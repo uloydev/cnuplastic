@@ -31,9 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('seller.product.create')->with([
-            'productCategories' => ProductCategory::all()
-        ]);
+        
     }
 
     /**
@@ -44,16 +42,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $validated = $request->validated();
-        $validated['user_id'] = Auth::id();
-        $product = Product::create($validated);
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('public/img/product');
-            $product->update(['image' => $path]);
-        }
-        return redirect()->route('seller.product.create')->with([
-            'success' => 'Berhasil Menambahkan Product!'
-        ]);
+        
     }
 
     /**
@@ -64,11 +53,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $this->checkProduct($product);
-        return view('seller.product.show')->with([
-            'product' => $product,
-            'productCategories' => ProductCategory::all(),
-        ]);
+        
     }
 
     /**
@@ -80,16 +65,7 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        $this->checkProduct($product);
-        $product->update($request->validated());
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('public/img/product');
-            Storage::delete($product->image);
-            $product->update(['image' => $path]);
-        }
-        return redirect()->route('seller.product.show', $product->id)->with([
-            'success' => 'Berhasil Memperbarui Product!'
-        ]);
+        
     }
 
     /**
@@ -109,10 +85,4 @@ class ProductController extends Controller
         return redirect()->route('seller.product.index')->with(['success' => 'Berhasil Menghapus Product!']);
     }
 
-    private function checkProduct(Product $product)
-    {
-        if ($product->user_id != Auth::id()) {
-            abort(403);
-        }
-    }
 }

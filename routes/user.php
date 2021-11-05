@@ -1,5 +1,7 @@
 <?php
-    use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Seller\ProductController;
+use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\UserController;
 
 
@@ -9,7 +11,6 @@
         Route::put('update-account', [UserController::class, 'update'])->name('update-account');
         Route::get('account-verification', [UserController::class, 'statusVerification'])->name('account-verification');
         Route::post('account-verification', [UserController::class, 'storeVerification']);
-        Route::resource('product', ProductController::class)->except(['edit'])->middleware('VerifiedSeller');
         Route::resource('promotion', PromotionController::class)->except(['edit, update'])->middleware('VerifiedSeller');
         Route::prefix('order')->name('order.')->group(function () {
             Route::get('unpaid' , [UserController::class, 'unpaidOrder'])->name('unpaid');
