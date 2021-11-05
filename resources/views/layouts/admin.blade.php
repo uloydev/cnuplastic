@@ -26,9 +26,9 @@
             @include('components.admin.sidebar')
             <div class="main-content">
                 <section class="section">
-                    <h1 class="section-header">
-                        <div class="text-capitalize">@yield('header')</div>
-                    </h1>
+                    <div class="section-header text-capitalize h4 d-flex">
+                        @yield('header')
+                    </div>
                     @include('components.flash-message')
                     @yield('content')
                 </section>

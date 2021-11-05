@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @section('header')
-    Data Product
+    <span class="mr-auto">Data Product</span>
+    <a href="{{ route('admin.product.best-seller') }}" class="btn btn-primary btn-sm mr-3">See best seller product</a>
+    <a href="{{ route('admin.product.promos') }}" class="btn btn-success btn-sm">See promo product</a>
 @endsection
 
 @section('content')

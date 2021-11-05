@@ -83,6 +83,20 @@ class ProductController extends Controller
         ]);
     }
 
+    public function bestSeller()
+    {
+        return view('admin.product.best-seller')->with([
+            'bestSeller' => Product::where('is_promo', true)->get()
+        ]);
+    }
+
+    public function promos()
+    {
+        return view('admin.product.promo')->with([
+            'promos' => Product::where('is_promo', true)->get()
+        ]);
+    }
+
     public function markAs(Request $request , $id)
     {
         $product = Product::where('id', $id);
