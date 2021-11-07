@@ -11,9 +11,9 @@
         <div class="card-body">
             <h2 class="mb-3">Pay your Order now !</h2>
             <h5 class="font-weight-bold">
-                Bayar ke bank {{ confi('app.payment.bank') }} norek 
-                {{ config('app.payment.number') }} a/n 
-                {{ config('app.payment.name') }}
+                Bayar ke bank {{ $paymentSetting->bank }} norek 
+                {{ $paymentSetting->number }} a/n 
+                {{ $paymentSetting->holder_name }}
             </h5>
             <div class="form-group">
                 <label>Product Name</label>

@@ -1,11 +1,6 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-user">
-            <div class="sidebar-user-picture">
-                <img alt="image"
-                src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : 
-                'http://via.placeholder.com/200' }}">
-            </div>
             <div class="sidebar-user-details">
                 <div class="user-name">{{ Auth::user()->name }}</div>
                 <div class="user-role">

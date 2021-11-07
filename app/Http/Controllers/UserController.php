@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserValidation;
 use App\Models\Order;
+use App\Models\PaymentSetting;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -136,6 +137,7 @@ class UserController extends Controller
         if ($this->isCorrectOrder($order) and $order->status == 'unpaid') {
             return view('user.order.pay', [
                 'order' => $order,
+                'paymentSetting' => PaymentSetting::first(),
             ]);
         }
         abort(404, 'order not found');

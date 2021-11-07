@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
         name="viewport">
-    <title>Jempol &rsaquo; Dashboard user</title>
+    <title>{{ config('app.name') }} &rsaquo; Dashboard user</title>
+    <link rel="icon" href="{{ asset('img/icon/logo.png') }}" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/ionicons/css/ionicons.min.css') }}">

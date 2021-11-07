@@ -17,19 +17,6 @@
                     </p>
                 </div>
                 <h4 class="fw-bold mb-3">Our Services</h4>
-                <div class="row g-2">
-                    @foreach ($services as $service)
-                    <div class="col-md-3">
-                        <div class="border border-2 rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
-                            <img data-src="{{ asset($service->icon) }}" 
-                            class="d-block w-50 mx-auto lazy" 
-                            data-bg="{{ asset('img/static/placeholder-image.png') }}" 
-                            alt="{{ config('app.name') . ' ' . $service->slogan }}">
-                            <p class="text-center fw-bold mb-0">{{ $service->slogan }}</p>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
                 <div class="d-md-flex align-items-center mt-5">
                     <img src="image/group.png" class="d-block w-25 mx-auto mx-sm-5 mb-3" alt="">
                     <div>
@@ -51,22 +38,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 d-flex flex-column justify-content-around">
+            <div class="col-lg-4 d-flex flex-column justify-content-start">
                 <img data-src="{{ asset('img/icon/logo.png') }}" 
                 class="d-block w-100 lazy" alt=""
                 data-bg="{{ asset('img/static/placeholder-image.png') }}" >
-                <div>
-                    <h4 class="text-center fw-bold mb-4">Created By</h4>
-                    <img src="image/logo/mardhika.png" class="d-block w-25 mx-auto" alt="">
-                    <div class="d-flex justify-content-evenly">
-                        <img data-src="{{ asset('image/logo/kesekretariatan.png') }}"
-                        data-bg="{{ asset('img/static/placeholder-image.png') }}"  
-                        class="d-block w-25 lazy" alt="">
-                        <img data-src="{{ asset('image/logo/kominfo.png') }}"
-                        data-bg="{{ asset('img/static/placeholder-image.png') }}"
-                        class="d-block w-25 lazy" alt="">
-                    </div>
-                </div>
             </div>
         </div>
     </div>

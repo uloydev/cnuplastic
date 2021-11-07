@@ -52,13 +52,13 @@
 
     <footer>
         <div class="row g-0 gs-5 bg-navy text-white">
-            <div class="col-lg-3 p-5 pe-0">
+            <div class="col-lg-4 p-5 pe-0">
                 <p class="fw-bold mb-4">Address</p>
                 <address class="d-block">
                     Perumahan Villa Mas asri Blok C1 No4, Ciledug, Kec. Setu, Bekasi, Jawa Barat 17320
                 </address>
             </div>
-            <div class="col-lg-3 p-5 pe-0">
+            <div class="col-lg-4 p-5 pe-0">
                 <p class="fw-bold mb-4">Contact</p>
                 <ul>
                     @foreach ($contacts as $contact)
@@ -69,7 +69,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="col-lg-3 p-5 pe-0">
+            <div class="col-lg-4 p-5 pe-0">
                 <p class="fw-bold mb-4">Frequently Ask Questions</p>
                 <ol class="ps-3">
                     @foreach ($pinnedFaq as $faq)
@@ -81,13 +81,6 @@
                         </li>
                     @endforeach
                 </ol>
-            </div>
-            <div class="col-lg-3 d-flex align-items-center ps-sm-5">
-                <div class="bg-white rounded h-50 px-4 d-flex align-items-center">
-                    <img src="image/logo/kesekretariatan.png" class="w-25 mx-auto">
-                    <box-icon name='x'></box-icon>
-                    <img src="image/logo/kominfo.png" class="w-25 mx-auto">
-                </div>
             </div>
         </div>
         <div class="d-flex align-items-center py-3 bg-navy-darker justify-content-center text-white text-center">

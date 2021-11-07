@@ -9,26 +9,6 @@
         </ul>
     </form>
     <ul class="navbar-nav navbar-right">
-        <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
-                class="nav-link notification-toggle nav-link-lg beep"><i
-                    class="ion ion-ios-bell-outline"></i></a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right">
-                <div class="dropdown-header">Notifications
-                </div>
-                <div class="dropdown-list-content">
-                    @foreach ($notification->where('status', 'requested')->take(15)->get() as $item)
-                        <a href="{{ route('admin.promotion.show', $item->id) }}" class="dropdown-item dropdown-item-unread">
-                            <img alt="image" src="{{ $item->user->avatar ? Storage::url($item->user->avatar) : 'http://via.placeholder.com/200' }}"
-                                class="rounded-circle dropdown-item-img">
-                            <div class="dropdown-item-desc">
-                                <b>{{ $item->user->name }}</b> request promotion
-                                <div class="time">{{ $item->created_at->diffForHumans() }}</div>
-                            </div>
-                        </a>
-                    @endforeach
-                </div>
-            </div>
-        </li>
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg">
                 <i class="ion ion-android-person d-lg-none"></i>

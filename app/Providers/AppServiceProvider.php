@@ -50,7 +50,6 @@ class AppServiceProvider extends ServiceProvider
         View::share('olshops', $olshops);
 
         try {
-            View::share('notification', Promote::with('user')->latest());
             View::share('pinnedFaq', Faq::where('is_pinned', true)->get());
         } catch (\Throwable $th) {
             //throw $th;
