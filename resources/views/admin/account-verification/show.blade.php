@@ -24,10 +24,6 @@
                     <label>Profession</label>
                     <h6>{{ $seller->profession }}</h6>
                 </div>
-                <div class="form-group">
-                    <label>Faculty</label>
-                    <h6>{{ $seller->faculty }}</h6>
-                </div>
                 <hr>
                 <div class="form-group">
                     <label>Store Name</label>

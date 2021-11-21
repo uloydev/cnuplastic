@@ -9,8 +9,7 @@
     <div class="card">
         <div class="card-primary">
             <form enctype="multipart/form-data" method="post" action="{{ route('user.update-account') }}">
-                @csrf
-                @method('PUT')
+                @csrf @method('PUT')
                 <div class="card-body">
                     <div class="form-divider">
                         User Profile

@@ -19,7 +19,6 @@
                             <th>User ID</th>
                             <th>Seller Name</th>
                             <th>Profession</th>
-                            <th>Faculty</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -29,7 +28,6 @@
                                 <td>{{ $seller->identity_id }}</td>
                                 <td>{{ $seller->name }}</td>
                                 <td>{{ $seller->profession }}</td>
-                                <td>{{ $seller->faculty }}</td>
                                 <td>
                                     <a href="{{ route('admin.account-verification.show', $seller->id) }}" class="btn btn-sm btn-oranye">
                                         <span class="ion-search" aria-hidden="true">&nbsp; Detail</span>
