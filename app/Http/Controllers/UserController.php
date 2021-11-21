@@ -43,7 +43,7 @@ class UserController extends Controller
     public function update(UserValidation $request)
     {
         $user = Auth::user();
-        $user->update($request->only(['name', 'whatsapp', 'store', 'store_description']));
+        $user->update($request->only(['name', 'whatsapp']));
         if ($request->has('password')) {
             Auth::user()->update(['password' => Hash::make($request['password'])]);
         }
