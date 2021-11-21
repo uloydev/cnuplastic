@@ -26,10 +26,6 @@
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label>Store Name</label>
-                    <h6>{{ $seller->store }}</h6>
-                </div>
-                <div class="form-group">
                     <label>WhatsApp Number</label>
                     <h6>{{ $seller->whatsapp }}</h6>
                 </div>
