@@ -104,14 +104,18 @@ $(function() {
 		$(".summernote").summernote({
 			minHeight: 250,
 		});
-		$(".summernote-simple").summernote({
-			minHeight: 150,
-			toolbar: [
-				['style', ['bold', 'italic', 'underline', 'clear']],
-				['font', ['strikethrough']],
-				['para', ['paragraph']]
-			]
-		});
+
+		$(".summernote-simple").each(function () {
+			const textarea = $(this).attr('name')
+			$(`textarea[name='${textarea}']`).summernote({
+				minHeight: 150,
+				toolbar: [
+					['style', ['bold', 'italic', 'underline', 'clear']],
+					['font', ['strikethrough']],
+					['para', ['paragraph']]
+				]
+			});
+		})
 	}
 
 	// Dismiss function

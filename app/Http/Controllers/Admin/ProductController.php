@@ -68,8 +68,6 @@ class ProductController extends Controller
 
     public function update(Product $product, ProductRequest $request)
     {
-        $this->checkProduct($product);
-
         $product->update($request->validated());
 
         if ($request->hasFile('image')) {
@@ -78,7 +76,7 @@ class ProductController extends Controller
             $product->update(['image' => $path]);
         }
 
-        return redirect()->route('seller.product.show', $product->id)->with([
+        return redirect()->route('admin.product.index')->with([
             'success' => 'Berhasil Memperbarui Product!'
         ]);
     }
@@ -110,15 +108,17 @@ class ProductController extends Controller
                 'is_best_seller' => $request->mark_as_best_seller
             ]);
 
-            $successMessage = $request->mark_as_best_seller ? 'mark product as best seller' : 'unmark product as best seller';;
+            $successMessage = $request->mark_as_best_seller ? 'mark product as best seller' : 
+            'unmark product as best seller';;
         }
 
         if ($request->has('mark_as_promo')) {
             $product->update([
-                'is_promo' => $request->mark_as_promo
+                'is_promo' => $request->boolean('mark_as_promo')
             ]);
 
-            $successMessage = $request->mark_as_best_seller ? 'mark product as promo' : 'unmark product as promo';
+            $successMessage = $request->mark_as_promo ? 'mark product as promo' : 
+            'unmark product as promo';
         }
 
         return redirect()->back()->with('success', "Succesfully  $successMessage");

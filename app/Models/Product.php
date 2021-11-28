@@ -20,6 +20,10 @@ class Product extends Model
         'is_best_seller',
     ];
 
+    protected $casts = [
+        'is_promo' => 'boolean',
+    ];
+
     protected $with = ['productCategory'];
 
     public function productCategory()

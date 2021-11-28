@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea name="description" class="summernote-simple">{{ old('name') }}</textarea>
+                        <textarea name="description" class="summernote-simple">{{ old('description') }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Product Images</label>

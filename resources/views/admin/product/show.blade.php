@@ -9,7 +9,8 @@
 @section('content')
     <div class="card">
         <div class="card-primary">
-            <div class="card-body">
+            <form class="card-body" method="POST" action="{{ route('admin.product.update', $product->id) }}">
+                @csrf @method('PUT')
                 <div class="img-detail">
                     <img alt="image"
                     src="{{ $product->image ? Storage::url($product->image) : 'http://via.placeholder.com/200' }}">
@@ -43,15 +44,14 @@
                 </div>
                 <div class="form-group">
                     <label>Product Images</label>
-                    <input type="file" class="form-control" name="image" tabindex="1" required>
-                </div><br>
-                <h5>Product Links</h5>
+                    <input type="file" class="form-control" name="image" tabindex="1">
+                </div>
                 <div class="form-group">
                     <button type="submit" name="submit" class="btn btn-oranye" tabindex="1">
                         <b>SAVE</b>
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 @endsection

@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
             'price' => 'required|numeric',
             'product_category_id' => 'required',
             'description' => 'required|string',
-            'image' => 'file|mimes:jpg,jpeg,gif,png|max:2048',
+            'image' => 'nullable|mimes:jpg,jpeg,gif,png|max:2048',
             'is_promo' => 'nullable|boolean',
             'is_best_seller' => 'nullable|boolean',
         ];

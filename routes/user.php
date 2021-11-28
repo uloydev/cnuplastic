@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Route;
         Route::put('update-account', [UserController::class, 'update'])->name('update-account');
         Route::get('account-verification', [UserController::class, 'statusVerification'])->name('account-verification');
         Route::post('account-verification', [UserController::class, 'storeVerification']);
-        Route::resource('promotion', PromotionController::class)->except(['edit, update'])->middleware('VerifiedSeller');
         Route::prefix('order')->name('order.')->group(function () {
             Route::get('unpaid' , [UserController::class, 'unpaidOrder'])->name('unpaid');
             Route::get('paid' , [UserController::class, 'paidOrder'])->name('paid');

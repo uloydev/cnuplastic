@@ -70,7 +70,7 @@
                                         action="{{ route('admin.product.markAs', $product->id) }}">
                                         @csrf @method("PUT")
                                         <button type="submit" name="mark_as_promo"
-                                        value="{{ !$product->is_promo }}"
+                                        value="{{ $product->is_promo ? 0 : 1 }}"
                                         class="btn btn-sm @if($product->is_promo) btn-success @else btn-primary @endif">
                                             @if($product->is_promo)
                                                 Unmark as promo
@@ -94,6 +94,8 @@
     <script>
         $('.delete-btn').click(function(e) {
             e.preventDefault();
+            var form = $(this).parents('form');
+
             Swal.fire({
                 title: 'Apa anda yakin ingin menghapus product ini?',
                 text: '',
@@ -102,7 +104,7 @@
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                    $('#' + $(this).attr('form')).submit()
+                    form.submit()
                 }
             });
         });

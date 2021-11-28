@@ -31,8 +31,9 @@ class FeedbackController extends Controller
 
     public function update(Request $request, Feedback $feedback)
     {
-        $feedback->update($request->only(['answer']));
+        // dd(env('MAIL_PASSWORD'));
         Mail::to($feedback->email)->send(new FeedbackMail($feedback));
+        $feedback->update($request->only(['answer']));
         return redirect()->route('admin.feedback.show', $feedback->id)->with(['success' => 'Sukses membalas feedback!']);
     }
 }
