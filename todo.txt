@@ -13,7 +13,7 @@ TODO LIST CNU PLASTIC
     - add route
     - add relationship order has one product_rating
     - add relationship product has many product_rating
-    - update product modal to show product rating
+    - add relationship product_rating belongs to user
     - add rating button in finished order (user side)
 
 // i don't think we have enough time

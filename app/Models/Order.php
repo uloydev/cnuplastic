@@ -20,4 +20,9 @@ class Order extends Model
     {
         return $this->belongsTo('App\Models\Product');
     }
+
+    public function productRating()
+    {
+        return $this->hasOne('App\Models\ProductRating');
+    }
 }

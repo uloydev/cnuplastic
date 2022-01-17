@@ -31,4 +31,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\ProductCategory');
     }
+
+    public function productRatings()
+    {
+        return $this->hasMany('App\Model\ProductRating');
+    }
 }
