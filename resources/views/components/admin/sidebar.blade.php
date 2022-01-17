@@ -18,7 +18,7 @@
                 data-toggle="tooltip" data-placement="right" title="" data-original-title="Home">
                 <a href="{{ route('admin.feedback.index') }}">
                     <i class="ion ion-email"></i>
-                    <span>Feedback</span>
+                    <span>Laporan User</span>
                 </a>
             </li>
 

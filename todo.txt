@@ -1,0 +1,43 @@
+TODO LIST CNU PLASTIC
+
+- add birthday to user
+    - update migration
+    - update factory
+    - update model
+    - update regist form
+    - update user profile page
+    - update show user in admin
+- add product rating 
+    - create migration and model
+    - add crud
+    - add route
+    - add relationship order has one product_rating
+    - add relationship product has many product_rating
+    - update product modal to show product rating
+    - add rating button in finished order (user side)
+
+// i don't think we have enough time
+// for now skip this feature
+- add cart feature
+    - add cart migration, model
+    - add cart_product migration, model
+    - add order_product migration, seeder, model
+    - update order migration, seeder, model
+    - add relationship cart has many cart_product
+    - add relationship order has many order_product
+    - add relationship order_product has one product_rating
+    - remove relation order has one product_rating
+    - update order menu view (user side)
+    - update order menu view (admin side)
+
+
+rating
+
+- id
+- score
+- order_id
+- user_id
+- product_id
+
+Product::withAvg('productRating', 'score')->all();
+product_rating_avg_score
