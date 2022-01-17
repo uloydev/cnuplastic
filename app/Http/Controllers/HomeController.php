@@ -11,9 +11,9 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        $latestProduct = Product::latest()->limit(4)->get();
-        $bestSellerProduct = Product::where('is_best_seller', true)->get();
-        $promoProduct = Product::where('is_promo', true)->get();
+        $latestProduct = Product::withAvg('productRatings', 'score')->latest()->limit(4)->get();
+        $bestSellerProduct = Product::withAvg('productRatings', 'score')->where('is_best_seller', true)->get();
+        $promoProduct = Product::withAvg('productRatings', 'score')->where('is_promo', true)->get();
         $carousels = Carousel::all();
         return view('main.index', get_defined_vars());
     }

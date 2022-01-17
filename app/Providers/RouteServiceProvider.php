@@ -47,6 +47,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+
+        // auto fetch product rating avg relation in product model
+        Route::bind('product', function ($value) {
+            return Product::withAvg('productRatings', 'score')->findOrFail($value);
+        });        
     }
 
     /**

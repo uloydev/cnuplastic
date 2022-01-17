@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
             Route::delete('/{order}' , [UserController::class, 'orderDestroy'])->name('destroy');
             Route::get('/{order}/pay' , [UserController::class, 'paymentPage'])->name('pay');
             Route::post('/{order}/pay' , [UserController::class, 'payOrder']);
+            Route::post('/{order}/rate' , [UserController::class, 'rateProduct'])->name('rate-product');
         });
     });

@@ -8,13 +8,21 @@ TODO LIST CNU PLASTIC
     - update user profile page
     - update show user in admin
 - add product rating 
-    - create migration and model
-    - add crud
-    - add route
-    - add relationship order has one product_rating
-    - add relationship product has many product_rating
-    - add relationship product_rating belongs to user
+    - create migration and model [DONE]
+    - add crud [DONE]
+    - add route [DONE]
+    - add relationship order has one product_rating [DONE]
+    - add relationship product has many product_rating [DONE]
+    - add relationship product_rating belongs to user [DONE]
     - add rating button in finished order (user side)
+    - add rating in product show/edit (admin side)
+    note:
+        max rating 10
+        if no rating empty stars
+        rating must be int
+        route name 'user.order.rate-product' -> nedd to pass order id
+        route model binding Product automatically fetch productRatings Average value
+
 
 // i don't think we have enough time
 // for now skip this feature
