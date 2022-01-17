@@ -161,6 +161,12 @@ class UserController extends Controller
     public function placeOrder(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
+        if ($request->quantity > $product->stock) {
+            return redirect()->back()->with([
+                'error' => 'Maaf, stok barang tidak cukup.'
+            ]);
+        }
+
         $order = Order::create([
             'product_name' => $product->name,
             'product_price' => $product->price,
@@ -169,6 +175,10 @@ class UserController extends Controller
             'user_id' => Auth::id(),
             'price_total' => $product->price * $request->quantity,
         ]);
+
+        $product->stock -= $request->quantity;
+        $product->save();
+
         return redirect()->route('user.order.pay', $order->id);
     }
 }

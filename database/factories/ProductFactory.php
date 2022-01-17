@@ -31,6 +31,7 @@ class ProductFactory extends Factory
             ]),
             'description' => $this->faker->paragraph(7),
             'price' => $this->faker->numberBetween(10000, 100000),
+            'stock' => $this->faker->numberBetween(10, 50),
             'product_category_id' => $this->faker->numberBetween(1, 6),
             'is_promo' => $this->faker->boolean(10),
             'is_best_seller' => $this->faker->boolean(10),

@@ -18,6 +18,7 @@
                             {{ $product->productCategory->name }}
                         </div>
                         <h4>Rp {{ number_format($product->price) }}</h4>
+                        <p class="mt-4">Stock : {{ number_format($product->stock) }}</p>
                         <div class="border border-1 border-start-0 border-end-0 border-dark my-2 py-1">
                             Product Description
                         </div>
@@ -34,13 +35,19 @@
                         </div>
                         <form action="{{ route('user.order.store') }}" method="post" class="mt-5">
                             @csrf
+                            @if ($product->stock <= 0)
+                                <div class="d-grid mt-3">
+                                    <button type="button" class="btn btn-secondary fw-bold rounded-3">Maaf, Stok Kosong</button>
+                                </div>
+                            @else
+                                <label for="exampleFormControlInput1" class="form-label">Order Quantity</label>
+                                <input type="number" class="form-control" placeholder="Quantity" aria-label="Quantity"
+                                    min="1" value="1" name="quantity" required>
+                                <div class="d-grid mt-3">
+                                    <button type="submit" class="btn btn-primary fw-bold rounded-3">Order Now</button>
+                                </div>
+                            @endif
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                            <label for="exampleFormControlInput1" class="form-label">Order Quantity</label>
-                            <input type="number" class="form-control" placeholder="Quantity" aria-label="Quantity"
-                                min="1" value="1" name="quantity" required>
-                            <div class="d-grid mt-3">
-                                <button type="submit" class="btn btn-primary fw-bold rounded-3">Order Now</button>
-                            </div>
                         </form>
                     </div>
                 </div>

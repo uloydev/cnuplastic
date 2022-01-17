@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('image')->nullable();
             $table->text('description');
             $table->string('price');
+            $table->integer('stock')->default(0);
             $table->boolean('is_best_seller')->default(false);
             $table->boolean('is_promo')->default(false);
             $table->foreignId('product_category_id');
