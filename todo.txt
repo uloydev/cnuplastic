@@ -1,12 +1,12 @@
 TODO LIST CNU PLASTIC
 
 - add birthday to user
-    - update migration
-    - update factory
-    - update model
-    - update regist form
-    - update user profile page
-    - update show user in admin
+    - update migration [DONE]
+    - update factory [DONE]
+    - update model [DONE
+    - update regist form [DONE]
+    - update user profile page [DONE]
+    - update show user in admin [DONE]
 - add product rating 
     - create migration and model [DONE]
     - add crud [DONE]
@@ -24,8 +24,7 @@ TODO LIST CNU PLASTIC
         route model binding Product automatically fetch productRatings Average value
 
 
-// i don't think we have enough time
-// for now skip this feature
+// for now skip this feature, time not enough
 - add cart feature
     - add cart migration, model
     - add cart_product migration, model
