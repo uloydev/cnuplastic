@@ -28,6 +28,10 @@
                         <input value="{{ auth()->user()->whatsapp }}" type="text" class="form-control" name="whatsapp" tabindex="1" required>
                     </div>
                     <div class="form-group">
+                        <label>Date of birth</label>
+                        <input value="{{ auth()->user()->date_of_birth }}" type="date" class="form-control" name="date_of_birth" tabindex="1" required>
+                    </div>
+                    <div class="form-group">
                         <label>Address</label>
                         <textarea class="form-control" name="address">{{ auth()->user()->address }}</textarea>
                     </div><br>

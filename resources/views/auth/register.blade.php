@@ -27,9 +27,16 @@
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="waNumber">WhatsApp Number</label>
-                            <input id="waNumber" type="text" class="form-control" name="whatsapp" value="{{ old('whatsapp') }}">
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="waNumber">WhatsApp Number</label>
+                                <input id="waNumber" type="text" class="form-control" name="whatsapp" value="{{ old('whatsapp') }}">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="waNumber">Date of birth</label>
+                                <input id="waNumber" type="date" class="form-control" name="date_of_birth" 
+                                value="{{ old('date_of_birth') }}" min="1945-08-17" max="{{ date('Y-m-d') }}">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="password" class="d-block">Password</label>

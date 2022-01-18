@@ -22,7 +22,8 @@ class User extends Authenticatable
         'password',
         'whatsapp',
         'is_admin',
-        'address'
+        'address',
+        'date_of_birth'
     ];
 
     /**

@@ -13,6 +13,7 @@
                             <th>User Name</th>
                             <th>User Email</th>
                             <th>Whatsapp Number</th>
+                            <th>Date of Birth</th>
                             <th>Join at</th>
                         </tr>
                     </thead>
@@ -27,6 +28,7 @@
                                         {{ $user->whatsapp }}
                                     </a>
                                 </td>
+                                <td>{{ date_format(date_create($user->date_of_birth), 'd M Y') }}</td>
                                 <td>
                                     <time datetime="{{ $user->created_at }}">
                                         {{ $user->created_at->format('d F Y') }}

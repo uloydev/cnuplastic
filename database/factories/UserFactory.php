@@ -30,6 +30,7 @@ class UserFactory extends Factory
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
             'whatsapp' => $this->faker->numerify('############'),
+            'date_of_birth' => $this->faker->date('Y-m-d', 'now'),
             'address' => $this->faker->address
         ];
     }
