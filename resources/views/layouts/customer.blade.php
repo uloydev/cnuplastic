@@ -48,6 +48,8 @@
         </div>
     </nav>
 
+    @include('components.flash-message')
+
     @yield('content')
 
     <footer>

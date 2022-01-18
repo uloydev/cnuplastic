@@ -15,6 +15,7 @@ class Product extends Model
         'image',
         'description',
         'price',
+        'stock',
         'product_category_id',
         'is_promo',
         'is_best_seller',
@@ -29,5 +30,10 @@ class Product extends Model
     public function productCategory()
     {
         return $this->belongsTo('App\Models\ProductCategory');
+    }
+
+    public function productRatings()
+    {
+        return $this->hasMany('App\Model\ProductRating');
     }
 }

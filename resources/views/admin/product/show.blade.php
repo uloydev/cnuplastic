@@ -27,6 +27,11 @@
                     value="{{ $product->price ?? old('price') }}" required>
                 </div>
                 <div class="form-group">
+                    <label>Stock</label>
+                    <input type="number" class="form-control" name="stock" tabindex="1"  
+                    value="{{ $product->stock ?? old('stock') }}" required>
+                </div>
+                <div class="form-group">
                     <label>Category</label>
                     <select name="product_category_id" class="form-control">
                         <option disabled selected>Choose</option>

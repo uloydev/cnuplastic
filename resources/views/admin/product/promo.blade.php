@@ -15,6 +15,7 @@
                         <tr>
                             <th>Product Name</th>
                             <th>Price</th>
+                            <th>Stock</th>
                             <th>Category</th>
                         </tr>
                     </thead>
@@ -23,7 +24,10 @@
                             <tr>
                                 <td>{{ $product->name }}</td>
                                 <td>
-                                    Rp. {{ $product->price }}
+                                    Rp. {{ number_format($product->price) }}
+                                </td>
+                                <td>
+                                    {{ number_format($product->stock) }}
                                 </td>
                                 <td>
                                     {{ $product->productCategory->name }}

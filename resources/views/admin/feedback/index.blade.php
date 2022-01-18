@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('header')
-    Data feedback
+    Data Laporan User
 @endsection
 
 @section('content')
@@ -8,7 +8,7 @@
         <div class="card-header">
             <div class="float-right">
             </div>
-            <span>Tabel Data feedback</span>
+            <span>Tabel Data Laporan User</span>
         </div>
         <div class="card-body">
             <div class="table-responsive">

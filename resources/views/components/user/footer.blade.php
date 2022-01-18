@@ -1,3 +1,3 @@
 <footer class="main-footer">
-    <div class="footer-left">Biro PTI</div>
+    <div class="footer-left">CNU Plastic</div>
 </footer>

@@ -39,8 +39,8 @@ Route::prefix('admin')->middleware('CheckRole:admin')->name('admin.')->group(fun
         Route::get('{order}', [OrderController::class, 'show'])->name('show');
     });
 
-    Route::prefix('payment')->name('payment.')->group(function () {
-        Route::get('/', [PaymentSettingController::class, 'index'])->name('index');
-        Route::put('/', [PaymentSettingController::class, 'update'])->name('update');
-    });
+    // Route::prefix('payment')->name('payment.')->group(function () {
+    //     Route::get('/', [PaymentSettingController::class, 'index'])->name('index');
+    //     Route::put('/', [PaymentSettingController::class, 'update'])->name('update');
+    // });
 });

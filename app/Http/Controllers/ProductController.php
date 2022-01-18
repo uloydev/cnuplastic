@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::query();
+        $products = Product::withAvg('productRatings', 'score');
         if ($request->has('search')) {
             $products = $products->where('name', 'like', '%'.$request->search.'%');
         }

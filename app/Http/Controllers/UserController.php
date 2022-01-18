@@ -7,6 +7,7 @@ use App\Http\Requests\UserValidation;
 use App\Models\Order;
 use App\Models\PaymentSetting;
 use App\Models\Product;
+use App\Models\ProductRating;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -161,6 +162,12 @@ class UserController extends Controller
     public function placeOrder(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
+        if ($request->quantity > $product->stock) {
+            return redirect()->back()->with([
+                'error' => 'Maaf, stok barang tidak cukup.'
+            ]);
+        }
+
         $order = Order::create([
             'product_name' => $product->name,
             'product_price' => $product->price,
@@ -169,6 +176,37 @@ class UserController extends Controller
             'user_id' => Auth::id(),
             'price_total' => $product->price * $request->quantity,
         ]);
+
+        $product->stock -= $request->quantity;
+        $product->save();
+
         return redirect()->route('user.order.pay', $order->id);
     }
+
+    public function rateProduct(Request $request, Order $order)
+    {
+        $request->validate([
+            'score', ['required', 'max:5', 'numeric', 'min:1'],
+        ]);
+
+        $rating = ProductRating::firstWhere('order_id', $order->id);
+
+        if ($rating) {
+            return redirect()->route('user.order.success', [
+                'error' => 'rating product hanya bisa dilakukan 1x untuk setiap order',
+            ]);
+        }
+
+        ProductRating::create([
+            'order_id' => $order->id,
+            'user_id' => $order->user_id,
+            'product_id' => $order->product_id,
+            'score' => $request->score,
+        ]);
+
+        return redirect()->route('user.order.success', [
+            'success' => 'Berhasil menambahkan rating product!',
+        ]);
+    }
+
 }

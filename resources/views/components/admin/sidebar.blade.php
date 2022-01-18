@@ -18,7 +18,7 @@
                 data-toggle="tooltip" data-placement="right" title="" data-original-title="Home">
                 <a href="{{ route('admin.feedback.index') }}">
                     <i class="ion ion-email"></i>
-                    <span>Feedback</span>
+                    <span>Laporan User</span>
                 </a>
             </li>
 
@@ -65,12 +65,12 @@
                 </a>
             </li>
 
-            <li class="{{ Request::is('admin/payment') ? 'active' : '' }}" data-toggle="tooltip"
+            {{-- <li class="{{ Request::is('admin/payment') ? 'active' : '' }}" data-toggle="tooltip"
                 data-placement="right" data-original-title="Data order">
                 <a href="{{ route('admin.payment.index') }}">
                     <i class="ion ion-bag"></i> Metode Pembayaran
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </aside>
 </div>
