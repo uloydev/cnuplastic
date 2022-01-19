@@ -14,8 +14,8 @@ TODO LIST CNU PLASTIC
     - add relationship order has one product_rating [DONE]
     - add relationship product has many product_rating [DONE]
     - add relationship product_rating belongs to user [DONE]
-    - add rating button in finished order (user side)
-    - add rating in product show/edit (admin side)
+    - add rating button in finished order (user side) [DONE]
+    - add rating in product show/edit (admin side) [DONE]
     note:
         max rating 10
         if no rating empty stars
