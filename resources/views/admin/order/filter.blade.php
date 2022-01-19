@@ -15,6 +15,9 @@
                             <th>Product Price</th>
                             <th>Quantity</th>
                             <th>Price Total</th>
+                            @if ($status == 'finished')
+                            <th>Rating</th>
+                            @endif
                             @if ($status == 'paid')
                             <th>Action</th>
                             @endif
@@ -33,6 +36,17 @@
                             <td>Rp. {{ number_format($order->product_price) }}</td>
                             <td>{{ $order->quantity . ' pcs' }}</td>
                             <td>Rp. {{ number_format($order->price_total) }}</td>
+
+                            @if ($status == 'finished')
+                            <td>
+                                @if ($order->productRating)
+                                {{ $order->productRating->score }} / 10
+                                @else
+                                <span class="text-danger">0 / 10 (belum di rating)</span>
+                                @endif
+                            </td>
+                            @endif
+
                             @if ($status == 'paid')
                             <td>
                                 <a href="{{ route('admin.order.verif', $order->id) }}">
