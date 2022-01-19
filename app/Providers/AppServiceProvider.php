@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Faq;
+use App\Models\ProductRating;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Promote;

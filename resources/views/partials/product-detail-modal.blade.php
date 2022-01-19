@@ -18,7 +18,16 @@
                             {{ $product->productCategory->name }}
                         </div>
                         <h4>Rp {{ number_format($product->price) }}</h4>
-                        <p class="mt-4">Stock : {{ number_format($product->stock) }}</p>
+                        <div class="d-flex align-items-center mb-4">
+                            <p class="mb-0 me-3">Stock : {{ number_format($product->stock) }}</p>
+                            @for ($i = 0; $i < round($product->product_ratings_avg_score); $i++)
+                            <box-icon name='star' type='solid' color='#eab64b' ></box-icon>
+                            @endfor
+                            @for ($i = 0; $i < 10 - round($product->product_ratings_avg_score); $i++)
+                            <box-icon name='star'></box-icon>
+                            @endfor
+                        </div>
+
                         <div class="border border-1 border-start-0 border-end-0 border-dark my-2 py-1">
                             Product Description
                         </div>

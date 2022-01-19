@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/summernote/summernote-lite.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/rating.css') }}">
     @stack('styles')
 </head>
 
@@ -57,6 +58,7 @@
     <script src="{{ asset('js/vfs_fonts.js') }}"></script>
     <script src="{{ asset('js/pdfmake.min.js') }}"></script>
     <script src="{{ asset('modules/summernote/summernote-lite.js') }}"></script>
+    <script src="{{ asset('js/rating.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     @stack('scripts')

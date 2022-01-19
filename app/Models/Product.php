@@ -34,6 +34,6 @@ class Product extends Model
 
     public function productRatings()
     {
-        return $this->hasMany('App\Model\ProductRating');
+        return $this->hasMany('App\Models\ProductRating');
     }
 }

@@ -186,8 +186,9 @@ class UserController extends Controller
     public function rateProduct(Request $request, Order $order)
     {
         $request->validate([
-            'score', ['required', 'max:5', 'numeric', 'min:1'],
+            'score' => ['required', 'numeric', 'max:10', 'min:1'],
         ]);
+
 
         $rating = ProductRating::firstWhere('order_id', $order->id);
 
