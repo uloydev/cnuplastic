@@ -53,27 +53,30 @@
                                             @method("DELETE")
                                         </form>
                                     @endif
-                                    @if ($order->status == 'finished' and !$order->productRating)
-                                    <form action="{{ route('user.order.rate-product', $order->id) }}" method="post"
-                                        class="d-inline-flex align-items-center">
-                                        @csrf
-                                        <div class="rating-input">
-                                            @for ($i = 0; $i < 10; $i++)
-                                            <label for="r{{ $i + 1 }}" class="check">
-                                                <input type="checkbox" name="score" id="r{{ $i + 1 }}" 
-                                                value="{{ $i + 1 }}" />
-                                                <i class="em em-weary"></i>
-                                            </label>
+
+                                    @if ($order->status == 'finished')
+                                        @if (!$order->productRating)
+                                        <form action="{{ route('user.order.rate-product', $order->id) }}" method="post"
+                                            class="d-inline-flex align-items-center">
+                                            @csrf
+                                            <div class="rating-input">
+                                                @for ($i = 0; $i < 10; $i++)
+                                                <label for="r{{ $i + 1 }}" class="check">
+                                                    <input type="checkbox" name="score" id="r{{ $i + 1 }}" 
+                                                    value="{{ $i + 1 }}" />
+                                                    <i class="em em-weary"></i>
+                                                </label>
+                                                @endfor
+                                            </div>
+                                        </form>
+                                        @else {{-- jika udah order --}}
+                                            @for ($i = 0; $i < $order->productRating->score; $i++)
+                                                <i class="ion ion-ios-star" style="color: rgb(233, 142, 39)"></i>
                                             @endfor
-                                        </div>
-                                    </form>
-                                    @else {{-- jika udah order --}}
-                                        @for ($i = 0; $i < $order->productRating->score; $i++)
-                                            <i class="ion ion-ios-star" style="color: rgb(233, 142, 39)"></i>
-                                        @endfor
-                                        @for ($i = 0; $i < (10 - $order->productRating->score); $i++)
-                                        <i class="ion ion-ios-star"></i>
-                                        @endfor
+                                            @for ($i = 0; $i < (10 - $order->productRating->score); $i++)
+                                            <i class="ion ion-ios-star"></i>
+                                            @endfor
+                                        @endif
                                     @endif
                                 </td>
                             </tr>
